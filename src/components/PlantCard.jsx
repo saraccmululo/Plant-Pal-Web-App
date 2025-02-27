@@ -1,8 +1,9 @@
+import monstera from '../assets/monstera.jpg';
 
 export default function PlantCard() {
 	return (
     <article className="plant-card">
-        <img src="assets/monstera.jpg" alt="Monstera deliciosa plant image" />
+        <img src={monstera} alt="Monstera deliciosa plant image" />
         <section className="plant-details">
             <h3>Plant Name</h3>
             <p><strong>Latin name:</strong></p>
