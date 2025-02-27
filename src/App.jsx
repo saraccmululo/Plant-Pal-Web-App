@@ -1,8 +1,8 @@
-import './App.css';
+//import './App.css';
 import SearchBar from './components/SearchBar.jsx';
-import PlantCard from './components/PlantCard';
+import PlantCard from './components/PlantCard.jsx';
 import PlantList from './components/PlantList.jsx';
-
+import Footer from './components/Footer.jsx';
 
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
       <header>
         <h1>Plant Pals</h1>
         <h2>Start managing your plant collection today!</h2>
-        <h3>Add the plants you have in your collection here and have access to </h3>
+        <h3>Check their needs by adding your plants here:</h3>
       </header>
       <main>
       <SearchBar />
