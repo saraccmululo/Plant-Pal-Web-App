@@ -5,7 +5,7 @@ export default function Footer() {
     
   return(
     <footer className="footer-container">
-      <h6>{footerContent}</h6>
+      <h5>{footerContent}</h5>
     </footer>)
 }
 

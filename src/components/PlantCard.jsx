@@ -1,19 +1,19 @@
-import monstera from '../assets/monstera.jpg';
 
-export default function PlantCard() {
+export default function PlantCard({plant}) {
+	if(!plant) return null
+	
 	return (
     <article className="plant-card">
-        <img src={monstera} alt="Monstera deliciosa plant image" />
+        <img src={plant.thumbnail} alt={plant.common_name}/>
         <section className="plant-details">
-            <h3>Plant Name</h3>
-            <p><strong>Latin name:</strong></p>
-            <p><strong>Species/Genus:</strong></p>
-            <p><strong>Watering: </strong>likes to dry out slightly between waterings</p>
-            <p><strong>Light: </strong>Bright, indirect</p>
-            <p><strong>Type of soil: </strong>well-draining, consider ammending it with orchid bark, perlite and coco chunks.</p>
+            <h3>{plant.common_name}</h3>
+            <p><strong>Scientific name:</strong>{plant.scientific_name}</p>
+            <p><strong>Watering: </strong>{plant.watering}</p>
+            <p><strong>Light: </strong>{plant.sunlight}</p>
+            {/*<p><strong>Type of soil: </strong>well-draining, consider ammending it with orchid bark, perlite and coco chunks.</p>*/}
+						<p><strong>Pet-friendly:</strong>{plant.poisonous_to_pets}</p>
         </section>
-        <section className="plant-actions">
-            <button>Edit</button>
+        <section className="delete-plant">
             <button>Remove</button>
         </section>
     </article>

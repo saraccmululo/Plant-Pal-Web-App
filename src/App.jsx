@@ -18,14 +18,14 @@ export default function App() {
   return (
     <section className="container">
       <header>
-        <figure className="logo-h1"> 
+        <figure className="logo-title"> 
           <img src={logo} alt="Plant Pals Logo" className="logo" />
             <figcaption>
               <h1>My Plant Pals</h1>
             </figcaption>
         </figure>
         <h2>The help you need to manage your plant collection!</h2>
-        <h3>Check the specific care guide for your plants by searching their names here:</h3>
+        <h3>Find the care guide for your plants by entering their names below:</h3>
       </header>
       <main>
         <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
