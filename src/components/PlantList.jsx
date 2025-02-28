@@ -23,7 +23,11 @@ export default function PlantList() {
   
       fetchApi();
   
-    }, [])
+    }, [searchTerm]);
+
+    if (!data) {
+      return <p>No plants were found with this name</p>;
+    }
   
     return (
       <section>
