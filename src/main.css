@@ -56,6 +56,9 @@ h3 {
     font-size: 1.2rem;
     color: #3E3E3E;
 }
+h5 {
+    margin: 5px;
+}
 .plant-card { 
     display: flex; 
     align-items: center; 

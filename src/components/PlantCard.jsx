@@ -1,5 +1,5 @@
 
-export default function PlantCard({plant}) {
+export default function PlantCard({plant, onDelete}) {
 	if(!plant) return null
 	
 	return (
@@ -14,7 +14,7 @@ export default function PlantCard({plant}) {
 						<p><strong>Pet-friendly:</strong>{plant.poisonous_to_pets}</p>
         </section>
         <section className="delete-plant">
-            <button>Remove</button>
+            <button onClick={()=>onDelete(plant.id)}>Remove</button>
         </section>
     </article>
 );
