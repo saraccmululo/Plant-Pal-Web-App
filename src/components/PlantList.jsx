@@ -18,27 +18,17 @@ export default function PlantList({searchTerm}) {
           
           console.log (json)
 
-          const plantCardData=json.data.map((plant) => ({
-            id: plant.id,
+          const plantCardData=json.data
+          .filter((plant)=>plant.id <3000)
+          .map((plant) => ({
+            id: plant.id ,
             common_name: plant.common_name,
             scientific_name: plant.scientific_name.join(', '),
             thumbnail: plant.default_image?.thumbnail||logo,
           }));
       
           setData(plantCardData)
-          
-          //const plantCardData=json.data.map((plant) =>({
-           // id: plant.id,
-           // common_name: plant.common_name,
-           // scientific_name: plant.scientific_name.join(', '),
-           // thumbnail: plant.default_image?.thumbnail||logo,
-           // watering: plant.watering,
-           // sunlight: plant.sunlight.join(', '),
-           // poisonous_to_pets: plant.poisonous_to_pets? "Yes" : "No",
-          //}));
 
-          //setData(plantCardData);
-         // console.log(data)
         } catch (error) {
           console.error(error)
         } 
@@ -53,7 +43,7 @@ export default function PlantList({searchTerm}) {
 
     return (
       <section>
-        {data.length ===0? (<p className="not-found">No plants were found with this name. Is this plant known by other names?</p>
+        {data.length ===0? (<p className="not-found">Please, try another plant.</p>
         ) : (
         <ul className="plant-list">
           {data.map((plant)=>(<li key={plant.id}>
