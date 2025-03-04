@@ -43,7 +43,7 @@ export default function PlantList({searchTerm}) {
 
     return (
       <section>
-        {data.length ===0? (<p className="not-found">Please, try another plant.</p>
+        {searchTerm&&data.length ===0? (<p className="not-found">Please, try another plant name.</p>
         ) : (
         <ul className="plant-list">
           {data.map((plant)=>(<li key={plant.id}>
