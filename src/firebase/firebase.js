@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
+const API_KEY = import.meta.env.VITE_API_KEY;
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCsCmtvFeJ-KLdomUOkSU8FCw5daIrEZ_I",
+  apiKey: API_Key,
   authDomain: "plant-pals-webpage.firebaseapp.com",
   projectId: "plant-pals-webpage",
   storageBucket: "plant-pals-webpage.firebasestorage.app",
