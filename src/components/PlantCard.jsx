@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PlantDetail from './PlantDetails.jsx';
 
 export default function PlantCard({plant, onDelete}) {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
+const navigate = useNavigate();
 
-const handleClick = () => {
+const handleDetailsClick = () => {
 	setShowPlantDetail(showPlantDetail=>!showPlantDetail);
 }
-	if(!plant) return null
+
+const handleAddClick = () => {
+	navigate("/login");
+};
+
+if(!plant) return null
 
 	return (
     <article className="plant-card">
@@ -17,9 +24,9 @@ const handleClick = () => {
       	<p><strong>Scientific name: </strong>{plant.scientific_name}</p>
     	</section>
 			<section className="plant-action-buttons">
-				<button onClick={handleClick}>Details</button>
+				<button onClick={handleDetailsClick}>Details</button>
 				{showPlantDetail && <PlantDetail id={plant.id}/>}
-				<button>Add</button>
+				<button onClick={handleAddClick}>Add</button>
      	 	<button onClick={()=>onDelete(plant.id)}>Remove</button>
     	</section>
   	</article>
