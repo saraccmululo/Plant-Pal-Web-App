@@ -2,17 +2,17 @@
 
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 html, body {
-    font-family: "Quicksand", sans-serif;
-    line-height: 1;
+	font-family: "Quicksand", sans-serif;
+	line-height: 1;
 	background-color: #F8F5EE; 
-    margin: 0; 
-    padding: 0; 
-    color: #3E3E3E; 
-    display: flex;
-    flex-direction: column;
+	margin: 0; 
+	padding: 0; 
+	color: #3E3E3E; 
+	display: flex;
+	flex-direction: column;
 }
 .container { 
     width: 80%; 
@@ -151,29 +151,104 @@ button:hover {
     text-align: center; 
     padding: 5px;
 }
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+.login-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    border: 2px solid #4a4a4a;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+}
+.login-box h2 {
+    margin-bottom: 15px;
+}
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-
+.login-box form button {
+    width: 100%;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-box button:hover {
+    background: darkgreen;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.close-button-container {
+	position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.close-button {
+	background: none;
+	border: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333; 
+	cursor: pointer;
+	padding: 5px;
+	outline: none; 
+}
+.close-button:hover {
+	color: black; 
+}
+.login-account-button {
+	padding: 10px;
+	background: green;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.login-box button:hover {
+    background: darkgreen;
+}
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.7rem; 
-    }
-    h2{
-        font-size: 1.3rem;
-    }
-    h3{
-        font-size: 1.2rem;
-    }
-    .plant-card {
-      flex-direction: column; 
-      align-items: center; 
-    } 
-    .logo-title {
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
-    .logo {
-        margin: 0 auto;
-        display: block;
-    }  
-    }
-  }
+	h1 {
+			font-size: 1.7rem; 
+	}
+	h2{
+			font-size: 1.3rem;
+	}
+	h3{
+			font-size: 1.2rem;
+	}
+	.plant-card {
+		flex-direction: column; 
+		align-items: center; 
+	} 
+	.logo-title {
+			flex-direction: column; 
+			align-items: center; 
+			text-align: center; 
+	.logo {
+			margin: 0 auto;
+			display: block;
+	}  
+	}
+}
