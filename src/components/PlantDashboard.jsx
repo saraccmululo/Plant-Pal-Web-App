@@ -24,6 +24,20 @@ const PlantDashboard = () => {
 		}
 	}, []);
 
+	const handleDelete = async (plantId) => {
+    if (auth.currentUser) {
+      try {
+        const plantDocRef = doc(db, "plants", auth.currentUser.uid, "userPlants", plantId);
+        await deleteDoc(plantDocRef);
+
+				// Remove the deleted plant from the state to update the UI
+				setPlants(plants.filter(plant=>plant.id !== plantId));
+			} catch (error) {
+        console.error("Error removing plant: ", error);
+      }
+		}
+	};
+	
 	return (
 	<section className="container">
 		<header>
@@ -42,7 +56,7 @@ const PlantDashboard = () => {
 			{plants.length >0 ? (
           plants.map((plant) => (
             <li key={plant.id}>
-              <PlantCard plant={plant} isDashboard={true} />
+              <PlantCard key={plant.id} plant={plant} onDelete={handleDelete} isDashboard={true} />
             </li>
           ))
 				) : (
