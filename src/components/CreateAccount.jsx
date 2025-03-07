@@ -1,18 +1,21 @@
 import { useState } from "react";
-import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js"; 
 import { useNavigate } from "react-router-dom";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js"; 
+import { useAuth } from "./AuthContext.jsx";
 
-const CreateAccount = ({setIsCreateAccount}) => {
+const CreateAccount = ({ setIsCreateAccount }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const { userLoggedIn } = useAuth();
+
   const handleCreateAccount = async (e) => {
     e.preventDefault();
     try {
       await doCreateUserWithEmailAndPassword(email, password);
-      navigate("/PlantDashBoard"); // Redirect to the dashboard or any page after sign-up
+      navigate("/plant-dashboard"); 
     } catch (err) {
       setError("Failed to create account. Please try again.");
     }

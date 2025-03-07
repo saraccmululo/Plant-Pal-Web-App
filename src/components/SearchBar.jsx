@@ -1,5 +1,5 @@
 
-export default function SearchBar({searchInputRef, onSearch}) {
+const SearchBar = ({searchInputRef, onSearch}) => {
   
   return (
     <section className="add-plant-section">
@@ -15,3 +15,4 @@ export default function SearchBar({searchInputRef, onSearch}) {
     </section>
     ); 
 } 
+export default SearchBar;
