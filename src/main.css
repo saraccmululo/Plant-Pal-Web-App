@@ -31,6 +31,9 @@ header {
     align-items: center;
 	gap: 0px;
 }
+.logo-title a {
+    text-decoration: none;
+}
 .logo {
     width: 110px; 
     height: auto;
