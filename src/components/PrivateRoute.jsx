@@ -5,11 +5,14 @@ const PrivateRoute = ({ children }) => {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  if (user) {
-    return <Navigate to="/plant-dashboard" />;
+  // If user is not logged in, redirect to login page
+  if (!user) {
+    return <Navigate to="/login" />;
   }
-  
+
+  // If user is logged in, allow access to the route
   return children;
 };
 
 export default PrivateRoute;
+
