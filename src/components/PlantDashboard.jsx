@@ -3,6 +3,7 @@ import { db, auth } from '../firebase/firebase';
 import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 const PlantDashboard = () => {
 	const [plants, setPlants] = useState([]);
@@ -29,7 +30,9 @@ const PlantDashboard = () => {
 			<figure className="logo-title"> 
 				<img src={logo} alt="Plant Pals Logo" className="logo" />
 					<figcaption>
-						<h1>My Plant Pals</h1>
+						<Link to="/">
+							<h1>My Plant Pals</h1>
+						</Link>
 					</figcaption>
 			</figure>
 			<h2>My plant collection</h2>
