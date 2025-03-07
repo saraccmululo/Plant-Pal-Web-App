@@ -28,16 +28,16 @@ const PlantDashboard = () => {
 	<section className="container">
 		<header>
 			<figure className="logo-title"> 
-				<Link to="/">
+				<Link className="plant-collection-link" to="/">
 					<img src={logo} alt="Plant Pals Logo" className="logo" />
 						<figcaption>
 							<h1>My Plant Pals</h1>
 						</figcaption>
 				</Link>
 			</figure>
-			<h2>My plant collection</h2>
 		</header>
 		<main>
+		<h2>My plant collection</h2>
 		<ul className="plant-list">
 			{plants.length >0 ? (
           plants.map((plant) => (
