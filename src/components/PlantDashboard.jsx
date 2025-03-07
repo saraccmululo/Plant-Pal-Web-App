@@ -28,12 +28,12 @@ const PlantDashboard = () => {
 	<section className="container">
 		<header>
 			<figure className="logo-title"> 
-				<img src={logo} alt="Plant Pals Logo" className="logo" />
-					<figcaption>
-						<Link to="/">
+				<Link to="/">
+					<img src={logo} alt="Plant Pals Logo" className="logo" />
+						<figcaption>
 							<h1>My Plant Pals</h1>
-						</Link>
-					</figcaption>
+						</figcaption>
+				</Link>
 			</figure>
 			<h2>My plant collection</h2>
 		</header>
