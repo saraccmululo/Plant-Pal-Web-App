@@ -7,6 +7,7 @@ import Footer from './components/Footer.jsx';
 import Login from './components/login.jsx';
 import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import { Link } from 'react-router-dom';
 
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
@@ -33,11 +34,12 @@ const App = () => {
                     <h1>My Plant Pals</h1>
                   </figcaption>
               </figure>
-              <h2>The help you need to manage your plant collection!</h2>
-              <h3>Find the care guide for your plants by entering their names below:</h3>
+              <Link to="/plant-dashboard" className="dashboard-link"><h4>My Plant Collection</h4></Link>
             </header>
             <main>
-              <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
+            <h2>The help you need to manage your plant collection!</h2>
+            <h3>Find the care guide for your plants by entering their names below:</h3>
+            <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
             <PlantList searchTerm={searchTerm}/>
             </main>
             <Footer />
