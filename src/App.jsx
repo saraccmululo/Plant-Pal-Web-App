@@ -8,6 +8,8 @@ import Login from './components/login.jsx';
 import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import { Link } from 'react-router-dom';
+import Logout from './components/Logout.jsx';
+import { AuthProvider } from './components/AuthContext'; 
 
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
@@ -19,6 +21,7 @@ const App = () => {
   };
 
   return (
+    <AuthProvider>
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -35,6 +38,7 @@ const App = () => {
                   </figcaption>
               </figure>
               <Link to="/plant-dashboard" className="dashboard-link"><h4>My Plant Collection</h4></Link>
+              <Logout />
             </header>
             <main>
             <h2>The help you need to manage your plant collection!</h2>
@@ -47,6 +51,7 @@ const App = () => {
         } />
       </Routes>
     </Router>
+  </AuthProvider>
   );
 }
 
