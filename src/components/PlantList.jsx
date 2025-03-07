@@ -2,8 +2,9 @@ import logo from '../assets/logo-without-background.png';
 import { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
 
-export default function PlantList({searchTerm}) {
+const PlantList = ({searchTerm}) => {
     const [data, setData] = useState([]);
+    
     const API_KEY = import.meta.env.VITE_API_KEY; 
 
     useEffect(() => {
@@ -54,3 +55,4 @@ export default function PlantList({searchTerm}) {
     );
   }
   
+  export default PlantList;

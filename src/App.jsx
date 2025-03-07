@@ -8,7 +8,7 @@ import Login from './components/login.jsx';
 import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 
-export default function App() {
+const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
   const searchInputRef = useRef(null);
 
@@ -20,12 +20,10 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<PrivateRoute>
-          <Login />
-        </PrivateRoute>
-        } />
         <Route path="/login" element={<Login />} />
-        <Route path="/plant-dashboard" element={<PlantDashboard />} />
+        <Route path="/plant-dashboard" element={
+          <PrivateRoute> <PlantDashboard /> </PrivateRoute>
+          } />
         <Route path="/" element={
           <section className="container">
             <header>
@@ -51,7 +49,7 @@ export default function App() {
 }
 
 
-
+export default App;
 
 
 

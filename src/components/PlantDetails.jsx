@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import logo from '../assets/logo-without-background.png';
 
-export default function PlantDetail ({ id }) {
+const PlantDetail = ({ id }) => {
  const[plantDetails, setPlantDetails] = useState(null);
  const API_KEY = import.meta.env.VITE_API_KEY; 
 	
@@ -49,3 +48,5 @@ export default function PlantDetail ({ id }) {
   	</section>
 )
 }
+
+export default PlantDetail;

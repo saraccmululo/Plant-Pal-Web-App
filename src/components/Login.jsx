@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { useAuth } from "./AuthContext.jsx";
 import CreateAccount from "./CreateAccount.jsx";
 
 
@@ -11,19 +12,31 @@ const Login = () => {
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
   const navigate = useNavigate();
 
+  const { userLoggedIn, loading } = useAuth();
+
+  useEffect(()=> {
+    if (userLoggedIn) {
+      navigate("/plant-dashboard");
+    }
+  }, [userLoggedIn, navigate]);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(email, password);
-      navigate("/PlantDashboard"); // Change this to where you want to redirect after login
+      navigate("/plant-dashboard"); 
     } catch (err) {
       setError("Failed to log in. Please check your credentials.");
     }
   };
 
-	const handleClose = () =>{
+	const handleClose = () => {
 		navigate("/");
 	};
+
+  if (userLoggedIn) {
+    return <></>;
+  }
 
   return (
     <section className="login-container">
