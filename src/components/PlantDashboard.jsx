@@ -82,6 +82,9 @@ const PlantDashboard = () => {
       </header>
       <main>
         <h2>My plant collection</h2>
+				<Link to="/" className="add-plant-button">
+        <button>Add More Plants</button>
+      </Link>
 				<p className="delete-message" ref={messageRef}></p>
         <ul className="plant-list">
           {plants.length > 0 ? (
