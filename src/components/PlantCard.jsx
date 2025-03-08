@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlantDetail from './PlantDetails.jsx';
+import PlantDetailsData from './PlantDetailsData.jsx';
 import { auth, db } from "../firebase/firebase.js";
-import { collection, doc, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 const PlantCard = ({plant, onDelete, isDashboard = false}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
@@ -15,13 +16,18 @@ const handleDetailsClick = () => {
 const handleAddClick = async () => {
 	if (auth.currentUser) {
 		try {
-		const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
-		
-		await addDoc(userPlantsRef, {
-			common_name: plant.common_name,
-      scientific_name: plant.scientific_name,
-      thumbnail: plant.thumbnail,
-		});
+			const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
+
+			const PlantDetails = await PlantDetailsData(plant.id);
+
+			await addDoc(userPlantsRef, {
+				plant_id: plant.id,
+				common_name: plant.common_name,
+				scientific_name: plant.scientific_name,
+				thumbnail: plant.thumbnail,
+				plant_details: PlantDetails,
+				date_created: new Date()
+			});
 
 			navigate("/plant-dashboard");
 		} catch(error) {

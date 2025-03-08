@@ -49,4 +49,4 @@ const PlantDetail = ({ id }) => {
 )
 }
 
-export default PlantDetail;
+export default PlantDetail;									
