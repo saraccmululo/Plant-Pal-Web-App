@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore'; // New modular imports
+import { collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
 import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
