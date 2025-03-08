@@ -63,7 +63,7 @@ h2 {
   text-align: center; 
   padding: 10px; 
   color: #4B6A51; 
-	margin-top: 0;
+    margin-top: 0;
 	margin-bottom: 10px;
 }
 h3 {
@@ -138,6 +138,11 @@ button:hover {
 .plant-action-buttons { 
     display: flex; 
     gap: 5px; 
+}
+.delete-message {
+  text-align: center;
+  font-size: 1.2rem;
+	color: #3E3E3E;
 }
 .plant-details {
     display: flex;

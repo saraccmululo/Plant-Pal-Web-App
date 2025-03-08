@@ -5,6 +5,8 @@ import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import { useRef } from "react";
+
 
 const PlantDashboard = () => {
   const [plants, setPlants] = useState([]);
@@ -34,6 +36,8 @@ const PlantDashboard = () => {
     }
   }, [auth.currentUser]);
 
+	const messageRef = useRef(null);
+
   const handleDelete = async (plantId) => {
     if (auth.currentUser) {
       try {
@@ -42,6 +46,13 @@ const PlantDashboard = () => {
 
         // Remove the deleted plant from the state to update the UI
         setPlants(plants.filter(plant => plant.id !== plantId));
+				
+				if (messageRef.current) {
+					messageRef.current.textContent = "Plant deleted!";
+					setTimeout(() => {
+						messageRef.current.textContent = "";
+					}, 3000);
+				}
       } catch (error) {
         console.error("Error removing plant: ", error);
       }
@@ -71,6 +82,7 @@ const PlantDashboard = () => {
       </header>
       <main>
         <h2>My plant collection</h2>
+				<p className="delete-message" ref={messageRef}></p>
         <ul className="plant-list">
           {plants.length > 0 ? (
             plants.map((plant) => (
