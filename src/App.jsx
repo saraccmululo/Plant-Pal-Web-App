@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import logo from './assets/logo-without-background.png';
 import SearchBar from './components/SearchBar.jsx';
@@ -9,6 +9,7 @@ import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import { Link } from 'react-router-dom';
 import { AuthProvider } from './components/AuthContext';
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
@@ -22,6 +23,12 @@ const App = () => {
   return (
     <AuthProvider>
     <Router>
+    <ToastContainer position="top-right" 
+                    autoClose={3000} 
+                    hideProgressBar={false} 
+                    closeOnClick 
+                    pauseOnHover 
+                    draggable />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/plant-dashboard" element={
@@ -42,6 +49,7 @@ const App = () => {
             <h2>The help you need to manage your plant collection!</h2>
             <h3>Find the care guide for your plants by entering their names below:</h3>
             <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
+            
             <PlantList searchTerm={searchTerm}/>
             </main>
             <Footer />
