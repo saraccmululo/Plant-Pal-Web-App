@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import PlantDetail from './PlantDetails.jsx';
 import PlantDetailsData from './PlantDetailsData.jsx';
 import { auth, db } from "../firebase/firebase.js";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, getDocs, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const PlantCard = ({plant, onDelete, isDashboard = false}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
@@ -18,6 +19,14 @@ const handleAddClick = async () => {
 		try {
 			const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
 
+			const querySnapshot = await getDocs(userPlantsRef);
+			const plantExists = querySnapshot.docs.some(doc => doc.data().plant_id === plant.id);
+
+			if(plantExists) {
+				toast.error ("This plant is already in your collection");
+				return;
+			}
+
 			const PlantDetails = await PlantDetailsData(plant.id);
 
 			await addDoc(userPlantsRef, {
@@ -29,6 +38,7 @@ const handleAddClick = async () => {
 				date_created: new Date()
 			});
 
+			toast.success("Plant added successfully!");
 			navigate("/plant-dashboard");
 		} catch(error) {
 			console.error("Error adding plant: ", error);

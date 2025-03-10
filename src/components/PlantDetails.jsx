@@ -15,10 +15,7 @@ const PlantDetail = ({ id }) => {
 		console.log(plantDetail);
 	
 		const plantDetailData = {
-			id: plantDetail.id ,
-			//common_name: plantDetail.common_name,
-			//scientific_name: plantDetail.scientific_name.join(', '),
-			//thumbnail: plantDetail.default_image?.thumbnail||logo,
+			id: plantDetail.id,
 			watering: plantDetail.watering,
 			sunlight: plantDetail.sunlight.join(', '),
 			poisonous_to_pets: plantDetail.poisonous_to_pets? "Yes" : "No",

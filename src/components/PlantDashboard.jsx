@@ -5,7 +5,7 @@ import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
-import { useRef } from "react";
+import { toast } from "react-toastify";
 
 
 const PlantDashboard = () => {
@@ -30,13 +30,13 @@ const PlantDashboard = () => {
         });
         //console.log("Fetched plants:", plantsData);  // Check if the plants are being fetched
         setPlants(plantsData);
+        
       }).catch((error) => {
         console.error("Error fetching plants: ", error);
       });
     }
   }, [auth.currentUser]);
 
-	const messageRef = useRef(null);
 
   const handleDelete = async (plantId) => {
     if (auth.currentUser) {
@@ -47,14 +47,12 @@ const PlantDashboard = () => {
         // Remove the deleted plant from the state to update the UI
         setPlants(plants.filter(plant => plant.id !== plantId));
 				
-				if (messageRef.current) {
-					messageRef.current.textContent = "Plant deleted!";
-					setTimeout(() => {
-						messageRef.current.textContent = "";
-					}, 3000);
-				}
+        console.log("Plant deleted successfully!");
+				toast.success("Plant removed successfully!");
+				
       } catch (error) {
         console.error("Error removing plant: ", error);
+        toast.error("failed to delete plant.");
       }
     }
   };
@@ -85,7 +83,7 @@ const PlantDashboard = () => {
 				<Link to="/" className="add-plant-button">
         <button>Add More Plants</button>
       </Link>
-				<p className="delete-message" ref={messageRef}></p>
+				{/*<p className="delete-message" ref={messageRef}></p>*/}
         <ul className="plant-list">
           {plants.length > 0 ? (
             plants.map((plant) => (
