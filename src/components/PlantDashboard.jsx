@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/firebase';
-import { collection, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
+import { collection, query, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
 import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 
 const PlantDashboard = () => {
   const [plants, setPlants] = useState([]);
+  const [sortBy, setSortBy] = useState("date");
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -20,23 +21,41 @@ const PlantDashboard = () => {
         const plantsData = [];
         querySnapshot.forEach((doc) => {
 					
-					//console.log(doc.data());
 					let plant = doc.data();
-
-					plant['id'] = doc.id;
-					//console.log(plant);
+          plant['id'] = doc.id;
 
           plantsData.push(plant);
-        });
-        //console.log("Fetched plants:", plantsData);  // Check if the plants are being fetched
-        setPlants(plantsData);
+          });
         
+        setPlants(plantsData);
+
       }).catch((error) => {
         console.error("Error fetching plants: ", error);
       });
     }
   }, [auth.currentUser]);
 
+const handleSortChange = (e) => {
+  const selectedSort = e.target.value;
+  setSortBy(selectedSort);
+
+  setPlants((prevPlants) => sortPlants(prevPlants, selectedSort));
+};
+
+const sortPlants = (plantsData, sortOption) => {
+  let sortedPlants = [...plantsData];
+
+  if(sortOption === 'alphabetical') {
+    sortedPlants.sort((a,b) => a.common_name.localeCompare(b.common_name));
+  } else if (sortOption === 'date') {
+    sortedPlants.sort((a,b) =>{
+      const dateA = a.date_created? a.date_created.toDate(): new Date(0);
+      const dateB = b.date_created? b.date_created.toDate(): new Date (0);
+      return dateB - dateA;
+    });
+  }
+  return sortedPlants;
+};
 
   const handleDelete = async (plantId) => {
     if (auth.currentUser) {
@@ -80,10 +99,16 @@ const PlantDashboard = () => {
       </header>
       <main>
         <h2>My plant collection</h2>
-				<Link to="/" className="add-plant-button">
-        <button>Add More Plants</button>
-      </Link>
-				{/*<p className="delete-message" ref={messageRef}></p>*/}
+				<nav>
+          <Link to="/" className="add-plant-button">
+            <button>Add More Plants</button>
+          </Link>
+          <label>Sort by:</label>
+          <select value={sortBy || ''} onChange={handleSortChange}>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="date">Creation Date</option>
+          </select>
+        </nav>
         <ul className="plant-list">
           {plants.length > 0 ? (
             plants.map((plant) => (

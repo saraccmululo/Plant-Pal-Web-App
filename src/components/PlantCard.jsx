@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PlantDetail from './PlantDetails.jsx';
 import PlantDetailsData from './PlantDetailsData.jsx';
 import { auth, db } from "../firebase/firebase.js";
-import { collection, addDoc, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 const PlantCard = ({plant, onDelete, isDashboard = false}) => {

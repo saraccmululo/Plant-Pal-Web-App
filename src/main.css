@@ -48,7 +48,7 @@ figure.logo-title{
 a.dashboard-link {
 	display: flex;
 	align-items: center;
-	margin-left: 180px;
+	margin-left: 250px;
 	margin-right: 0px;
 }
 .dashboard-link:hover {
@@ -67,7 +67,8 @@ h2 {
 	margin-bottom: 10px;
 }
 h3 {
-    text-align: center;
+    margin-top: 60px;
+    text-align: left;
     font-size: 1.2rem;
     color: #3E3E3E;
 }
