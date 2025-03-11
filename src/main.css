@@ -75,6 +75,24 @@ h3 {
 h4, h5 {
     margin: 5px;
 }
+.loadingSpinner {
+	margin-left: 30vw;
+	margin-top: 10vh; 
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border: 3px solid rgba(18, 2, 2, 0.3);
+	border-radius: 50%;
+	border-top-color: #07031d;
+	animation: spin 1s ease-in-out infinite;
+	-webkit-animation: spin 1s ease-in-out infinite;
+}  
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
 .add-plant-section { 
     display: flex; 
     justify-content: space-between; 
@@ -249,6 +267,21 @@ button:hover {
 .login-box button:hover {
     background: darkgreen;
 }
+.forgot-password-button {
+	background: green;
+}
+.login-box button:hover {
+	background: darkgreen;
+}
+.reset-email-button{
+  background: green;
+  margin-top: 10px;
+}
+.reset-login-button{
+  background: green;
+  margin-top: 20px;
+}
+
 @media (max-width: 600px) {
 	h1 {
 			font-size: 1.7rem; 
