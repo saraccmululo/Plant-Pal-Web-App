@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 const PlantDashboard = () => {
   const [plants, setPlants] = useState([]);
   const [sortBy, setSortBy] = useState("date");
+  const [filterText, setFilterText] = useState("");
+  const [filterType, setFilterType] = useState("none")
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -35,27 +37,34 @@ const PlantDashboard = () => {
     }
   }, [auth.currentUser]);
 
-const handleSortChange = (e) => {
-  const selectedSort = e.target.value;
-  setSortBy(selectedSort);
+  const handleSortChange = (e) => {
+    const selectedSort = e.target.value;
+    setSortBy(selectedSort);
 
-  setPlants((prevPlants) => sortPlants(prevPlants, selectedSort));
-};
+    setPlants((prevPlants) => sortPlants(prevPlants, selectedSort));
+  };
 
-const sortPlants = (plantsData, sortOption) => {
-  let sortedPlants = [...plantsData];
+  const sortPlants = (plantsData, sortOption) => {
+    let sortedPlants = [...plantsData];
 
-  if(sortOption === 'alphabetical') {
-    sortedPlants.sort((a,b) => a.common_name.localeCompare(b.common_name));
-  } else if (sortOption === 'date') {
-    sortedPlants.sort((a,b) =>{
-      const dateA = a.date_created? a.date_created.toDate(): new Date(0);
-      const dateB = b.date_created? b.date_created.toDate(): new Date (0);
+    if(sortOption === 'alphabetical') {
+      sortedPlants.sort((a,b) => a.common_name.localeCompare(b.common_name));
+    } else if (sortOption === 'date') {
+      sortedPlants.sort((a,b) =>{
+       const dateA = a.date_created? a.date_created.toDate(): new Date(0);
+        const dateB = b.date_created? b.date_created.toDate(): new Date (0);
       return dateB - dateA;
     });
   }
   return sortedPlants;
-};
+  };
+
+  const filteredPlants = plants.filter((plant) => {
+    if (filterType === "none" || filterText === "") return true; // No filter applied if no filter type or text is set
+
+    const searchField = filterType === "common-name" ? plant.common_name : plant.scientific_name;
+    return searchField.toLowerCase().includes(filterText.toLowerCase());
+  });
 
   const handleDelete = async (plantId) => {
     if (auth.currentUser) {
@@ -108,17 +117,29 @@ const sortPlants = (plantsData, sortOption) => {
             <option value="alphabetical">Alphabetical</option>
             <option value="date">Creation Date</option>
           </select>
+          <label>Filter by:</label>
+          <select value={filterType} onChange={(e) => setFilterType(e.target.value)} >
+            <option value="none"> None</option>
+            <option value="common-name">Common name</option>
+            <option value="scientific-name">Scientific Name</option>
+          </select>
+          <input
+          type="text"
+          placeholder="Search plants..."
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
         </nav>
         <ul className="plant-list">
-          {plants.length > 0 ? (
-            plants.map((plant) => (
+          {plants.length === 0 && <p> No plants added yet.</p>}
+          {plants.length > 0 && filteredPlants.length ===0 && (<p>No plants match your search</p>)}
+
+          {filteredPlants.length > 0 && filteredPlants.map((plant) => (
               <li key={plant.id}>
                 <PlantCard key={plant.id} plant={plant} onDelete={handleDelete} isDashboard={true} />
               </li>
             ))
-          ) : (
-            <p> No plants added yet.</p>
-          )}
+            }
         </ul>
       </main>
       <Footer />
