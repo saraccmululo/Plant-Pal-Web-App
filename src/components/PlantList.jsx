@@ -30,9 +30,6 @@ const PlantList = ({searchTerm}) => {
             scientific_name: plant.scientific_name.join(', '),
             thumbnail: plant.default_image?.thumbnail||logo,
           }));
-          if (plantCardData.length===0) {
-            toast.error("Please, try another plant name!")
-          }
           setData(plantCardData)
 
         } catch (error) {
@@ -51,7 +48,10 @@ const PlantList = ({searchTerm}) => {
        
     return (
       <section>
-        {searchTerm && data.length === 0 ? (<p className="loadingSpinner"></p>
+        {isLoading? (
+          <p className="loadingSpinner"></p>
+        ) : searchTerm && data.length === 0 ? (
+        <p className="not-found">No plants found. Try another plant name!</p>
         ) : (
         <ul className="plant-list">
           {data.map((plant)=>(<li key={plant.id}>

@@ -129,6 +129,8 @@ button:hover {
 }
 .not-found {
     text-align: center;
+    color: rgb(157, 16, 16);
+    font-weight: bold;
 }
 .plant-card { 
     display: flex; 
@@ -167,9 +169,9 @@ button:hover {
     display: flex;
     flex-direction: column;               
     width: 100%;
-    background: #ffffff; /* Optional: Background color */
+    background: #ffffff; 
     padding: 10px;
-    margin-top: 10px; /* Adds spacing between card and details */
+    margin-top: 10px; 
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
