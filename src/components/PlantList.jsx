@@ -1,6 +1,7 @@
 import logo from '../assets/logo-without-background.png';
 import { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
+import { toast } from "react-toastify";
 
 const PlantList = ({searchTerm}) => {
     const [data, setData] = useState([]);
@@ -20,14 +21,16 @@ const PlantList = ({searchTerm}) => {
           console.log (json)
 
           const plantCardData=json.data
-          .filter((plant)=>plant.id <3000)
+          .filter((plant)=>plant.id <=3000)
           .map((plant) => ({
             id: plant.id ,
             common_name: plant.common_name,
             scientific_name: plant.scientific_name.join(', '),
             thumbnail: plant.default_image?.thumbnail||logo,
           }));
-      
+          if (plantCardData.length===0) {
+            toast.error("Please, try another plant name!")
+          }
           setData(plantCardData)
 
         } catch (error) {
@@ -41,10 +44,10 @@ const PlantList = ({searchTerm}) => {
     const handleDelete=(id) =>{
       setData(prevData =>prevData.filter(plant=>plant.id !==id));
     };
-
+       
     return (
       <section>
-        {searchTerm && data.length ===0? (<p className="not-found">Please, try another plant name.</p>
+        {searchTerm && !data? (<p className="not-found">Loading...</p>
         ) : (
         <ul className="plant-list">
           {data.map((plant)=>(<li key={plant.id}>
