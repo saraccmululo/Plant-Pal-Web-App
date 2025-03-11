@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { doPasswordReset, doSignInWithEmailAndPassword } from "../firebase/auth.js";
 import { useAuth } from "./AuthContext.jsx";
 import CreateAccount from "./CreateAccount.jsx";
+import ResetPassword from "./ResetPassword.jsx";
 
 
 const Login = () => {
@@ -10,8 +11,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
-  const navigate = useNavigate();
+  const [isResetPassword, setIsResetPassword] = useState(false);
 
+  
+  const navigate = useNavigate();
   const { userLoggedIn, loading } = useAuth();
 
   useEffect(()=> {
@@ -26,7 +29,7 @@ const Login = () => {
       await doSignInWithEmailAndPassword(email, password);
       navigate("/plant-dashboard"); 
     } catch (err) {
-      setError("Failed to log in. Please check your credentials.");
+      setError("Failed to log in. Please check your email and password.");
     }
   };
 
@@ -44,33 +47,37 @@ const Login = () => {
 				<section className="close-button-container">
 					<button className="close-button" onClick={handleClose}>X</button>
 				</section>
-        <h2>{isCreateAccount? "Create an Account": "Login to add the plant"}</h2>
-        {error && <p className="error-message">{error}</p>}
-				{!isCreateAccount? (
-				<>
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-				<p>Don't have an account?</p>
+
+        {isResetPassword? (
+          <ResetPassword setIsResetPassword={setIsResetPassword} />
+        ) : isCreateAccount? (
+          <CreateAccount setIsCreateAccount={setIsCreateAccount} />
+        ) : (
+        <>
+          <h2>"Login to add a plant"</h2>
+          {error && <p className="error-message">{error}</p>}
+          <form onSubmit={handleLogin}>
+           <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+             placeholder="Password"
+             value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+           />
+            <button type="submit">Login</button>
+          </form>
+          <p>Forgot your password?</p>
+          <button className="forgot-password-button" onClick={() => setIsResetPassword(true)}>Reset Password</button>
+				  <p>Don't have an account?</p>
 					<button className="login-account-button" onClick={() => setIsCreateAccount(true)}>Create one here</button>
-				
-				</>
-				) : (
-					<CreateAccount setIsCreateAccount={setIsCreateAccount}/>
+				  </>
 				)}
 			</section>
     </section>
