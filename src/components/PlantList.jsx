@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 
 const PlantList = ({searchTerm}) => {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     
     const API_KEY = import.meta.env.VITE_API_KEY; 
 
     useEffect(() => {
     if(searchTerm) {
-      async function fetchApi() {
+      const fetchApi = async () => {
+        setIsLoading(true);
         try {
           const response = await fetch(`https://perenual.com/api/v2/species-list?key=${API_KEY}&q=${searchTerm}`);
           if (!response.ok) {
@@ -35,7 +37,9 @@ const PlantList = ({searchTerm}) => {
 
         } catch (error) {
           console.error(error)
-        } 
+        } finally {
+          setIsLoading(false);
+        }
       }
       fetchApi();
     }
@@ -47,7 +51,7 @@ const PlantList = ({searchTerm}) => {
        
     return (
       <section>
-        {searchTerm && !data? (<p className="not-found">Loading...</p>
+        {searchTerm && data.length === 0 ? (<p className="loadingSpinner"></p>
         ) : (
         <ul className="plant-list">
           {data.map((plant)=>(<li key={plant.id}>
