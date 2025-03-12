@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { doPasswordReset, doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
 import { useAuth } from "./AuthContext.jsx";
 import CreateAccount from "./CreateAccount.jsx";
 import ResetPassword from "./ResetPassword.jsx";
