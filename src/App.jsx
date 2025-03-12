@@ -4,12 +4,13 @@ import logo from './assets/logo-without-background.png';
 import SearchBar from './components/SearchBar.jsx';
 import PlantList from './components/PlantList.jsx';
 import Footer from './components/Footer.jsx';
-import Login from './components/login.jsx';
+import Login from './components/Login.jsx';
 import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import { Link } from 'react-router-dom';
 import { AuthProvider } from './components/AuthContext';
 import { ToastContainer } from "react-toastify";
+import Logout from './components/LoginLogoutButton.jsx';
 
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
@@ -44,6 +45,7 @@ const App = () => {
                   </figcaption>
               </figure>
               <Link to="/plant-dashboard" className="dashboard-link"><h4>My Plant Collection</h4></Link>
+              <Logout />
             </header>
             <main>
             <h2>The help you need to manage your plant collection!</h2>
