@@ -20,7 +20,7 @@ const LoginLogoutButton = () => {
 	}
 
 	return(
-		<button onClick={userLoggedIn? handleLogout : handleLogin} className="logout-button">{userLoggedIn? "Logout": "Login"}</button>
+		<button onClick={userLoggedIn? handleLogout : handleLogin} className="login-logout-button">{userLoggedIn? "Logout": "Login"}</button>
 	)
 }
 
