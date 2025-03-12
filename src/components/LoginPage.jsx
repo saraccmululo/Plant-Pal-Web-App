@@ -6,7 +6,7 @@ import CreateAccount from "./CreateAccount.jsx";
 import ResetPassword from "./ResetPassword.jsx";
 
 
-const Login = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ const Login = () => {
 
   
   const navigate = useNavigate();
-  const { userLoggedIn, loading } = useAuth();
+  const { userLoggedIn } = useAuth();
 
   useEffect(()=> {
     if (userLoggedIn) {
@@ -84,4 +84,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
