@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PlantDetail from './PlantDetails.jsx';
+import PlantDetails from './PlantDetails.jsx';
 import PlantDetailsData from './PlantDetailsData.jsx';
 import { auth, db } from "../firebase/firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
@@ -49,20 +49,24 @@ const handleAddClick = async () => {
 };
 
 	return (
-    <article className="plant-card">
-    	<img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
-    	<section className="plant-names">
-      	<h3>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
-      	<p><strong>Scientific name: </strong>{plant.scientific_name}</p>
-    	</section>
-			<section className="plant-action-buttons">
-				<button onClick={handleDetailsClick}>Details</button>
-				{showPlantDetail && <PlantDetail id={plant.id}/>}
-				{!isDashboard && (<button onClick={handleAddClick}>Add</button>)}
-     	 	<button onClick={()=>onDelete(plant.id)}>Remove</button>
-    	</section>
-  	</article>
-);
+    <section className="plant-container">
+      <article className="plant-card">
+        <img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
+        <section className="plant-names">
+          <h3>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
+          <p><strong>Scientific name: </strong>{plant.scientific_name}</p>
+        </section>
+        <section className="plant-action-buttons">
+          <button onClick={handleDetailsClick}>Details</button>
+          
+          {!isDashboard && (<button onClick={handleAddClick}>Add</button>)}
+          <button onClick={()=>onDelete(plant.id)}>Remove</button>
+        </section>
+      </article>
+
+      {showPlantDetail && <PlantDetails id={plant.id}/>}
+    </section>
+  );
 }
 
 export default PlantCard;

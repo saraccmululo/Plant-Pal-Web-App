@@ -1,7 +1,6 @@
 import logo from '../assets/logo-without-background.png';
 import { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
-import { toast } from "react-toastify";
 
 const PlantList = ({searchTerm}) => {
     const [data, setData] = useState([]);
