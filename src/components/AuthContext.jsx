@@ -9,33 +9,33 @@ export function useAuth(){
 }
 
 export function AuthProvider({children}) {
-    const [currentUser, setCurrentUser] = useState(null);
-    const [userLoggedIn, setUserLoggedIn] = useState(false);
-    const [loading, setLoading] = useState(true);
+	const [currentUser, setCurrentUser] = useState(null);
+	const [userLoggedIn, setUserLoggedIn] = useState(false);
+	const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, initializeUser);
-        return unsubscribe;
-    },[])
+			const unsubscribe = onAuthStateChanged(auth, initializeUser);
+			return unsubscribe;
+	},[])
 
     async function initializeUser(user) {
-        if (user) {
-            setCurrentUser({...user});
-            setUserLoggedIn(true);
-        } else {
-            setCurrentUser(null);
-            setUserLoggedIn(false);
-        }
-        setLoading(false);
-    }
-    const value = {
-        currentUser,
-        userLoggedIn,
-        loading,
-    }
+			if (user) {
+					setCurrentUser({...user});
+					setUserLoggedIn(true);
+			} else {
+					setCurrentUser(null);
+					setUserLoggedIn(false);
+			}
+			setLoading(false);
+	}
+	const value = {
+			currentUser,
+			userLoggedIn,
+			loading,
+	}
 
-    return (
-    <AuthContext.Provider value={value}>
-        {!loading && children}
-    </AuthContext.Provider>
+	return (
+	<AuthContext.Provider value={value}>
+			{!loading && children}
+	</AuthContext.Provider>
 )}
