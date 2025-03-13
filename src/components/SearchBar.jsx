@@ -1,11 +1,12 @@
+import styles from './SearchBar.module.css';
 
 const SearchBar = ({searchInputRef, onSearch}) => {
   
   return (
     <>
     <h3>Find the care guide for your plants by entering their names below:</h3>
-    <section className="add-plant-section">
-    	<label htmlFor="plant-input" className="sr-only">Search your plant pal</label>
+    <section className={styles.addPlantSection}>
+    	<label htmlFor="plant-input" className={styles.srOnly}>Search your plant pal</label>
     	<input 
         id="plant-input"
         type="text" 

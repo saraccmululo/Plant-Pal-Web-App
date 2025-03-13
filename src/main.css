@@ -71,20 +71,7 @@ h4, h5 {
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
 }
-.add-plant-section { 
-  display: flex; 
-  justify-content: space-between; 
-  gap: 10px; 
-	margin-top: 10px;
-  margin-bottom: 10px; 
-  width: 100% 
-}
-.add-plant-section input { 
-  padding: 10px; 
-  border: 2px solid #A8C686; 
-  border-radius: 5px; 
-  flex-grow: 1; 
-}
+
 button { 
   background: #2E4B3A; 
   color: white; 
