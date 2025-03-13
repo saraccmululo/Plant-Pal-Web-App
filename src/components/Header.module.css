@@ -1,0 +1,137 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  flex-direction: row;  
+  text-align: center;
+  width: 100%;
+}
+.logoTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logoTitle a {
+  text-decoration: none;
+}
+img.logo {
+  width: 110px; 
+  height: auto;
+}
+figure.logoTitle {
+  margin: 0px;
+}
+.desktopMenu {
+  display: flex;
+  gap: 20px;
+}
+.dashboardLink {
+  text-decoration: none; 
+  color: #3e3e3e;  
+}
+a.dashboardLink {
+  display: flex;
+  align-items: center;
+}
+.dashboardLink:hover {
+  text-decoration: underline;  
+}
+.hamburgerMenu, .mobileMenu {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+h1 { 
+  color: #4B6A51;  
+  font-size: 2.5rem;
+  margin: 5px 0;
+  width: 350px;
+}
+h2 { 
+  text-align: center; 
+  padding: 10px; 
+  font-size: 2.0rem;
+  color: #4B6A51; 
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+h3 {
+  margin-top: 60px;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #3E3E3E;
+}
+h4, h5 {
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  header{
+    flex-direction: column;
+    align-items: center;
+    }
+  h1 {
+    font-size: 2rem; 
+  }
+  h2{
+    font-size: 1.8rem;
+  }
+  h3{
+    font-size: 1.2rem;
+    margin: 10px;
+    text-align: center;
+  }
+  a.dashboardLink {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+  }
+  .hamburgerMenu {
+    display: block; /* Show the hamburger icon */
+    padding: 5px;
+  }
+  .desktopMenu {
+    display: none; /* Hide menu links by default */
+  }
+  .mobileMenu {
+    display: none;
+    
+  }
+  .mobileMenuOpen {
+    display: flex; /* Show the menu when open */
+    position: absolute;
+    top: 240px;
+    left: 0px;
+    flex-direction: column;
+    width: 100%;
+    background-color: #423f3f;
+    padding: 5px;
+  }
+  
+  .mobileMenuOpen a,
+  .mobileMenuOpen h4,
+  .mobileMenuOpen button {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    margin: 0px;
+    border: none;
+    background: transparent;
+    font-size: 18px; 
+  }
+  .mobileMenuOpen a:hover,
+  .mobileMenuOpen button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+  }
+  .logoTitle {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+  .logo {
+    margin: 0 auto;
+    display: block;
+    }  
+    }
+  }
