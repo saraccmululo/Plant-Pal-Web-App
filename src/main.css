@@ -22,10 +22,12 @@ html, body {
 }
 header {
   display: flex;
-	flex-direction: row;  
+  justify-content: space-between;
+	align-items: center;
+  padding: 10px;
+  flex-direction: row;  
 	text-align: center;
 	width: 100%;
-  align-items: center;
 }
 .logo-title {
   display: flex;
@@ -39,7 +41,7 @@ img.logo {
   width: 110px; 
   height: auto;
 }
-figure.logo-title{
+figure.logo-title {
   margin: 0px;
 }
 .dashboard-link {
@@ -57,6 +59,18 @@ a.dashboard-link {
   height: 30px;
   padding: 5px 10px;
 }
+
+.hamburger-menu, .mobile-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 20px;
+}
+
 h1 { 
   color: #4B6A51;  
 	font-size: 2.5rem;
@@ -66,6 +80,7 @@ h1 {
 h2 { 
   text-align: center; 
   padding: 10px; 
+  font-size: 2.0rem;
   color: #4B6A51; 
   margin-top: 0;
 	margin-bottom: 10px;
@@ -299,7 +314,7 @@ button:hover {
 		font-size: 2rem; 
 	}
 	h2{
-		font-size: 1.3rem;
+		font-size: 1.8rem;
 	}
 	h3{
 		font-size: 1.2rem;
@@ -316,6 +331,38 @@ button:hover {
     flex-direction: column; 
 		align-items: center; 
 		text-align: center; 
+  }
+  .hamburger-menu {
+    display: block; /* Show the hamburger icon */
+  }
+  .desktop-menu {
+    display: none; /* Hide menu links by default */
+  }
+  .mobile-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    padding: 10px;
+  }
+  .mobile-menu.open {
+    display: flex; /* Show the menu when open */
+  }
+  .mobile-menu a,
+  .mobile-menu h4,
+  .mobile-menu button {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border: none;
+    background: transparent;
+  }
+
+  .mobile-menu a:hover,
+  .mobile-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 	.plant-card {
 		flex-direction: column; 

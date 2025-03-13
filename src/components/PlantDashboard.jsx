@@ -106,6 +106,7 @@ const PlantDashboard = () => {
           </Link>
         </figure>
       </header>
+     
       <main>
         <h2>My plant collection</h2>
 				<nav>
