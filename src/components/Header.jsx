@@ -7,9 +7,9 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setShowMenu(true);
-  }
-
+    setShowMenu(showMenu => !showMenu);
+  };
+  
   return (
     <header>
       <figure className="logo-title"> 
@@ -25,7 +25,10 @@ const Header = () => {
         <LoginLogoutButton />
       </section>
 
-      <div className="hamburger-menu" onClick={toggleMenu}>&#9776;</div>
+      <button className="hamburger-menu" onClick={toggleMenu}>
+        {showMenu? '✖' : '☰'}
+      </button>
+
       <nav className={`mobile-menu ${showMenu? 'open' : ''}`}>
         <Link to="/plant-dashboard" className="dashboard-link">
         <h4>My Plant Collection</h4>
