@@ -20,55 +20,11 @@ html, body {
   padding: 20px; 
   flex: 1;
 }
-header {
-  display: flex;
-  justify-content: space-between;
-	align-items: center;
-  padding: 10px;
-  flex-direction: row;  
-	text-align: center;
-	width: 100%;
-}
-.logo-title {
-  display: flex;
-  align-items: center;
-	gap: 10px;
-}
-.logo-title a {
-  text-decoration: none;
-}
-img.logo {
-  width: 110px; 
-  height: auto;
-}
-figure.logo-title {
-  margin: 0px;
-}
-.dashboard-link {
-	text-decoration: none; 
-	color: #3e3e3e;  
-}
-a.dashboard-link {
-	display: flex;
-	align-items: center;
-}
-.dashboard-link:hover {
-  text-decoration: underline;  
-}
+
+
 .login-logout-button {
   height: 30px;
   padding: 5px 10px;
-}
-
-.hamburger-menu, .mobile-menu {
-  display: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.desktop-menu {
-  display: flex;
-  gap: 20px;
 }
 
 h1 { 
