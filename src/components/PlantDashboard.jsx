@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/firebase';
 import { collection, query, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
+import Header from './Header';
 import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
-
 
 const PlantDashboard = () => {
   const [plants, setPlants] = useState([]);
@@ -96,19 +96,9 @@ const PlantDashboard = () => {
 
   return (
     <section className="container">
-      <header>
-        <figure className="logo-title"> 
-          <Link className="link-header-dashboard" to="/">
-            <img src={logo} alt="Plant Pals Logo" className="logo" />
-            <figcaption>
-              <h1>My Plant Pals</h1>
-            </figcaption>
-          </Link>
-        </figure>
-      </header>
-     
+      <Header />
       <main>
-        <h2>My plant collection</h2>
+        <h2>My Plant Collection</h2>
 				<nav>
           <Link to="/" className="add-plant-button">
             <button>Add More Plants</button>

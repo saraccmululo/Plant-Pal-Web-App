@@ -346,6 +346,7 @@ button:hover {
     display: none; /* Hide menu links by default */
   }
   .mobile-menu {
+    display: none;
     position: absolute;
     top: 240px;
     left: 0px;
