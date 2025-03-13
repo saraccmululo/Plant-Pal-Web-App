@@ -1,6 +1,7 @@
 import logo from '../assets/logo-without-background.png';
 import { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
+import styles from './PlantList.module.css';
 
 const PlantList = ({searchTerm}) => {
     const [data, setData] = useState([]);
@@ -46,15 +47,15 @@ const PlantList = ({searchTerm}) => {
     };
        
     return (
-      <section className="loadingContainer">
+      <section className={styles.loadingContainer}>
         {isLoading? (
         <section>
-          <p className="loadingSpinner"></p>
+          <p className={styles.loadingSpinner}></p>
           </section>
         ) : searchTerm && data.length === 0 ? (
-        <p className="not-found">No plants found. Try another plant name!</p>
+        <p className={styles.notFound}>No plants found. Try another plant name!</p>
         ) : (
-        <ul className="plant-list">
+        <ul className={styles.plantList}>
           {data.map((plant)=>(<li key={plant.id}>
             <PlantCard key={plant.id} plant={plant} onDelete={handleDelete}/></li>))}
         </ul>
