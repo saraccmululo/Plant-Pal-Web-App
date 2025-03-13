@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import logo from '../assets/logo-without-background.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LoginLogoutButton from './LoginLogoutButton.jsx';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setShowMenu(showMenu => !showMenu);
@@ -15,13 +16,17 @@ const Header = () => {
       <figure className="logo-title"> 
         <img src={logo} alt="Plant Pals Logo" className="logo" />
           <figcaption>
-            <h1>My Plant Pals</h1>
+          <Link to="/">
+              <h1>My Plant Pals</h1> 
+          </Link>
           </figcaption>
       </figure>
       <section className="desktop-menu">
-        <Link to="/plant-dashboard" className="dashboard-link">
+        {location.pathname !== '/plant-dashboard' && (
+          <Link to="/plant-dashboard" className="dashboard-link">
           <h4>My Plant Collection</h4>
-        </Link>
+          </Link>)}
+        
         <LoginLogoutButton />
       </section>
 
@@ -30,9 +35,10 @@ const Header = () => {
       </button>
 
       <nav className={`mobile-menu ${showMenu? 'open' : ''}`}>
-        <Link to="/plant-dashboard" className="dashboard-link">
+        {location.pathname !== '/plant-dashboard' && (<Link to="/plant-dashboard" className="dashboard-link">
         <h4>My Plant Collection</h4>
-        </Link>
+        </Link>)}
+        
         <LoginLogoutButton />
       </nav>
     </header>   
