@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import SearchBar from './components/SearchBar.jsx';
 import PlantList from './components/PlantList.jsx';
@@ -13,6 +13,10 @@ import Header from './components/Header.jsx';
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
   const searchInputRef = useRef(null);
+  
+  useEffect(() => {
+    document.title = "Plant Pals - Homepage";
+  }, [])
 
   function handleSearch() {
     setSearchTerm(searchInputRef.current.value);
