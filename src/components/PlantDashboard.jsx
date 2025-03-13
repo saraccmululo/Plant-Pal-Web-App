@@ -98,7 +98,7 @@ const PlantDashboard = () => {
     <section className="container">
       <header>
         <figure className="logo-title"> 
-          <Link className="plant-collection-link" to="/">
+          <Link className="link-header-dashboard" to="/">
             <img src={logo} alt="Plant Pals Logo" className="logo" />
             <figcaption>
               <h1>My Plant Pals</h1>
