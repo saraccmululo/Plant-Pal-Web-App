@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/firebase';
 import { collection, query, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
 import Header from './Header';
-import logo from '../assets/logo-without-background.png';
 import PlantCard from './PlantCard';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
@@ -14,6 +13,11 @@ const PlantDashboard = () => {
   const [filterText, setFilterText] = useState("");
   const [filterType, setFilterType] = useState("none")
 
+  
+  useEffect(() => {
+      document.title = "Plant Pals - My Plant Collection";
+    }, [])
+    
   useEffect(() => {
     if (auth.currentUser) {
       const plantRef = collection(db, "plants", auth.currentUser.uid, "userPlants");
