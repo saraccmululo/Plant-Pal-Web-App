@@ -46,9 +46,11 @@ const PlantList = ({searchTerm}) => {
     };
        
     return (
-      <section>
+      <section className="loadingContainer">
         {isLoading? (
+        <section>
           <p className="loadingSpinner"></p>
+          </section>
         ) : searchTerm && data.length === 0 ? (
         <p className="not-found">No plants found. Try another plant name!</p>
         ) : (
