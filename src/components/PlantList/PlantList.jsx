@@ -47,7 +47,7 @@ const PlantList = ({searchTerm}) => {
     };
        
     return (
-      <section className={styles.loadingContainer}>
+      <section className={styles.listContainer}>
         {isLoading? (
         <section>
           <p className={styles.loadingSpinner}></p>

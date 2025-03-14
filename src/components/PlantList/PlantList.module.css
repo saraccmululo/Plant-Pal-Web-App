@@ -1,8 +1,8 @@
-.loadingContainer {
+.listContainer {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100vh; /* Full screen height */
+  height: 100%; /* Full screen height */
 }
 .loadingSpinner {
   width: 50px;

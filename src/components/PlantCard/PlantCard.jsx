@@ -55,7 +55,7 @@ const handleAddClick = async () => {
         <img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
         <section className={styles.plantNames}>
           <h3>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
-          <p><strong>Scientific name: </strong>{plant.scientific_name}</p>
+          <p className ={styles.plantCardP}><strong>Scientific name: </strong>{plant.scientific_name}</p>
         </section>
         <section className={styles.plantActionButtons}>
           <button onClick={handleDetailsClick}>Details</button>

@@ -1,3 +1,8 @@
+.appContainer {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Full height of the viewport */
+  }
 .container { 
 	width: 80%; 
 	margin: auto; 
@@ -7,13 +12,14 @@
 .mainH2 { 
 	text-align: center; 
 	padding: 10px; 
-	font-size: 1.7rem;
+	font-size: 1.8rem;
 	color: #4B6A51; 
 	margin-top: 0;
 	margin-bottom: 10px;
 }
 @media (max-width: 768px) {
 	.mainH2 {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
+		padding: 5px;
 	}
 }
