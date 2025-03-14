@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { doPasswordReset } from "../firebase/auth.js";
+import { doPasswordReset } from "../../../firebase/auth.js";
 import styles from './ResetPassword.module.css';
 
 const ResetPassword = ({ setIsResetPassword }) => {

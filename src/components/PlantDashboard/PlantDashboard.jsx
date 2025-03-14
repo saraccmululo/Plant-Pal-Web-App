@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { db, auth } from '../firebase/firebase';
+import { db, auth } from '../../firebase/firebase';
 import { collection, query, getDocs, doc, deleteDoc } from 'firebase/firestore'; 
-import Header from './Header';
-import PlantCard from './PlantCard';
-import Footer from './Footer';
+import Header from '../Header/Header';
+import PlantCard from '../PlantCard/PlantCard';
+import Footer from '../Footer/Footer';
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
 import styles from './PlantDashboard.module.css';

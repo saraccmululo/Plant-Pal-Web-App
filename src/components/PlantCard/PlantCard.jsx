@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PlantDetails from './PlantDetails.jsx';
-import PlantDetailsData from './PlantDetailsData.jsx';
-import { auth, db } from "../firebase/firebase.js";
+import PlantDetails from '../PlantDetails/PlantDetails.jsx';
+import PlantDetailsData from '../PlantDetails/PlantDetailsData.jsx';
+import { auth, db } from "../../firebase/firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
 import styles from "./PlantCard.module.css";

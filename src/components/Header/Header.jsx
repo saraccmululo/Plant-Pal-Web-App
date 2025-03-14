@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import logo from '../assets/logo-without-background.png';
+import logo from '../../assets/logoNew.png';
 import { Link, useLocation } from 'react-router-dom';
-import LoginLogoutButton from './LoginLogoutButton.jsx';
+import LoginLogoutButton from '../Authentication/LoginLogoutButton/LoginLogoutButton.jsx';
 import styles from './Header.module.css';
 
 const Header = () => {

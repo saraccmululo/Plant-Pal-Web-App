@@ -1,6 +1,6 @@
-import logo from '../assets/logo-without-background.png';
+import logo from '../../assets/logoNew.png';
 import { useState, useEffect } from 'react';
-import PlantCard from './PlantCard';
+import PlantCard from '../PlantCard/PlantCard';
 import styles from './PlantList.module.css';
 
 const PlantList = ({searchTerm}) => {
