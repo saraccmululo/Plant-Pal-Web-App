@@ -42,7 +42,7 @@ const App = () => {
           <section className={styles.container}>
             <Header />
             <main>
-            <h2>The help you need to manage your plant collection!</h2>
+            <h2 className={styles.mainH2}>The help you need to manage your plant collection!</h2>
             <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
             <PlantList searchTerm={searchTerm}/>
             </main>
