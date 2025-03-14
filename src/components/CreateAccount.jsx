@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { doCreateUserWithEmailAndPassword } from '../firebase/auth.js'; 
-import { useAuth } from './AuthContext.jsx';
 import styles from './CreateAccount.module.css';
 
 const CreateAccount = ({ setIsCreateAccount }) => {
@@ -9,8 +8,6 @@ const CreateAccount = ({ setIsCreateAccount }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  const { userLoggedIn } = useAuth();
 
   const handleCreateAccount = async (e) => {
     e.preventDefault();
