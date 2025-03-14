@@ -30,10 +30,6 @@ figure.logoTitle {
   text-decoration: none; 
   color: #3e3e3e;  
 }
-a.dashboardLink {
-  display: flex;
-  align-items: center;
-}
 .dashboardLink:hover {
   text-decoration: underline;  
 }
@@ -48,24 +44,9 @@ h1 {
   margin: 5px 0;
   width: 350px;
 }
-h2 { 
-  text-align: center; 
-  padding: 10px; 
-  font-size: 1.8 rem;
-  color: #4B6A51; 
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-h3 {
-  margin-top: 60px;
-  text-align: left;
-  font-size: 1.2rem;
-  color: #3E3E3E;
-}
-h4, h5 {
+h4 {
   margin: 5px;
 }
-
 @media (max-width: 768px) {
   header{
     flex-direction: column;
@@ -73,19 +54,6 @@ h4, h5 {
     }
   h1 {
     font-size: 1.8rem; 
-  }
-  h2{
-    font-size: 1.5rem;
-  }
-  h3{
-    font-size: 1.5rem;
-    margin: 10px;
-    text-align: center;
-  }
-  .linkHeaderDashboard{
-    display: block;
-    width: 100%;   /* nao achei esse style no codigo */
-    height: 100%;
   }
   a.dashboardLink {
     flex-direction: column; 
@@ -132,9 +100,9 @@ h4, h5 {
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
+  }
   .logo {
     margin: 0 auto;
     display: block;
     }  
-    }
   }

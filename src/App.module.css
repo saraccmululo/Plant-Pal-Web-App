@@ -4,11 +4,16 @@
 	padding: 20px; 
 	flex: 1;
 }
-h2 { 
+.mainH2 { 
 	text-align: center; 
 	padding: 10px; 
-	font-size: 2.0rem;
+	font-size: 1.7rem;
 	color: #4B6A51; 
 	margin-top: 0;
 	margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+	.mainH2 {
+		font-size: 1.4rem;
+	}
 }

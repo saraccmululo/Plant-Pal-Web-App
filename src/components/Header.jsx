@@ -27,7 +27,6 @@ const Header = () => {
           <Link to="/plant-dashboard" className={styles.dashboardLink}>
           <h4>My Plant Collection</h4>
           </Link>)}
-        
         <LoginLogoutButton />
       </section>
 
