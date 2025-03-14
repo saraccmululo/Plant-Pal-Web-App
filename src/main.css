@@ -155,14 +155,7 @@ button:hover {
 .login-box button:hover {
 	background: darkgreen;
 }
-.reset-email-button{
-  background: green;
-  margin-top: 10px;
-}
-.reset-login-button{
-  background: green;
-  margin-top: 20px;
-}
+
 
 @media (max-width: 768px) {
 	h1 {
