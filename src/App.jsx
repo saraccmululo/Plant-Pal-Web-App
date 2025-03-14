@@ -7,8 +7,9 @@ import LoginPage from './components/LoginPage.jsx';
 import PlantDashboard from './components/PlantDashBoard.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import { AuthProvider } from './components/AuthContext';
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
 import Header from './components/Header.jsx';
+import styles from './App.module.css';
 
 const App = () => {
   const[searchTerm, setSearchTerm] = useState('');
@@ -38,14 +39,13 @@ const App = () => {
           <PrivateRoute> <PlantDashboard /> </PrivateRoute>
           } />
         <Route path="/" element={
-          <section className="container">
+          <section className={styles.container}>
             <Header />
             <main>
             <h2>The help you need to manage your plant collection!</h2>
             <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
             <PlantList searchTerm={searchTerm}/>
             </main>
-            
             <Footer />
           </section>
         } />
