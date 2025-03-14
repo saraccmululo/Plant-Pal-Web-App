@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
-import { useAuth } from "./AuthContext.jsx";
-import CreateAccount from "./CreateAccount.jsx";
-import ResetPassword from "./ResetPassword.jsx";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { doSignInWithEmailAndPassword } from '../firebase/auth.js';
+import { useAuth } from './AuthContext.jsx';
+import CreateAccount from './CreateAccount.jsx';
+import ResetPassword from './ResetPassword.jsx';
+import styles from './LoginPage.module.css';
 
 
 const LoginPage = () => {
@@ -42,10 +43,10 @@ const LoginPage = () => {
   }
 
   return (
-    <section className="login-container">
-      <section className="login-box">
-				<section className="close-button-container">
-					<button className="close-button" onClick={handleClose}>X</button>
+    <section className={styles.loginContainer}>
+      <section className={styles.loginBox}>
+				<section className={styles.closeButtonContainer}>
+					<button className={styles.CloseButton} onClick={handleClose}>X</button>
 				</section>
 
         {isResetPassword? (
@@ -54,8 +55,8 @@ const LoginPage = () => {
           <CreateAccount setIsCreateAccount={setIsCreateAccount} />
         ) : (
         <>
-          <h2>"Login to add a plant"</h2>
-          {error && <p className="error-message">{error}</p>}
+          <h2>Login to add a plant</h2>
+          {error && <p className={styles.errorMessage}>{error}</p>}
           <form onSubmit={handleLogin}>
            <input
               type="email"
@@ -66,17 +67,17 @@ const LoginPage = () => {
             />
             <input
               type="password"
-             placeholder="Password"
-             value={password}
+              placeholder="Password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
            />
             <button type="submit">Login</button>
           </form>
           <p>Forgot your password?</p>
-          <button className="forgot-password-button" onClick={() => setIsResetPassword(true)}>Reset Password</button>
+          <button className={styles.forgotPasswordButton} onClick={() => setIsResetPassword(true)}>Reset Password</button>
 				  <p>Don't have an account?</p>
-					<button className="login-account-button" onClick={() => setIsCreateAccount(true)}>Create one here</button>
+					<button className={styles.loginAccountButton} onClick={() => setIsCreateAccount(true)}>Create one here</button>
 				  </>
 				)}
 			</section>
