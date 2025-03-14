@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js"; 
-import { useAuth } from "./AuthContext.jsx";
+import { doCreateUserWithEmailAndPassword } from '../firebase/auth.js'; 
+import { useAuth } from './AuthContext.jsx';
+import styles from './CreateAccount.module.css';
 
 const CreateAccount = ({ setIsCreateAccount }) => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,8 @@ const CreateAccount = ({ setIsCreateAccount }) => {
 
   return (
     <section>
-      {error && <p className="error-message">{error}</p>}
+      <h2>Create an account</h2>
+      {error && <p className={styles.ErrorMessage}>{error}</p>}
       <form onSubmit={handleCreateAccount}>
         <input
           type="email"
@@ -42,7 +44,7 @@ const CreateAccount = ({ setIsCreateAccount }) => {
         <button type="submit">Create Account</button>
       </form>
       <p>Already have an account? {" "}
-			<button className="login-account-button" onClick={() => setIsCreateAccount(false)}>Login</button></p>
+			<button className={styles.loginAccountButton} onClick={() => setIsCreateAccount(false)}>Login</button></p>
     </section>
   );
 };

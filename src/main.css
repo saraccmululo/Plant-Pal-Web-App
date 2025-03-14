@@ -44,30 +44,6 @@ h4, h5 {
   margin: 5px;
 }
 
-button { 
-  background: #2E4B3A; 
-  color: white; 
-  border: none; 
-  padding: 10px; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-weight: bold; 
-  transition: background 0.3s; 
-}
-button:hover { 
-  background: #1E3525; 
-}
-.delete-message {
-  text-align: center;
-  font-size: 1.2rem;
-	color: #3E3E3E;
-}
-.link-header-dashboard{
-  display: block;
-  width: 100%;   /* Make the <a> take up 100% of the header's width */
-  height: 100%;
-}
-
 @media (max-width: 768px) {
 	h1 {
 		font-size: 1.8rem; 
@@ -80,9 +56,6 @@ button:hover {
     margin: 10px;
     text-align: center;
 	}
-  .login-logout-button {
-    margin-top: 10px;
-  }
   p{
     font-size: 0.8rem;
     margin: 10px;
