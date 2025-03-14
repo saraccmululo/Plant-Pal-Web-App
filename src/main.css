@@ -67,13 +67,6 @@ button:hover {
   font-size: 1.2rem;
 	color: #3E3E3E;
 }
-.plant-details {              
-  width: 100%;
-  background: #ffffff; 
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
 .link-header-dashboard{
   display: block;
   width: 100%;   /* Make the <a> take up 100% of the header's width */

@@ -44,14 +44,14 @@ a.dashboardLink {
 }
 h1 { 
   color: #4B6A51;  
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin: 5px 0;
   width: 350px;
 }
 h2 { 
   text-align: center; 
   padding: 10px; 
-  font-size: 2.0rem;
+  font-size: 1.8 rem;
   color: #4B6A51; 
   margin-top: 0;
   margin-bottom: 10px;
@@ -72,15 +72,20 @@ h4, h5 {
     align-items: center;
     }
   h1 {
-    font-size: 1.5rem; 
+    font-size: 1.8rem; 
   }
   h2{
-    font-size: 1.0rem;
+    font-size: 1.5rem;
   }
   h3{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin: 10px;
     text-align: center;
+  }
+  .linkHeaderDashboard{
+    display: block;
+    width: 100%;   /* nao achei esse style no codigo */
+    height: 100%;
   }
   a.dashboardLink {
     flex-direction: column; 

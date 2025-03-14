@@ -6,6 +6,7 @@ import PlantCard from './PlantCard';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
+import styles from './PlantDashboard.module.css';
 
 const PlantDashboard = () => {
   const [plants, setPlants] = useState([]);
@@ -91,20 +92,20 @@ const PlantDashboard = () => {
 
   if (!auth.currentUser) {
     return (
-      <div>
+      <section>
         <p>Please log in to view your plant collection.</p>
         <Link to="/login">Go to Login</Link>
-      </div>
+      </section>
     );
   }
 
   return (
-    <section className="container">
+    <section className={styles.container}>
       <Header />
       <main>
         <h2>My Plant Collection</h2>
 				<nav>
-          <Link to="/" className="add-plant-button">
+          <Link to="/">
             <button>Add More Plants</button>
           </Link>
           <label>Sort by:</label>
@@ -125,7 +126,7 @@ const PlantDashboard = () => {
           onChange={(e) => setFilterText(e.target.value)}
         />
         </nav>
-        <ul className="plant-list">
+        <ul className={styles.plantList}>
           {plants.length === 0 && <p> No plants added yet.</p>}
           {plants.length > 0 && filteredPlants.length ===0 && (<p>No plants match your search</p>)}
 
