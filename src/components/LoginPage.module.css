@@ -1,0 +1,89 @@
+.loginBox h2 {
+  margin-bottom: 15px;
+	font-size: 1.5rem;
+}
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+.loginBox {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  border: 2px solid #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.loginBox input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.loginBox form button {
+  width: 100%;
+  padding: 10px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.loginBox button:hover {
+  background: darkgreen;
+}
+.closeButtonContainer {
+	position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333; 
+	cursor: pointer;
+	padding: 5px;
+	outline: none; 
+}
+.closeButton:hover {
+	color: black; 
+}
+.errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.forgotPasswordButton {
+	background: green;
+}
+.loginAccountButton {
+	padding: 10px;
+	background: green;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.loginBox h2 {
+		margin-bottom: 15px;
+		font-size: 1.2rem;
+	}
+  p{
+    font-size: 0.8rem;
+    margin: 10px;
+  }
+}
