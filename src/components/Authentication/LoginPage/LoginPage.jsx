@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { doSignInWithEmailAndPassword } from '../firebase/auth.js';
-import { useAuth } from './AuthContext.jsx';
-import CreateAccount from './CreateAccount.jsx';
-import ResetPassword from './ResetPassword.jsx';
+import { doSignInWithEmailAndPassword } from '../../../firebase/auth.js';
+import { useAuth } from '../AuthContext.jsx';
+import CreateAccount from '../CreateAccount/CreateAccount.jsx';
+import ResetPassword from '../ResetPassword/ResetPassword.jsx';
 import styles from './LoginPage.module.css';
-
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +13,6 @@ const LoginPage = () => {
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
 
-  
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
 
