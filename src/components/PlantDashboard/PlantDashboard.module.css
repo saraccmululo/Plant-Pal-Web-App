@@ -34,14 +34,14 @@ select {
   border-radius: 4px;
   margin-right: 10px;
   margin-left: 10px;
-  width: 100px;;
+  width: 120px;;
 }
 .dashboardInput {
   padding: 3px;
   font-size: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 150px; 
+  width: 180px; 
 }
 button { 
   background: #2E4B3A; 
