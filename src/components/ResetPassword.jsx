@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { doPasswordReset } from "../firebase/auth.js";
+import styles from './ResetPassword';
 
 const ResetPassword = ({ setIsResetPassword }) => {
 	const [email, setEmail] = useState("");
@@ -19,10 +20,10 @@ const ResetPassword = ({ setIsResetPassword }) => {
 	};
 
 	return(
-		<section className="reset-password-box">
+		<section>
 			<h2>Reset Password</h2>
-			{error && <p className="error-message">{error}</p>}
-			{resetMessage && <p className="sucess-message">{resetMessage}</p>}
+			{error && <p>{error}</p>}
+			{resetMessage && <p>{resetMessage}</p>}
 			<form onSubmit={handleResetPassword}>
 				<input
 				type="email"
@@ -31,9 +32,9 @@ const ResetPassword = ({ setIsResetPassword }) => {
 				onChange={(e) => setEmail(e.target.value)}
 				required
 				/>
-				<button type="submit" className="reset-email-button">Send Reset Email</button>
+				<button type="submit" className={styles.resetEmailButton}>Send Reset Email</button>
 			</form>
-			<button className="reset-login-button" onClick={() => setIsResetPassword(false)}>Back to Login</button>
+			<button className={styles.resetLoginButton} onClick={() => setIsResetPassword(false)}>Back to Login</button>
 		</section>
 	)
 }
