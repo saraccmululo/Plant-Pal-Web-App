@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from './PlantDetails.module.css';
 
 const PlantDetails = ({ id }) => {
  const[plantDetails, setPlantDetails] = useState(null);
@@ -35,15 +36,19 @@ const PlantDetails = ({ id }) => {
 	}, [id]);
 	
     if (isLoading) {
-      return <p className="loadingSpinner"></p>
-    }
+      return (
+	  		<section className={styles.loadingContainer}>
+					<p className={styles.loadingSpinner}></p>
+				</section>
+	  	)
+		}
 
     if (!plantDetails) {
       return <p>No details were found for this plant</p>;
     }
 
   return (
-    <section className="plant-details">
+    <section className={styles.plantDetails}>
 		  <p><strong>Watering: </strong>{plantDetails.watering}</p>
     	<p><strong>Light: </strong>{plantDetails.sunlight}</p>
     	<p><strong>Pet-friendly:</strong>{plantDetails.poisonous_to_pets}</p> 
