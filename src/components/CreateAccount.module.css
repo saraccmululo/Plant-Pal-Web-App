@@ -1,0 +1,13 @@
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.loginAccountButton {
+	padding: 10px;
+	background: green;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
