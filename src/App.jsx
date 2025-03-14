@@ -39,6 +39,7 @@ const App = () => {
           <PrivateRoute> <PlantDashboard /> </PrivateRoute>
           } />
         <Route path="/" element={
+          <section className={styles.appContainer}>
           <section className={styles.container}>
             <Header />
             <main>
@@ -46,6 +47,7 @@ const App = () => {
             <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
             <PlantList searchTerm={searchTerm}/>
             </main>
+            </section> 
             <Footer />
           </section>
         } />

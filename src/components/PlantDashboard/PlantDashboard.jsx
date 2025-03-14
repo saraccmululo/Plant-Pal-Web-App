@@ -104,27 +104,30 @@ const PlantDashboard = () => {
       <Header />
       <main>
         <h2>My Plant Collection</h2>
-				<nav>
+				<nav className={styles.dashboardNav}>
           <Link to="/">
             <button>Add More Plants</button>
           </Link>
-          <label>Sort by:</label>
+          <section className={styles.sortFilterBorder}>
+          <label className={styles.dashboardLabel}>Sort by:</label>
           <select value={sortBy || ''} onChange={handleSortChange}>
             <option value="alphabetical">Alphabetical</option>
             <option value="date">Creation Date</option>
           </select>
-          <label>Filter by:</label>
+          <label className={styles.dashboardLabel}>Filter by:</label>
           <select value={filterType} onChange={(e) => setFilterType(e.target.value)} >
             <option value="none"> None</option>
             <option value="common-name">Common name</option>
             <option value="scientific-name">Scientific Name</option>
           </select>
           <input
+          className={styles.dashboardInput}
           type="text"
           placeholder="Search plants..."
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
         />
+        </section>
         </nav>
         <ul className={styles.plantList}>
           {plants.length === 0 && <p> No plants added yet.</p>}

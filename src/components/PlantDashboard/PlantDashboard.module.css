@@ -12,6 +12,37 @@ h2 {
   margin-top: 0;
 	margin-bottom: 10px;
 }
+.dashboardNav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px; /* This will create space between the elements */
+  margin-top: 20px;
+}
+.sortFilterBorder {
+  border: 2px solid #A8C686; 
+  padding: 3px;
+}
+.dashboardLabel {
+  font-size: 1rem;
+  font-weight: bold;
+}
+select {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 100px;;
+}
+.dashboardInput {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px; 
+}
 button { 
   background: #2E4B3A; 
   color: white; 
@@ -33,8 +64,24 @@ button:hover {
   list-style: none;
 }
 @media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
   p{
     font-size: 1rem;
     margin: 10px;
+  }
+  .dashboardNav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* This will create space between the elements */
+    margin-top: 10px;
+  }
+  .sortFilterBorder {
+    margin-top: 10px;
+    border: 2px solid #A8C686; 
+    padding: 3px;
   }
 }

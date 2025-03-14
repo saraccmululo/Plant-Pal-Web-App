@@ -51,9 +51,15 @@ h4 {
   header{
     flex-direction: column;
     align-items: center;
+    padding-top: 10px;
+    }
+  img.logo {
+      width: 80px; 
+      height: auto;
     }
   h1 {
     font-size: 1.8rem; 
+    padding: 5px;
   }
   a.dashboardLink {
     flex-direction: column; 
@@ -62,7 +68,7 @@ h4 {
   }
   .hamburgerMenu {
     display: block; /* Show the hamburger icon */
-    padding: 5px;
+    padding: 3px;
   }
   .desktopMenu {
     display: none; /* Hide menu links by default */
@@ -73,7 +79,7 @@ h4 {
   .mobileMenuOpen {
     display: flex; /* Show the menu when open */
     position: absolute;
-    top: 215px;
+    top: 180px;
     left: 0px;
     flex-direction: column;
     width: 100%;
