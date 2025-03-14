@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   useEffect(()=> {
     if (userLoggedIn) {
-      navigate("/plant-dashboard");
+      navigate("/");
     }
   }, [userLoggedIn, navigate]);
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(email, password);
-      navigate("/plant-dashboard"); 
+      navigate("/"); 
     } catch (err) {
       setError("Failed to log in. Please check your email and password.");
     }
