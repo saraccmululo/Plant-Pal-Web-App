@@ -62,40 +62,6 @@ button {
 button:hover { 
   background: #1E3525; 
 }
-.plant-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.plant-card { 
-  display: flex; 
-  flex-direction: row;
-  align-items: center; 
-  justify-content: space-between; 
-  background: white; 
-  padding: 10px; 
-  margin: 10px 0; 
-  border-radius: 8px; 
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
-  border-left: 5px solid #A8C686; 
-}
-.plant-card img { 
-  width: 150px; 
-  height: 150px; 
-  border-radius: 8px; 
-  margin-right: 15px; 
-}
-.plant-names { 
-  flex-grow: 1;
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-}
-.plant-action-buttons { 
-  display: flex; 
-  gap: 5px; 
-  margin-top: 10px;
-}
 .delete-message {
   text-align: center;
   font-size: 1.2rem;
@@ -224,8 +190,4 @@ button:hover {
     font-size: 0.8rem;
     margin: 10px;
   }
-	.plant-card {
-		flex-direction: column; 
-		align-items: center; 
-	}
 }
