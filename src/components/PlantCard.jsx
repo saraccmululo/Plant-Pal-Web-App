@@ -5,6 +5,7 @@ import PlantDetailsData from './PlantDetailsData.jsx';
 import { auth, db } from "../firebase/firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
+import styles from "./PlantCard.module.css";
 
 const PlantCard = ({plant, onDelete, isDashboard = false}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
@@ -49,21 +50,20 @@ const handleAddClick = async () => {
 };
 
 	return (
-    <section className="plant-container">
-      <article className="plant-card">
+    <section className={styles.plantContainer}>
+      <article className={styles.plantCard}>
         <img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
-        <section className="plant-names">
+        <section className={styles.plantNames}>
           <h3>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
           <p><strong>Scientific name: </strong>{plant.scientific_name}</p>
         </section>
-        <section className="plant-action-buttons">
+        <section className={styles.plantActionButtons}>
           <button onClick={handleDetailsClick}>Details</button>
           
           {!isDashboard && (<button onClick={handleAddClick}>Add</button>)}
           <button onClick={()=>onDelete(plant.id)}>Remove</button>
         </section>
       </article>
-
       {showPlantDetail && <PlantDetails id={plant.id}/>}
     </section>
   );
