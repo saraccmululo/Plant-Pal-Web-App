@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlantDetails from '../PlantDetails/PlantDetails.jsx';
-import PlantDetailsData from '../PlantDetails/PlantDetailsData.jsx';
+import fetchPlantDetails from '../PlantDetails/fetchPlantDetails.jsx';
 import { auth, db } from "../../firebase/firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
@@ -28,14 +28,14 @@ const handleAddClick = async () => {
 				return;
 			}
 
-			const PlantDetails = await PlantDetailsData(plant.id);
+			const plantDetails = await fetchPlantDetails(plant.id);
 
 			await addDoc(userPlantsRef, {
 				plant_id: plant.id,
 				common_name: plant.common_name,
 				scientific_name: plant.scientific_name,
 				thumbnail: plant.thumbnail,
-				plant_details: PlantDetails,
+				plant_details: plantDetails,
 				date_created: new Date()
 			});
 
