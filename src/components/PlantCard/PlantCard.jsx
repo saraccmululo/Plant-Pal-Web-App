@@ -61,7 +61,8 @@ const handleAddClick = async () => {
           <button onClick={handleDetailsClick}>Details</button>
           
           {!isDashboard && (<button onClick={handleAddClick}>Add</button>)}
-          <button onClick={()=>onDelete(plant.id)}>Remove</button>
+					{isDashboard && (<button onClick={()=>onDelete(plant.id)}>Remove</button>)}
+          
         </section>
       </article>
       {showPlantDetail && <PlantDetails id={plant.id}/>}

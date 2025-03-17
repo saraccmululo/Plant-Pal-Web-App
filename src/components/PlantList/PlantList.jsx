@@ -42,9 +42,9 @@ const PlantList = ({searchTerm}) => {
     }
     }, [searchTerm]);
   
-    const handleDelete=(id) =>{
-      setData(prevData =>prevData.filter(plant=>plant.id !==id));
-    };
+   //const handleDelete=(id) =>{
+     //setData(prevData =>prevData.filter(plant=>plant.id !==id));
+    //};
        
     return (
       <section className={styles.listContainer}>
@@ -57,7 +57,9 @@ const PlantList = ({searchTerm}) => {
         ) : (
         <ul className={styles.plantList}>
           {data.map((plant)=>(<li className={styles.listItem} key={plant.id}>
-            <PlantCard key={plant.id} plant={plant} onDelete={handleDelete}/></li>))}
+            <PlantCard key={plant.id} plant={plant} 
+            //onDelete={handleDelete}
+            /></li>))}
         </ul>
         )}
       </section>
