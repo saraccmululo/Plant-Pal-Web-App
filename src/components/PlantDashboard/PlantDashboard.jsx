@@ -134,7 +134,7 @@ const PlantDashboard = () => {
           {plants.length > 0 && filteredPlants.length ===0 && (<p>No plants match your search</p>)}
 
           {filteredPlants.length > 0 && filteredPlants.map((plant) => (
-              <li key={plant.id}>
+              <li className={styles.listItem} key={plant.id}>
                 <PlantCard key={plant.id} plant={plant} onDelete={handleDelete} isDashboard={true} />
               </li>
             ))
