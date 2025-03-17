@@ -25,13 +25,27 @@
 }
 .plantList {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(180px, 1fr));
+  align-items: end;
+  margin: 0px;
+  padding: 0px;
   gap: 1rem;
-  padding: 10px;
   list-style: none;
+  border: 2px solid red; 
 }
+
 @media (max-width: 768px) {
 p {
   margin: 10px;
+}
+.plantList {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(140px, 1fr));
+  align-items: end;
+  margin: 0px;
+  padding: 0px;
+  gap: 0.5rem;
+  list-style: none;
+  border: 2px solid red; 
 }
 }

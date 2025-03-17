@@ -1,8 +1,11 @@
 h3 {
-  margin-top: 60px;
+  margin: 10px 0px;
   text-align: left;
   font-size: 1.2rem;
   color: #3E3E3E;
+}
+.plantCardP{
+  margin: 5px 0px; 
 }
 button { 
   background: #2E4B3A; 
@@ -19,7 +22,8 @@ button:hover {
 }
 .plantContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  border: 2px solid red; 
 }
 .plantCard { 
   display: flex; 
@@ -32,8 +36,9 @@ button:hover {
   border-radius: 8px; 
   box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
   border-left: 5px solid #A8C686; 
-  max-height: 150px;
   width: 100%;
+  max-height: 150px;
+  border: 2px solid red; 
 }
 .plantCard img { 
   width: 120px; 
@@ -68,11 +73,11 @@ button:hover {
   .plantCard {
 		flex-direction: row; 
 		align-items: center; 
-    margin: 10px;
+    margin: 0px;
   }
   .plantCard img { 
-    max-width: 80px; 
-    max-height: 80px; 
+    max-width: 70px; 
+    max-height: 70px; 
     border-radius: 8px; 
   }
   button { 

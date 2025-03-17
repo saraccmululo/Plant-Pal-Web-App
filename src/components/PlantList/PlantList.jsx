@@ -56,7 +56,7 @@ const PlantList = ({searchTerm}) => {
         <p className={styles.notFound}>No plants found. Try another plant name!</p>
         ) : (
         <ul className={styles.plantList}>
-          {data.map((plant)=>(<li key={plant.id}>
+          {data.map((plant)=>(<li className={styles.listItem} key={plant.id}>
             <PlantCard key={plant.id} plant={plant} onDelete={handleDelete}/></li>))}
         </ul>
         )}
