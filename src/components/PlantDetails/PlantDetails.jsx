@@ -1,39 +1,21 @@
 import { useState, useEffect } from 'react';
 import styles from './PlantDetails.module.css';
+import fetchPlantsDetails from './fetchPlantDetails.jsx';
 
 const PlantDetails = ({ id }) => {
  const[plantDetails, setPlantDetails] = useState(null);
  const [isLoading, setIsLoading] = useState(false);
-
- const API_KEY = import.meta.env.VITE_API_KEY; 
 	
  useEffect(() => {
-	async function fetchApi() {
-    setIsLoading(true);
-		try {
-			const response = await fetch(`https://perenual.com/api/v2/species/details/${id}?key=${API_KEY}`);
-			if (!response.ok) {
-			throw new Error(`Error: ${response.status}`);
-		}
-		const plantDetail = await response.json();
-		console.log(plantDetail);
+	const fetchData = async () => {
+		setIsLoading(true);
+		const data = await fetchPlantsDetails (id);
+		setPlantDetails(data);
+		setIsLoading (false); 	
+	};
 	
-		const plantDetailData = {
-			id: plantDetail.id,
-			watering: plantDetail.watering + ".",
-			sunlight: plantDetail.sunlight.join(', ') + ".",
-			poisonous_to_pets: (plantDetail.poisonous_to_pets? " Yes" : " No") + ".",
-			description: (` ${plantDetail.description}`),
-		};		
-		setPlantDetails(plantDetailData)
-		} catch (error) {
-			console.error(error)
-		} finally {
-      setIsLoading(false);
-    }
-	}
-	fetchApi();
-	}, [id]);
+	fetchData();
+}, [id]);
 	
     if (isLoading) {
       return (
@@ -54,7 +36,6 @@ const PlantDetails = ({ id }) => {
     	<p><strong>Pet-friendly:</strong>{plantDetails.poisonous_to_pets}</p> 
 			<p><strong>Description:</strong>{plantDetails.description}</p> 
   	</section>
-    
 )}
 
 export default PlantDetails;									

@@ -1,3 +1,4 @@
+
 const fetchPlantDetails = async (id) => {
 	const API_KEY = import.meta.env.VITE_API_KEY;
   
@@ -17,7 +18,7 @@ const fetchPlantDetails = async (id) => {
 	  };
 	} catch (error) {
 	  console.error("Error fetching plant details:", error);
-	  return null; // Return null if an error occurs
+	  return null; 
 	}
   };
   
