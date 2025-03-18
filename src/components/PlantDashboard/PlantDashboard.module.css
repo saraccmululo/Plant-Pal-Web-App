@@ -4,6 +4,39 @@
   padding: 20px; 
   flex: 1;
 }
+.authContainer {
+  display: flex;
+  margin-top: 80px;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+.authBox {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  border: 4px solid #A8C686; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authBox p {
+  font-size: 1.3rem;
+  margin: 10px;
+}
+.authBoxLink {
+  text-decoration: none; 
+  color: #398f5d;  
+  font-weight: bold;
+  }
+.authBoxLink:hover {
+  text-decoration: underline;  
+  color:  #3E3E3E;
+}
 h2 { 
   text-align: center; 
   padding: 10px; 

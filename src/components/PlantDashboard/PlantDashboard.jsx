@@ -14,7 +14,6 @@ const PlantDashboard = () => {
   const [filterText, setFilterText] = useState("");
   const [filterType, setFilterType] = useState("none")
 
-  
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, [])
@@ -92,9 +91,11 @@ const PlantDashboard = () => {
 
   if (!auth.currentUser) {
     return (
-      <section>
-        <p>Please log in to view your plant collection.</p>
-        <Link to="/login">Go to Login</Link>
+      <section className={styles.authContainer}>
+        <section className={styles.authBox}>
+          <h2>Please log in to view your plant collection.</h2>
+          <Link className={styles.authBoxLink} to="/login" >Go to Login</Link>
+        </section>
       </section>
     );
   }
