@@ -64,11 +64,9 @@ button:hover {
   padding: 0px;
   margin-top: 10px;
   list-style: none;
-  border: 2px solid red; 
   max-width: 100%;
 }
 .listItem {
-  border: 2px solid red; 
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -133,11 +131,9 @@ button:hover {
     padding: 0px;
     margin: 0px;
     list-style: none;
-    border: 2px solid red; 
     max-width: 100%;
   }
   .listItem {
-    border: 2px solid red; 
     max-width: 100%;
     box-sizing: border-box;
   }

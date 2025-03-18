@@ -31,7 +31,6 @@
   padding: 0px;
   gap: 1rem;
   list-style: none;
-  border: 2px solid red; 
 }
 
 @media (max-width: 768px) {
@@ -46,6 +45,5 @@ p {
   padding: 0px;
   gap: 0.5rem;
   list-style: none;
-  border: 2px solid red; 
 }
 }

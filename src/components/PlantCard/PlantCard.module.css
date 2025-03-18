@@ -23,7 +23,6 @@ button:hover {
 .plantContainer {
   display: flex;
   flex-direction: column;
-  border: 2px solid red; 
 }
 .plantCard { 
   display: flex; 
@@ -38,7 +37,6 @@ button:hover {
   border-left: 5px solid #A8C686; 
   width: 100%;
   max-height: 150px;
-  border: 2px solid red; 
 }
 .plantCard img { 
   width: 120px; 

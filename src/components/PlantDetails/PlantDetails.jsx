@@ -1,21 +1,48 @@
 import { useState, useEffect } from 'react';
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebase/firebase.js';
+import { getAuth } from 'firebase/auth';
 import styles from './PlantDetails.module.css';
 import fetchPlantsDetails from './fetchPlantDetails.jsx';
 
-const PlantDetails = ({ id }) => {
+const PlantDetails = ({ id, isDashboard }) => {
  const[plantDetails, setPlantDetails] = useState(null);
  const [isLoading, setIsLoading] = useState(false);
+ const auth = getAuth();
 	
  useEffect(() => {
 	const fetchData = async () => {
 		setIsLoading(true);
-		const data = await fetchPlantsDetails (id);
-		setPlantDetails(data);
-		setIsLoading (false); 	
+		let data = null;
+		
+		try {
+		if (!isDashboard) {
+			data = await fetchPlantsDetails(id);
+		
+		} else {
+			if(auth.currentUser) {
+			const docRef = doc (db, 'plants', auth.currentUser.uid, 'userPlants', id);
+			const docSnap = await getDoc(docRef);
+			if (docSnap.exists()) {
+				data = docSnap.data().plant_details;
+				} else {
+					console.log("No such document");
+				}
+			} else {
+				console.log("User is not authenticated");
+			} 
+		}
+			setPlantDetails(data);
+
+			} catch (error) {
+				console.error("Error fetching plant details:", error);
+			} finally {
+				setIsLoading (false);
+			}
 	};
 	
 	fetchData();
-}, [id]);
+}, [id, isDashboard, auth.currentUser]);
 	
     if (isLoading) {
       return (
@@ -24,7 +51,6 @@ const PlantDetails = ({ id }) => {
 				</section>
 	  	)
 		}
-
     if (!plantDetails) {
       return <p>No details were found for this plant</p>;
     }
