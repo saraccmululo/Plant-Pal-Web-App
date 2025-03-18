@@ -65,7 +65,7 @@ const handleAddClick = async () => {
           
         </section>
       </article>
-      {showPlantDetail && <PlantDetails id={plant.id}/>}
+      {showPlantDetail && <PlantDetails id={plant.id} isDashboard={isDashboard}/>}
     </section>
   );
 }
