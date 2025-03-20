@@ -1,3 +1,4 @@
+import styles from './SortFilter.module.css';
 
 const SortFilter = ({ sortBy, filterType, filterText, setSortBy, setFilterType, setFilterText, isHomepage }) => {
 
@@ -14,15 +15,15 @@ const SortFilter = ({ sortBy, filterType, filterText, setSortBy, setFilterType, 
   };
 
   return (
-    <div className="sortFilterContainer">
-      <label>Sort by:</label>
+    <div className={styles.sortFilterContainer}>
+      <label className={styles.label}>Sort by:</label>
       <select value={sortBy} onChange={handleSortChange}>
         <option value="none">None</option>
         <option value="alphabetical">Alphabetical</option>
         {!isHomepage && <option value="date">Creation Date</option>}
       </select>
       
-      <label>Filter by:</label>
+      <label className={styles.label}>Filter by:</label>
       <select value={filterType} onChange={handleFilterChange}>
         <option value="none">None</option>
         <option value="common-name">Common name</option>

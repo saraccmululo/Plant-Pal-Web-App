@@ -1,14 +1,14 @@
 import PlantCard from '../PlantCard/PlantCard';
 import styles from './PlantList.module.css';
 
-const PlantList = ({ filteredPlants, isLoading, onDelete, isDashboard }) => {
+const PlantList = ({searchTerm, filteredPlants, isLoading, onDelete, isDashboard }) => {
   return (
     <section className={styles.listContainer}>
       {isLoading ? (
         <section>
           <p className={styles.loadingSpinner}></p>
         </section>
-      ) : filteredPlants.length === 0 ? (
+      ) : searchTerm && filteredPlants.length === 0 ? (
         <p className={styles.notFound}>No plants found. Try another plant name!</p>
       ) : (
         <ul className={styles.plantList}>

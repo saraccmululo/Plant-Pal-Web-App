@@ -13,19 +13,19 @@ const Header = () => {
   };
   
   return (
-    <header>
+    <header className={styles.header}>
       <figure className={styles.logoTitle}> 
         <img src={logo} alt="Plant Pals Logo" className={styles.logo} />
           <figcaption>
           <Link to="/">
-              <h1>My Plant Pals</h1> 
+              <h1 className={styles.headerH1}>My Plant Pals</h1> 
           </Link>
           </figcaption>
       </figure>
       <section className={styles.desktopMenu}>
         {location.pathname !== '/plant-dashboard' && (
           <Link to="/plant-dashboard" className={styles.dashboardLink}>
-          <h4>My Plant Collection</h4>
+          <h4 className={styles.headerH4}>My Plant Collection</h4>
           </Link>)}
         <LoginLogoutButton />
       </section>

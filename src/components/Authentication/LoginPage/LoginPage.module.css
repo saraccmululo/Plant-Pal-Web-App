@@ -1,4 +1,4 @@
-.loginBox h2 {
+.loginBoxH2 {
   margin-bottom: 15px;
 	font-size: 1.5rem;
 }
@@ -22,15 +22,14 @@
   align-items: center;
   position: relative;
 }
-.loginBox input {
+.loginBoxInput {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-.loginBox form button {
+.loginBoxFormButton {
   width: 100%;
   padding: 10px;
   background: green;
@@ -39,7 +38,18 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.loginBox button:hover {
+.loginBoxFormButton:hover {
+  background: darkgreen;
+}
+.loginBoxButton{
+	padding: 10px;
+	background: green;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.loginBoxButton:hover {
   background: darkgreen;
 }
 .closeButtonContainer {
@@ -65,25 +75,14 @@
   font-size: 14px;
   margin-bottom: 10px;
 }
-.forgotPasswordButton {
-	background: green;
-}
-.loginAccountButton {
-	padding: 10px;
-	background: green;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
 
 @media (max-width: 768px) {
-	.loginBox h2 {
+	.loginBoxH2 {
 		margin-bottom: 15px;
 		font-size: 1.2rem;
 	}
-  p{
-    font-size: 0.8rem;
+  .loginP{
+    font-size: 0.9rem;
     margin: 10px;
   }
 }

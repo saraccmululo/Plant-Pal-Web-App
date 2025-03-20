@@ -59,7 +59,7 @@ const PlantDashboard = () => {
     return (
       <section className={styles.authContainer}>
         <section className={styles.authBox}>
-          <h2>Please log in to view your plant collection.</h2>
+          <h2 className={styles.authBoxH2}>Please log in to view your plant collection:</h2>
           <Link className={styles.authBoxLink} to="/login" >Go to Login</Link>
         </section>
       </section>
@@ -70,10 +70,10 @@ const PlantDashboard = () => {
     <section className={styles.container}>
       <Header />
       <main>
-        <h2>My Plant Collection</h2>
+        <h2 className={styles.dashboardH2}>My Plant Collection</h2>
 				<nav className={styles.dashboardNav}>
           <Link to="/">
-            <button>Add More Plants</button>
+            <button className={styles.AddMoreButton}>Add More Plants</button>
           </Link>
           <SortFilter 
             sortBy={sortBy} 

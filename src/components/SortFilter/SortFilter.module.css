@@ -1,0 +1,61 @@
+.sortFilterContainer {
+  width: 100%;
+  max-width: 850px; 
+  margin: 10px auto; 
+  padding: 0;
+  border: none; 
+}
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+select {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 120px;
+}
+.dashboardInput {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 180px; 
+}
+@media (max-width: 768px) {
+  p {
+    font-size: 1rem;
+    margin: 10px;
+  }}
+  .sortFilterBorder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 5px;
+  }
+  .dashboardLabel {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left; /* Ensures labels are aligned left */
+    display: block; 
+    
+  }
+  .dashboardInput {
+    padding: 3px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px; 
+  }
+  select {
+    padding: 3px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100px;
+  }
