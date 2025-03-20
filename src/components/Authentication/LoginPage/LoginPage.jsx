@@ -53,10 +53,11 @@ const LoginPage = () => {
           <CreateAccount setIsCreateAccount={setIsCreateAccount} />
         ) : (
         <>
-          <h2>Login to add a plant</h2>
+          <h2 className={styles.loginBoxH2}>Login to add a plant</h2>
           {error && <p className={styles.errorMessage}>{error}</p>}
           <form onSubmit={handleLogin}>
            <input
+              className ={styles.loginBoxInput}
               type="email"
               placeholder="Email"
               value={email}
@@ -64,18 +65,19 @@ const LoginPage = () => {
               required
             />
             <input
+              className ={styles.loginBoxInput}
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
            />
-            <button type="submit">Login</button>
+            <button className={styles.loginBoxFormButton} type="submit">Login</button>
           </form>
-          <p>Forgot your password?</p>
-          <button className={styles.forgotPasswordButton} onClick={() => setIsResetPassword(true)}>Reset Password</button>
-				  <p>Don't have an account?</p>
-					<button className={styles.loginAccountButton} onClick={() => setIsCreateAccount(true)}>Create one here</button>
+          <p className={styles.loginP}>Forgot your password?</p>
+          <button className={styles.loginBoxButton} onClick={() => setIsResetPassword(true)}>Reset Password</button>
+				  <p className={styles.loginP}>Don't have an account?</p>
+					<button className={styles.loginBoxButton} onClick={() => setIsCreateAccount(true)}>Create one here</button>
 				  </>
 				)}
 			</section>

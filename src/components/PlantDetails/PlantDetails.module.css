@@ -25,3 +25,14 @@
 @-webkit-keyframes spin {
   to { -webkit-transform: rotate(360deg); }
 }
+.detailsP {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+	.detailsP {
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
+}

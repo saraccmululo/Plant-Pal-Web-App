@@ -1,17 +1,27 @@
-.addPlantSection { 
+.searchSection {
+  width: 100%;
+  max-width: 850px; 
+  margin: 0 auto; 
+  padding: 0 
+}
+.searchH3 {
+  font-size: 1.3rem;
+  text-align: left; 
+  margin: 40px 0px 10px 0px;
+}
+.searchBar { 
   display: flex; 
-  justify-content: space-between; 
   gap: 5px; 
-  margin-top: 10px;
-  width: 100% 
+  margin-top: 10px; 
   }
-.addPlantSection input { 
+.searchInput { 
   padding: 10px; 
   border: 2px solid #A8C686; 
   border-radius: 5px; 
   flex-grow: 1; 
+  max-width: 820px;
 }
-.addPlantSection button { 
+.goButton { 
   background: #2E4B3A; 
   color: white; 
   border: none; 
@@ -21,7 +31,7 @@
   font-weight: bold; 
   transition: background 0.3s; 
 }
-button:hover { 
+.goButton:hover { 
   background: #1E3525; 
 }
 .srOnly {
@@ -36,13 +46,21 @@ button:hover {
   border: 0;
 }  
 @media (max-width: 768px) {
-  .addPlantSection input { 
+  .searchH3 {
+    font-size: 1.0rem;
+    text-align: left; 
+  margin: 30px 0px 10px 0px;
+  }
+  .searchInput { 
     padding: 5px; 
     border: 2px solid #A8C686; 
     border-radius: 5px; 
     flex-grow: 1; 
   }
-  .addPlantSection button { 
-    padding: 8px; 
+  .goButton { 
+    padding: 6px; 
+  }
+  .goButton:hover { 
+    background: #1E3525; 
   }
 }

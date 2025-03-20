@@ -1,26 +1,28 @@
-header {
+.header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 10px 50px;
   flex-direction: row;  
   text-align: center;
   width: 100%;
+}
+.headerH1 { 
+  color: #4B6A51;  
+  font-size: 2.3rem;
 }
 .logoTitle {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0px;
 }
 .logoTitle a {
   text-decoration: none;
 }
-img.logo {
+.logo {
   width: 100px; 
   height: auto;
-}
-figure.logoTitle {
-  margin: 0px;
 }
 .desktopMenu {
   display: flex;
@@ -38,29 +40,33 @@ figure.logoTitle {
   font-size: 20px;
   cursor: pointer;
 }
-h1 { 
-  color: #4B6A51;  
-  font-size: 2.3rem;
-  margin: 5px 0;
-  width: 350px;
-}
-h4 {
+.headerH4 {
   margin: 5px;
 }
 @media (max-width: 768px) {
-  header{
+  .header{
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
-    }
-  img.logo {
-      width: 80px; 
-      height: auto;
-    }
-  h1 {
-    font-size: 1.8rem; 
   }
-  a.dashboardLink {
+  .headerH1 {
+      font-size: 1.8rem; 
+      margin: 5px 0px 10px 0px;
+  }
+  .logoTitle {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 0;
+  }
+  .logo {
+    width: 80px; 
+    height: auto; 
+    margin: 0 auto; 
+    display: block;
+  }
+  .dashboardLink {
+    display: flex;
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
@@ -68,6 +74,10 @@ h4 {
   .hamburgerMenu {
     display: block; /* Show the hamburger icon */
     padding: 3px;
+    background: #2E4B3A; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
   }
   .desktopMenu {
     display: none; /* Hide menu links by default */
@@ -78,7 +88,7 @@ h4 {
   .mobileMenuOpen {
     display: flex; /* Show the menu when open */
     position: absolute;
-    top: 200px;
+    top: 175px;
     left: 0px;
     flex-direction: column;
     width: 100%;
@@ -101,13 +111,6 @@ h4 {
     background-color: rgba(255, 255, 255, 0.2);
     text-decoration: none;
   }
-  .logoTitle {
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-  }
-  .logo {
-    margin: 0 auto;
-    display: block;
+  
     }  
-  }
+  

@@ -57,10 +57,10 @@ const PlantDetails = ({ id, isDashboard }) => {
 
   return (
     <section className={styles.plantDetails}>
-		  <p><strong>Watering: </strong>{plantDetails.watering}</p>
-    	<p><strong>Light: </strong>{plantDetails.sunlight}</p>
-    	<p><strong>Pet-friendly:</strong>{plantDetails.poisonous_to_pets}</p> 
-			<p><strong>Description:</strong>{plantDetails.description}</p> 
+		  <p className={styles.detailsP}><strong>Watering: </strong>{plantDetails.watering}</p>
+    	<p className={styles.detailsP}><strong>Light: </strong>{plantDetails.sunlight}</p>
+    	<p className={styles.detailsP}><strong>Pet-friendly: </strong>{plantDetails.poisonous_to_pets}</p> 
+			<p className={styles.detailsP}><strong>Description: </strong>{plantDetails.description}</p> 
   	</section>
 )}
 

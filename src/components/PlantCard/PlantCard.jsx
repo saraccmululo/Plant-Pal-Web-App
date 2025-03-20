@@ -54,14 +54,14 @@ const handleAddClick = async () => {
       <article className={styles.plantCard}>
         <img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
         <section className={styles.plantNames}>
-          <h3>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
+          <h3 className={styles.cardH3}>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>
           <p className ={styles.plantCardP}><strong>Scientific name: </strong>{plant.scientific_name}</p>
         </section>
         <section className={styles.plantActionButtons}>
-          <button onClick={handleDetailsClick}>Details</button>
+          <button className={styles.cardButtons} onClick={handleDetailsClick}>Details</button>
           
-          {!isDashboard && (<button onClick={handleAddClick}>Add</button>)}
-					{isDashboard && (<button onClick={()=>onDelete(plant.id)}>Remove</button>)}
+          {!isDashboard && (<button className={styles.cardButtons} onClick={handleAddClick}>Add</button>)}
+					{isDashboard && (<button className={styles.cardButtons} onClick={()=>onDelete(plant.id)}>Remove</button>)}
           
         </section>
       </article>
