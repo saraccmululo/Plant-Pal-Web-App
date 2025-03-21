@@ -15,28 +15,29 @@ const SortFilter = ({ sortBy, filterType, filterText, setSortBy, setFilterType, 
   };
 
   return (
-    <div className={styles.sortFilterContainer}>
+    <section className={styles.sortFilterContainer}>
       <label className={styles.label}>Sort by:</label>
-      <select value={sortBy} onChange={handleSortChange}>
+      <select className={styles.select} value={sortBy} onChange={handleSortChange}>
         <option value="none">None</option>
         <option value="alphabetical">Alphabetical</option>
         {!isHomepage && <option value="date">Creation Date</option>}
       </select>
       
       <label className={styles.label}>Filter by:</label>
-      <select value={filterType} onChange={handleFilterChange}>
+      <select className={styles.select} value={filterType} onChange={handleFilterChange}>
         <option value="none">None</option>
         <option value="common-name">Common name</option>
         <option value="scientific-name">Scientific Name</option>
       </select>
 
       <input
+        className={styles.input}
         type="text"
-        placeholder="Search plants..."
+        placeholder="Filter plants..."
         value={filterText}
         onChange={handleFilterTextChange}
       />
-    </div>
+    </section>
   );
 };
 

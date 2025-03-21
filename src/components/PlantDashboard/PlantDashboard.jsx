@@ -71,9 +71,9 @@ const PlantDashboard = () => {
       <Header />
       <main>
         <h2 className={styles.dashboardH2}>My Plant Collection</h2>
-				<nav className={styles.dashboardNav}>
+				
           <Link to="/">
-            <button className={styles.AddMoreButton}>Add More Plants</button>
+            <button className={styles.addMoreButton}>Add More Plants</button>
           </Link>
           <SortFilter 
             sortBy={sortBy} 
@@ -83,8 +83,8 @@ const PlantDashboard = () => {
             setFilterType={setFilterType} 
             setFilterText={setFilterText}
             isHomepage={false}
-          />
-        </nav>
+          /> 
+        
         <PlantList filteredPlants={sortedAndFilteredPlants} isLoading={isLoading} onDelete={handleDelete} isDashboard={true}/>
       </main>
       <Footer />

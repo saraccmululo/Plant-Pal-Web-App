@@ -1,6 +1,6 @@
 .sortFilterContainer {
   width: 100%;
-  max-width: 850px; 
+  max-width: 750px; 
   margin: 10px auto; 
   padding: 0;
   border: none; 
@@ -9,16 +9,15 @@
   font-size: 1rem;
   font-weight: bold;
 }
-select {
+.select {
   padding: 3px;
   font-size: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
   margin-left: 10px;
-  width: 120px;
 }
-.dashboardInput {
+.input {
   padding: 3px;
   font-size: 0.8rem;
   border: 1px solid #ccc;
@@ -26,36 +25,26 @@ select {
   width: 180px; 
 }
 @media (max-width: 768px) {
-  p {
-    font-size: 1rem;
-    margin: 10px;
-  }}
-  .sortFilterBorder {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    gap: 5px;
-  }
-  .dashboardLabel {
+  .label {
     font-size: 0.8rem;
     font-weight: bold;
-    text-align: left; /* Ensures labels are aligned left */
-    display: block; 
-    
+    padding: 5px 0px;
   }
-  .dashboardInput {
-    padding: 3px;
+  .input {
+    padding: 0px;
+    margin: 5px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    width: 100px; 
+  }
+  .select {
+    padding: 0px;
+    margin: 5px;
     font-size: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 150px; 
+    width: 100%; 
+    max-width: 60px; 
   }
-  select {
-    padding: 3px;
-    font-size: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 100px;
-  }
+}
