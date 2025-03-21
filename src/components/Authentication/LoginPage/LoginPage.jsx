@@ -44,7 +44,7 @@ const LoginPage = () => {
     <section className={styles.loginContainer}>
       <section className={styles.loginBox}>
 				<section className={styles.closeButtonContainer}>
-					<button className={styles.CloseButton} onClick={handleClose}>X</button>
+					<button className={styles.closeButton} onClick={handleClose}>X</button>
 				</section>
 
         {isResetPassword? (

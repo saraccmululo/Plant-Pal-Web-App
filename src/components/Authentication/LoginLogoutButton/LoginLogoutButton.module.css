@@ -1,6 +1,15 @@
 .loginLogoutButton {
-    height: 30px;
-    padding: 5px 10px;
+  background: #2E4B3A; 
+  color: white; 
+  border: none; 
+  padding: 10px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-weight: bold; 
+  transition: background 0.3s; 
+}
+.loginLogoutButton:hover { 
+  background: #1E3525; 
 }
 @media (max-width: 768px) {
   .login-logout-button {

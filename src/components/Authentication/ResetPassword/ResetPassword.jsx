@@ -20,22 +20,23 @@ const ResetPassword = ({ setIsResetPassword }) => {
 	};
 
 	return(
-		<section>
-			<h2>Reset Password</h2>
-			{error && <p>{error}</p>}
-			{resetMessage && <p>{resetMessage}</p>}
-			<form onSubmit={handleResetPassword}>
-				<input
-				type="email"
-				placeholder="Enter your email"
-				value={email}
-				onChange={(e) => setEmail(e.target.value)}
-				required
-				/>
-				<button type="submit" className={styles.resetEmailButton}>Send Reset Email</button>
-			</form>
-			<button className={styles.resetLoginButton} onClick={() => setIsResetPassword(false)}>Back to Login</button>
-		</section>
+			<section>
+				<h2 className={styles.resetH2}>Reset Your Password</h2>
+				{error && <p className={styles.errorMessage}>{error}</p>}
+				{resetMessage && <p>{resetMessage}</p>}
+				<form onSubmit={handleResetPassword}>
+					<input
+					className={styles.resetInput}
+					type="email"
+					placeholder="Enter your email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+					required
+					/>
+					<button className={styles.resetEmailButton} type="submit" >Send Reset Email</button>
+				</form>
+				<button className={styles.resetLoginButton} onClick={() => setIsResetPassword(false)}>Back to Login</button>
+			</section>
 	)
 }
 

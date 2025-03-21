@@ -71,10 +71,11 @@ const PlantDashboard = () => {
       <Header />
       <main>
         <h2 className={styles.dashboardH2}>My Plant Collection</h2>
-				
+				<section className={styles.addMoreButtonContainer}>
           <Link to="/">
             <button className={styles.addMoreButton}>Add More Plants</button>
           </Link>
+        </section>
           <SortFilter 
             sortBy={sortBy} 
             filterType={filterType} 
