@@ -2,8 +2,7 @@
   width: 100%;
   max-width: 750px; 
   margin: 10px auto; 
-  padding: 0;
-  border: none; 
+  text-align: left;
 }
 .label {
   font-size: 1rem;

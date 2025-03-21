@@ -10,7 +10,6 @@
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
-  background-color: #f4f4f4;
 }
 .authBox {
   background: white;
@@ -31,12 +30,12 @@
 .authBoxLink {
   font-size: 1.1rem;
   text-decoration: none; 
-  color: #398f5d;  
+  color: #4b8957;  
   font-weight: bold;
 }
 .authBoxLink:hover {
   text-decoration: underline;  
-  color:  #3E3E3E;
+  color:  #1E3525;
 }
 .dashboardH2 { 
   text-align: center; 
@@ -45,6 +44,15 @@
   color: #4B6A51; 
   margin-top: 0;
 	margin-bottom: 10px;
+}
+.addMoreButtonContainer {
+  width: 100%;
+  max-width: 750px;
+  margin: 10px auto; /* Centers this container, keeping alignment */
+  text-align: left; /*                   Aligns content inside to the left */
+}
+.addMoreButtonContainer a{
+  text-decoration: none;
 }
 .addMoreButton { 
   background: #2E4B3A; 
@@ -55,7 +63,7 @@
   cursor: pointer; 
   font-weight: bold; 
   transition: background 0.3s; 
-  margin: 0px auto; 
+  margin: 10px 0px; 
   display: block;
   border: none; 
 }

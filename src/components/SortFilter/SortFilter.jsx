@@ -33,7 +33,7 @@ const SortFilter = ({ sortBy, filterType, filterText, setSortBy, setFilterType, 
       <input
         className={styles.input}
         type="text"
-        placeholder="Filter plants..."
+        placeholder="name of the plant..."
         value={filterText}
         onChange={handleFilterTextChange}
       />

@@ -21,10 +21,11 @@ const CreateAccount = ({ setIsCreateAccount }) => {
 
   return (
     <section>
-      <h2>Create an account</h2>
-      {error && <p className={styles.ErrorMessage}>{error}</p>}
+      <h2 className={styles.accountBoxH2}>Create an account</h2>
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <form onSubmit={handleCreateAccount}>
         <input
+          className={styles.accountInput}
           type="email"
           placeholder="Email"
           value={email}
@@ -32,16 +33,17 @@ const CreateAccount = ({ setIsCreateAccount }) => {
           required
         />
         <input
+          className={styles.accountInput}
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Create Account</button>
+        <button className={styles.createAccountButton} type="submit">Create Account</button>
       </form>
-      <p>Already have an account? {" "}
-			<button className={styles.loginAccountButton} onClick={() => setIsCreateAccount(false)}>Login</button></p>
+      <p className={styles.accountP}>Already have an account? {" "}
+			<button className={styles.accountLoginButton} onClick={() => setIsCreateAccount(false)}>Login</button></p>
     </section>
   );
 };
