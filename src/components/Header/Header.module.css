@@ -1,11 +1,22 @@
 .header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px 50px;
+  padding: 0px;
   flex-direction: row;  
-  text-align: center;
   width: 100%;
+  max-width: 120vh;  
+  margin: 0 auto;
+}
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  flex-direction: row;  
+  width: 100%;
+  max-width: 90vh;  
+  margin: 0 auto;
 }
 .headerH1 { 
   color: #4B6A51;  
@@ -14,8 +25,9 @@
 .logoTitle {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   margin: 0px;
+  gap: 10px;
 }
 .logoTitle a {
   text-decoration: none;
@@ -27,14 +39,15 @@
 .desktopMenu {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items:center;
   gap: 20px;
+  
 }
-.dashboardLink {
+.plantCollectionLink {
   text-decoration: none; 
   color: #3e3e3e;  
 }
-.dashboardLink:hover {
+.plantCollectionLink:hover {
   text-decoration: underline;  
 }
 .hamburgerMenu, .mobileMenu {
@@ -44,6 +57,7 @@
 }
 .headerH4 {
   margin: 0px;
+  font-size: 1.2rem;
 }
 @media (max-width: 768px) {
   .header{
@@ -52,7 +66,7 @@
     padding-top: 0px;
   }
   .headerH1 {
-      font-size: 1.8rem; 
+      font-size: 1.6rem; 
       margin: 5px 0px 10px 0px;
   }
   .logoTitle {
@@ -62,7 +76,7 @@
     gap: 0;
   }
   .logo {
-    width: 80px; 
+    width: 60px; 
     height: auto; 
     margin: 0 auto; 
     display: block;
