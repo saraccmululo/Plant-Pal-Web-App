@@ -51,7 +51,7 @@ const handleAddClick = async () => {
 
 	return (
     <section className={styles.plantContainer}>
-      <article className={styles.plantCard}>
+      <article className={showPlantDetail? styles.plantCardDetailsOn : styles.plantCard}>
         <img src={plant.thumbnail} alt={`Plant picture of ${plant.common_name}`}/>
         <section className={styles.plantNames}>
           <h3 className={styles.cardH3}>{plant.common_name.charAt(0).toUpperCase() + plant.common_name.slice(1).toLowerCase()}</h3>

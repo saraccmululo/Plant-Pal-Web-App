@@ -1,9 +1,13 @@
 .plantDetails {              
 	width: 100%;
-	max-width: 700px;
+	max-width: 750px;
 	background: #ffffff; 
 	padding: 10px;
-	border-radius: 8px;
+	border-left: 5px solid #A8C686;
+	border-right: 5px solid #A8C686;
+	border-bottom: 5px solid #A8C686;
+	border-bottom-left-radius: 8px; 
+	border-bottom-right-radius: 8px; 
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   }
 .loadingContainer {

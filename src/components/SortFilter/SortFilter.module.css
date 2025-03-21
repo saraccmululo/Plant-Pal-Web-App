@@ -33,9 +33,9 @@
     padding: 0px;
     margin: 5px;
     font-size: 0.8rem;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px; 
-    width: 100px; 
+    width: 120px; 
   }
   .select {
     padding: 0px;

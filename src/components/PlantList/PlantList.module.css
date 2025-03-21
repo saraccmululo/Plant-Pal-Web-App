@@ -33,7 +33,7 @@
   gap: 0;
   padding: 0;
   width: 100%;
-  max-width: 700px; /* Ensures it doesn't get too wide */
+  max-width: 750px; /* Ensures it doesn't get too wide */
   list-style: none;
 }
 .listItem {
