@@ -26,10 +26,10 @@
 }
 .plantList {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
   align-items: end;
   gap: 1rem;
-  margin: 10px;
+  margin-top: 0px;
   padding: 0px;
   list-style: none;
 }
@@ -41,9 +41,9 @@
 
 .plantList {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(120px, 1fr));
   align-items: end;
-  margin: 0px;
+  margin-top: 0px;
   padding: 0px;
   gap: 0.8rem;
   list-style: none;
