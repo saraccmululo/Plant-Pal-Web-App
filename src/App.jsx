@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as BrowserRouter, Routes, Route} from "react-router-dom"
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import SortFilter from './components/SortFilter/SortFilter.jsx';
