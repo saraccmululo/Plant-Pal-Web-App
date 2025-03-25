@@ -17,7 +17,7 @@ const App = () => {
   const [plantsData, setPlantsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
   const searchInputRef = useRef(null);
