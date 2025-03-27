@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { doSignOut } from "../../../firebase/auth.js";
+import { doSignOut } from "../../../firebase/authHelpers.js";
 import { useAuth } from "../AuthContext.jsx";
 import styles from './LoginLogoutButton.module.css'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth.js'; 
+import { doCreateUserWithEmailAndPassword } from '../../../firebase/authHelpers.js'; 
 import styles from './CreateAccount.module.css';
 
 const CreateAccount = ({ setIsCreateAccount }) => {
