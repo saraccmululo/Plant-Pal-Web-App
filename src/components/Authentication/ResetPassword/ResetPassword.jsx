@@ -7,15 +7,14 @@ const ResetPassword = ({ setIsResetPassword }) => {
 	const [error, setError] = useState(null);
 	const [resetMessage, setResetMessage] = useState("");
 
-
 	const handleResetPassword = async (e) => {
 		e.preventDefault();
 		try{
 			await doPasswordReset(email);
-			setResetMessage("A password rest link has been sent to your email address.")
+			setResetMessage("A password reset link has been sent to your email address.")
 			setError(null);    
 		}catch (err){
-			setError("failed to send reset email. Plase check your email address");
+			setError("Failed to send reset email. Please check your email address");
 		}
 	};
 
@@ -25,13 +24,14 @@ const ResetPassword = ({ setIsResetPassword }) => {
 				{error && <p className={styles.errorMessage}>{error}</p>}
 				{resetMessage && <p>{resetMessage}</p>}
 				<form onSubmit={handleResetPassword}>
+				<label htmlFor="email" className={styles.srOnly}>Email Address</label>
 					<input
-					className={styles.resetInput}
-					type="email"
-					placeholder="Enter your email"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					required
+						className={styles.resetInput}
+						type="email"
+						placeholder="Enter your email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
 					/>
 					<button className={styles.resetEmailButton} type="submit" >Send Reset Email</button>
 				</form>
