@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { doSignInWithEmailAndPassword } from '../../../firebase/auth.js';
+import { doSignInWithEmailAndPassword } from '../../../firebase/authHelpers.js';
 import { useAuth } from '../AuthContext.jsx';
 import CreateAccount from '../CreateAccount/CreateAccount.jsx';
 import ResetPassword from '../ResetPassword/ResetPassword.jsx';
@@ -35,10 +35,6 @@ const LoginPage = () => {
 	const handleClose = () => {
 		navigate("/");
 	};
-
-  if (userLoggedIn) {
-    return <></>;
-  }
 
   return (
     <section className={styles.loginContainer}>
