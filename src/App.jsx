@@ -90,7 +90,7 @@ const App = () => {
 
   return (
     <AuthProvider>
-    <BrowserRouter>
+    <Router>
     <ToastContainer position="top-right" 
                     autoClose={3000} 
                     hideProgressBar={false} 
@@ -125,7 +125,7 @@ const App = () => {
           </section>
         } />
       </Routes>
-    </BrowserRouter>
+    </Router>
     </AuthProvider>
   );
 }

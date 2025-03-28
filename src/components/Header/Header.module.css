@@ -66,6 +66,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
+    border-bottom: none;
   }
   .headerH1 {
       font-size: 1.6rem; 
@@ -106,7 +107,7 @@
   .mobileMenuOpen {
     display: flex; /* Show the menu when open */
     position: absolute;
-    top: 175px;
+    top: 150px;
     left: 0px;
     flex-direction: column;
     width: 100%;
@@ -118,7 +119,7 @@
   .mobileMenuOpen button {
     color: white;
     text-decoration: none;
-    padding: 5px;
+    padding: 6px;
     margin: 0px;
     border: none;
     background: transparent;

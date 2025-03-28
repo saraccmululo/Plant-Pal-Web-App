@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   const toggleMenu = () => {
-    setShowMenu(showMenu => !showMenu);
+    setShowMenu(prev => !prev);
   };
   
   return (
@@ -31,7 +31,7 @@ const Header = () => {
       </section>
 
       <button className={styles.hamburgerMenu} onClick={toggleMenu}>
-        {showMenu? '✖' : '☰'}
+        <span>{showMenu? '✖' : '☰'}</span>
       </button>
 
       <nav className={showMenu? styles.mobileMenuOpen : styles.mobileMenu}>
