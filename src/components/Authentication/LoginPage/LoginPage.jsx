@@ -5,6 +5,7 @@ import { useAuth } from '../AuthContext.jsx';
 import CreateAccount from '../CreateAccount/CreateAccount.jsx';
 import ResetPassword from '../ResetPassword/ResetPassword.jsx';
 import styles from './LoginPage.module.css';
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,11 +15,11 @@ const LoginPage = () => {
   const [isResetPassword, setIsResetPassword] = useState(false);
 
   const navigate = useNavigate();
-  const { userLoggedIn } = useAuth();
+  const { userLoggedIn, currentUser } = useAuth();
 
   useEffect(()=> {
     if (userLoggedIn) {
-      navigate("/plant-dashboard");
+      navigate("/");
     }
   }, [userLoggedIn, navigate]);
 
@@ -26,7 +27,8 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(email, password);
-      navigate("/plant-dashboard"); 
+      navigate("/"); 
+      toast.success(`You’re in, plant lover 🌱`);
     } catch (err) {
       setError("Failed to log in. Please check your email and password.");
     }

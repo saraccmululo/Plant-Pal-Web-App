@@ -24,6 +24,10 @@
   width: 180px; 
 }
 @media (max-width: 768px) {
+  .sortFilterContainer {
+    margin: 10px 0px 0px 0px; 
+    text-align: left;
+  }
   .label {
     font-size: 0.8rem;
     font-weight: bold;
