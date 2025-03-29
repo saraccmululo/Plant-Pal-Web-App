@@ -1,0 +1,96 @@
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+.loginBox {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	text-align: center;
+	padding: 20px;
+  width: 300px;
+  border: 2px solid #4a4a4a;
+  border-radius: 8px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.loginBoxH2 {
+  color: #4b8957; 
+  margin-bottom: 15px;
+	font-size: 1.5rem;
+}
+.loginBoxInput {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+.loginBoxFormButton {
+  width: 100%;
+  padding: 10px;
+  background: #2E4B3A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.loginBoxFormButton:hover {
+  background: #1E3525;
+}
+.loginBoxButton{
+	padding: 10px;
+	background:#2E4B3A;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.loginBoxButton:hover {
+  background: #1E3525;
+}
+.loginP{
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px;
+}
+.closeButtonContainer {
+	position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333; 
+	cursor: pointer;
+	padding: 5px;
+	outline: none; 
+}
+.closeButton:hover {
+	color: white;
+	background-color:#1E3525; 
+	border-radius: 5px;
+}
+.errorMessage {
+  color: rgb(157, 16, 16);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+	.loginBoxH2 {
+		margin-bottom: 15px;
+		font-size: 1.2rem;
+	}
+  .loginP{
+    font-size: 0.9rem;
+    margin: 10px;
+  }
+}

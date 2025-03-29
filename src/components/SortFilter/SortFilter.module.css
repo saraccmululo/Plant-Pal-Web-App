@@ -1,0 +1,53 @@
+.sortFilterContainer {
+  width: 100%;
+  max-width: 750px; 
+  margin: 10px auto; 
+  text-align: left;
+}
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.select {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.input {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 180px; 
+}
+@media (max-width: 768px) {
+  .sortFilterContainer {
+    margin: 10px 0px 0px 0px; 
+    text-align: left;
+  }
+  .label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 5px 0px;
+  }
+  .input {
+    padding: 0px;
+    margin: 5px;
+    font-size: 0.8rem;
+    border: 2px solid #ccc;
+    border-radius: 4px; 
+    width: 120px; 
+  }
+  .select {
+    padding: 0px;
+    margin: 5px;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; 
+    max-width: 60px; 
+  }
+}

@@ -1,0 +1,43 @@
+.plantDetails {              
+	width: 100%;
+	max-width: 750px;
+	background: #ffffff; 
+	padding: 10px;
+	border-left: 5px solid #A8C686;
+	border-right: 5px solid #A8C686;
+	border-bottom: 5px solid #A8C686;
+	border-bottom-left-radius: 8px; 
+	border-bottom-right-radius: 8px; 
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+.loadingContainer {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh; /* Full screen height */
+}
+.loadingSpinner {
+	width: 50px;
+	height: 50px;
+	border: 3px solid rgba(18, 2, 2, 0.3);
+	border-radius: 50%;
+	border-top-color: #07031d;
+	animation: spin 1s ease-in-out infinite;
+}  
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+.detailsP {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+	.detailsP {
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
+}

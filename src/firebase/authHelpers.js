@@ -1,8 +1,8 @@
 import { auth } from "./firebase";
 
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, updatePassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, updatePassword, sendEmailVerification } from "firebase/auth";
 
-export const doCreateUserWithEmailAndPassword = async (email, password) => {
+export const doCreateUserWithEmailAndPassword = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 export const doSignInWithEmailAndPassword = (email, password) => {
@@ -18,7 +18,7 @@ export const doPasswordChange = (password) => {
     return updatePassword(auth.currentUser, password);
 };
 export const doSendEmailVerification = () => {
-    return doSendEmailVerification(auth.currentUser, {
-        url: `${window.location.origin}/home`,
+    return sendEmailVerification(auth.currentUser, {
+        url: `${window.location.origin}/login`,
     });
 };

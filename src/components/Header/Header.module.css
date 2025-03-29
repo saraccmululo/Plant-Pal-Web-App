@@ -1,0 +1,133 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px;
+  flex-direction: row;  
+  width: 100%;
+  max-width: 120vh;  
+  margin: 0 auto;
+  border-bottom: 2px solid #4B6A51;
+}
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  flex-direction: row;  
+  width: 100%;
+  max-width: 90vh;  
+  margin: 0 auto;
+}
+.headerH1 { 
+  color: #4B6A51;  
+  font-size: 2.3rem;
+  margin: 20px 0px 15px 0px;
+}
+.logoTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  gap: 10px;
+}
+.logoTitle a {
+  text-decoration: none;
+}
+.logo {
+  width: 70px; 
+  height: auto;
+}
+.desktopMenu {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  gap: 20px;
+}
+.plantCollectionLink {
+  text-decoration: none; 
+  color: #3e3e3e;  
+}
+.plantCollectionLink:hover {
+  text-decoration: underline;  
+}
+.hamburgerMenu, .mobileMenu {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.headerH4 {
+  margin: 0px;
+  font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0px;
+    border-bottom: none;
+  }
+  .headerH1 {
+      font-size: 1.6rem; 
+      margin: 5px 0px 10px 0px;
+  }
+  .logoTitle {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 0;
+  }
+  .logo {
+    width: 60px; 
+    height: auto; 
+    margin: 0 auto; 
+    display: block;
+  }
+  .dashboardLink {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+  }
+  .hamburgerMenu {
+    display: block; 
+    padding: 3px;
+    background: #2E4B3A; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+  }
+  .desktopMenu {
+    display: none;
+  }
+  .mobileMenu {
+    display: none;
+  }
+  .mobileMenuOpen {
+    display: flex;
+    position: absolute;
+    top: 150px;
+    left: 0px;
+    flex-direction: column;
+    width: 100%;
+    background-color: #423f3f;
+    padding: 10px;
+  }
+  .mobileMenuOpen a,
+  .mobileMenuOpen h4,
+  .mobileMenuOpen button {
+    color: white;
+    text-decoration: none;
+    padding: 6px;
+    margin: 0px;
+    border: none;
+    background: transparent;
+    font-size: 1.0rem; 
+  }
+  .mobileMenuOpen a:hover,
+  .mobileMenuOpen button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+  }
+}  
+  

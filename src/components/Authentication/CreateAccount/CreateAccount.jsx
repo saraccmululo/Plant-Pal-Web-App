@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js"; 
-import { useAuth } from "./AuthContext.jsx";
+import { doCreateUserWithEmailAndPassword } from '../../../firebase/authHelpers.js'; 
+import styles from './CreateAccount.module.css';
 
 const CreateAccount = ({ setIsCreateAccount }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  const { userLoggedIn } = useAuth();
 
   const handleCreateAccount = async (e) => {
     e.preventDefault();
@@ -23,9 +21,11 @@ const CreateAccount = ({ setIsCreateAccount }) => {
 
   return (
     <section>
-      {error && <p className="error-message">{error}</p>}
+      <h2 className={styles.accountBoxH2}>Create an account</h2>
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <form onSubmit={handleCreateAccount}>
         <input
+          className={styles.accountInput}
           type="email"
           placeholder="Email"
           value={email}
@@ -33,16 +33,17 @@ const CreateAccount = ({ setIsCreateAccount }) => {
           required
         />
         <input
+          className={styles.accountInput}
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Create Account</button>
+        <button className={styles.createAccountButton} type="submit">Create Account</button>
       </form>
-      <p>Already have an account? {" "}
-			<button className="login-account-button" onClick={() => setIsCreateAccount(false)}>Login</button></p>
+      <p className={styles.accountP}>Already have an account? {" "}
+			<button className={styles.accountLoginButton} onClick={() => setIsCreateAccount(false)}>Login</button></p>
     </section>
   );
 };
