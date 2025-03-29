@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import SortFilter from './components/SortFilter/SortFilter.jsx';
 import PlantList from './components/PlantList/PlantList.jsx';
@@ -118,7 +118,10 @@ const App = () => {
               setFilterText={setFilterText}
               isHomepage={true} 
             />
-            <PlantList searchTerm={searchTerm} filteredPlants={sortedAndFilteredPlants} isLoading={isLoading} />
+            <PlantList 
+              searchTerm={searchTerm} 
+              filteredPlants={sortedAndFilteredPlants} isLoading={isLoading}
+              isDashboard={false} />
             </main>
             </section> 
             <Footer />

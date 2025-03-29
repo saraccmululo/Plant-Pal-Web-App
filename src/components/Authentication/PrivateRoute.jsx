@@ -1,16 +1,17 @@
 import { Navigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { useAuth } from "./AuthContext";
 
 const PrivateRoute = ({ children }) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const { userLoggedIn, loading } = useAuth();
 
-  // If user is not logged in, redirect to login page
-  if (!user) {
+  if(loading) {
+    return <p>Loading...</p>
+  }
+
+  if (!userLoggedIn) {
     return <Navigate to="/login" />;
   }
 
-  // If user is logged in, allow access to the route
   return children;
 };
 
