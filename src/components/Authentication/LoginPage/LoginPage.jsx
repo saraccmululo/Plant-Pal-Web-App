@@ -15,7 +15,7 @@ const LoginPage = () => {
   const [isResetPassword, setIsResetPassword] = useState(false);
 
   const navigate = useNavigate();
-  const { userLoggedIn, currentUser } = useAuth();
+  const { userLoggedIn } = useAuth();
 
   useEffect(()=> {
     if (userLoggedIn) {

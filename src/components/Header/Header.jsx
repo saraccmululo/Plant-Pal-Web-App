@@ -12,8 +12,10 @@ const Header = () => {
     setShowMenu(prev => !prev);
   };
   
+  const isDashboard = location.pathname === '/plant-dashboard';
+
   return (
-    <header className={location.pathname == '/plant-dashboard'? styles.dashboardHeader : styles.header}>
+    <header className={isDashboard? styles.dashboardHeader : styles.header}>
       <figure className={styles.logoTitle}> 
         <img src={logo} alt="Plant Pals Logo" className={styles.logo} />
           <figcaption>
@@ -23,19 +25,23 @@ const Header = () => {
           </figcaption>
       </figure>
       <section className={styles.desktopMenu}>
-        {location.pathname !== '/plant-dashboard' && (
+        {!isDashboard && (
           <Link to="/plant-dashboard" className={styles.plantCollectionLink}>
           <h4 className={styles.headerH4}>My Plant Collection</h4>
           </Link>)}
         <LoginLogoutButton />
       </section>
 
-      <button className={styles.hamburgerMenu} onClick={toggleMenu}>
+      <button 
+      className={styles.hamburgerMenu} 
+      onClick={toggleMenu}
+      aria-label="Toggle navigation menu"
+      >
         <span>{showMenu? '✖' : '☰'}</span>
       </button>
 
       <nav className={showMenu? styles.mobileMenuOpen : styles.mobileMenu}>
-        {location.pathname !== '/plant-dashboard' && (<Link to="/plant-dashboard" className={styles.dashboardLink}>
+        {!isDashboard && (<Link to="/plant-dashboard" className={styles.dashboardLink}>
         <h4>My Plant Collection</h4>
         </Link>)}
         

@@ -4,24 +4,26 @@ import PlantDetails from '../PlantDetails/PlantDetails.jsx';
 import fetchPlantDetails from '../PlantDetails/fetchPlantDetails.jsx';
 import { auth, db } from "../../firebase/firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useAuth } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
 import styles from "./PlantCard.module.css";
 
-const PlantCard = ({plant, onDelete, isDashboard = false}) => {
+const PlantCard = ({plant, onDelete, isDashboard}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
 const navigate = useNavigate();
+const { userLoggedIn } = useAuth();
 
 const handleDetailsClick = () => {
-	setShowPlantDetail(showPlantDetail=>!showPlantDetail);
+	setShowPlantDetail(prev=>!prev);
 }
 
 const handleAddClick = async () => {
-	if (auth.currentUser) {
+	if (userLoggedIn) {
 		try {
 			const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
 
-			const querySnapshot = await getDocs(userPlantsRef);
-			const plantExists = querySnapshot.docs.some(doc => doc.data().plant_id === plant.id);
+			const userSavedPlants = await getDocs(userPlantsRef);
+			const plantExists = userSavedPlants.docs.some(doc => doc.data().plant_id === plant.id);
 
 			if(plantExists) {
 				toast.error ("This plant is already in your collection");
@@ -46,6 +48,7 @@ const handleAddClick = async () => {
 		}
 	} else {
 		navigate("/login");
+		toast.success('Please login to add a plant')
 	}
 };
 

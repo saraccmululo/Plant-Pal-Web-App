@@ -23,7 +23,6 @@
   color: #4B6A51;  
   font-size: 2.3rem;
   margin: 20px 0px 15px 0px;
-  
 }
 .logoTitle {
   display: flex;
@@ -62,7 +61,7 @@
   font-size: 1.2rem;
 }
 @media (max-width: 768px) {
-  .header{
+  .header {
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
@@ -91,7 +90,7 @@
     text-align: center; 
   }
   .hamburgerMenu {
-    display: block; /* Show the hamburger icon */
+    display: block; 
     padding: 3px;
     background: #2E4B3A; 
     color: white; 
@@ -99,13 +98,13 @@
     border-radius: 5px; 
   }
   .desktopMenu {
-    display: none; /* Hide menu links by default */
+    display: none;
   }
   .mobileMenu {
     display: none;
   }
   .mobileMenuOpen {
-    display: flex; /* Show the menu when open */
+    display: flex;
     position: absolute;
     top: 150px;
     left: 0px;
@@ -130,6 +129,5 @@
     background-color: rgba(255, 255, 255, 0.2);
     text-decoration: none;
   }
-  
-    }  
+}  
   
