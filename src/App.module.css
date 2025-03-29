@@ -1,0 +1,35 @@
+.appContainer {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Full height of the viewport */
+  }
+.container { 
+	width: 80%; 
+	margin: auto; 
+	padding: 20px; 
+	flex: 1;
+}
+.mainH2 { 
+	text-align: center; 
+	padding: 10px; 
+	font-size: 1.8rem;
+	color: #4B6A51; 
+	display: block;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	max-width: 700px;
+
+}
+@media (max-width: 768px) {
+	.container { 
+		width: 90%; 
+		margin: auto; 
+		padding: 20px 10px; 
+		flex: 1;
+	}
+	.mainH2 {
+		font-size: 1.1rem;
+		padding: 5px;
+	}
+}

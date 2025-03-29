@@ -1,0 +1,44 @@
+.accountBoxH2 {
+  color: #4b8957; 
+  margin-bottom: 15px;
+	font-size: 1.5rem;
+}
+.accountInput {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+}
+.createAccountButton {
+  width: 100%;
+  padding: 10px;
+  background: #2E4B3A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.createAccountButton:hover,
+.accountLoginButton:hover {
+  background: #1E3525;
+}
+.accountP{
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 10px;
+}
+.accountLoginButton {
+	background: #2E4B3A;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.errorMessage {
+  color: rgb(157, 16, 16);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
