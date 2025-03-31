@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, query, getDocs, orderBy } from 'firebase/firestore';
 import { db, auth } from '../firebase/firebase.js';
 
 const useFetchPlantsDb = () => {
@@ -15,7 +15,8 @@ const useFetchPlantsDb = () => {
 
       try {
         const plantRef = collection(db, "plants", auth.currentUser.uid, "userPlants");
-        const querySnapshot = await getDocs(plantRef);
+        const plantQuery = query(plantRef, orderBy("date_created", "desc"));
+        const querySnapshot = await getDocs(plantQuery);
 
         const fetchedPlants = querySnapshot.docs.map(doc => ({
           id: doc.id,
@@ -31,7 +32,7 @@ const useFetchPlantsDb = () => {
     };
 
     fetchPlantsDb();
-  }, [auth.currentUser]); // Include auth.currentUser as a dependency
+  }, [auth.currentUser]); 
 
   return { plants, setPlants, isLoading };
 };

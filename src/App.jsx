@@ -81,8 +81,8 @@ const App = () => {
     if (sortBy === "alphabetical") {
       return a.common_name.localeCompare(b.common_name);
     } else if (sortBy === "date") {
-      const dateA = a.date_created ? a.date_created.toDate() : new Date(0);
-      const dateB = b.date_created ? b.date_created.toDate() : new Date(0);
+      const dateA = a.date_created?.toDate() || new Date(0);
+      const dateB = b.date_created?.toDate() || new Date(0);
       return dateB - dateA;
     }
     return 0;

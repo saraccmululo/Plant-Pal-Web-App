@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import styles from './PlantDashboard.module.css';
 
 const PlantDashboard = () => {
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
 
@@ -28,7 +28,6 @@ const PlantDashboard = () => {
         await deleteDoc(plantDocRef);
 				toast.success("Plant removed successfully!");
 
-        // Manually update the state by filtering out the deleted plant
       setPlants(prevPlants => prevPlants.filter(plant => plant.id !== plantId));
 				
       } catch (error) {
@@ -52,7 +51,7 @@ const PlantDashboard = () => {
       const dateB = b.date_created ? b.date_created.toDate() : new Date(0);
       return dateB - dateA;
     }
-    return 0; // This will be when "None" is selected
+    return 0;
   });
 
   if (!auth.currentUser) {
