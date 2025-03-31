@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { db, auth } from '../../firebase/firebase';
 import { doc, deleteDoc } from 'firebase/firestore'; 
-import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.jsx";
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
+import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
+import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
 import Header from '../Header/Header';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
-import { toast } from "react-toastify";
 import styles from './PlantDashboard.module.css';
 
 const PlantDashboard = () => {
@@ -37,22 +38,7 @@ const PlantDashboard = () => {
     }
   };
 
-  const sortedAndFilteredPlants = plants
-  .filter((plant) => {
-    if (filterType === "none" || filterText === "") return true;
-    const searchField = filterType === "common-name" ? plant.common_name : plant.scientific_name;
-    return searchField.toLowerCase().includes(filterText.toLowerCase());
-  })
-  .sort((a, b) => {
-    if (sortBy === "alphabetical") {
-      return a.common_name.localeCompare(b.common_name);
-    } else if (sortBy === "date") {
-      const dateA = a.date_created ? a.date_created.toDate() : new Date(0);
-      const dateB = b.date_created ? b.date_created.toDate() : new Date(0);
-      return dateB - dateA;
-    }
-    return 0;
-  });
+  const sortedAndFilteredPlants = useSortedAndFilteredPlants(plants, filterType, filterText, sortBy);
 
   if (!auth.currentUser) {
     return (
