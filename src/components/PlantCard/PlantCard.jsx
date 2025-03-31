@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PlantDetails from '../PlantDetails/PlantDetails.jsx';
 import fetchPlantDetails from '../PlantDetails/fetchPlantDetails.jsx';
 import { auth, db } from "../../firebase/firebase.js";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
 import styles from "./PlantCard.module.css";
@@ -38,7 +38,7 @@ const handleAddClick = async () => {
 				scientific_name: plant.scientific_name,
 				thumbnail: plant.thumbnail,
 				plant_details: plantDetails,
-				date_created: new Date()
+				date_created: serverTimestamp(),
 			});
 
 			toast.success("Plant added successfully!");
