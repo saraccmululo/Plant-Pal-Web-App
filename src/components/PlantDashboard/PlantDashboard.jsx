@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { db, auth } from '../../firebase/firebase';
+import { db } from '../../firebase/firebase';
 import { doc, deleteDoc } from 'firebase/firestore'; 
 import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { useAuth } from '../Authentication/AuthContext.jsx';
 import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
 import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
 import Header from '../Header/Header';
@@ -15,17 +16,17 @@ const PlantDashboard = () => {
   const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
+  const { currentUser } = useAuth();
+  const { plants, setPlants, isLoading } = useFetchPlantsDb();
 
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, []);
     
-  const { plants, setPlants, isLoading } = useFetchPlantsDb();
-
   const handleDelete = async (plantId) => {
-    if (auth.currentUser) {
+    if (currentUser) {
       try {
-        const plantDocRef = doc(db, "plants", auth.currentUser.uid, "userPlants", plantId);
+        const plantDocRef = doc(db, "plants", currentUser.uid, "userPlants", plantId);
         await deleteDoc(plantDocRef);
 				toast.success("Plant removed successfully!");
 
@@ -40,7 +41,7 @@ const PlantDashboard = () => {
 
   const sortedAndFilteredPlants = useSortedAndFilteredPlants(plants, filterType, filterText, sortBy);
 
-  if (!auth.currentUser) {
+  if (!currentUser) {
     return (
       <section className={styles.authContainer}>
         <section className={styles.authBox}>

@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './components/Authentication/AuthContext.jsx';
 import { ToastContainer } from 'react-toastify';
-import useSortedAndFilteredPlants from "./hooks/useSortedAndFilteredPlants";
-import useFetchPlantsApi from './hooks/useFetchPlantsApi.js';
+import useSortedAndFilteredPlants from './hooks/useSortedAndFilteredPlants';
+import useFetchPlantsApi from './hooks/useFetchPlantsApi';
 import PrivateRoute from './components/Authentication/PrivateRoute.jsx';
 import Header from './components/Header/Header.jsx';
-import logo from './assets/logoNew.png';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import SortFilter from './components/SortFilter/SortFilter.jsx';
 import PlantList from './components/PlantList/PlantList.jsx';

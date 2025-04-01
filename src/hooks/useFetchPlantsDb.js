@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 import { collection, query, getDocs, orderBy } from 'firebase/firestore';
-import { db, auth } from '../firebase/firebase.js';
+import { db } from '../firebase/firebase.js';
+import { useAuth } from '../components/Authentication/AuthContext.jsx';
 
 const useFetchPlantsDb = () => {
   const [plants, setPlants] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { currentUser } = useAuth();
   
   useEffect(() => {
     const fetchPlantsDb = async () => {
-      if (!auth.currentUser) {
+      if (!currentUser) {
         setIsLoading(false);
         return;
       }
 
       try {
-        const plantRef = collection(db, "plants", auth.currentUser.uid, "userPlants");
+        const plantRef = collection(db, "plants", currentUser.uid, "userPlants");
         const plantQuery = query(plantRef, orderBy("date_created", "desc"));
         const querySnapshot = await getDocs(plantQuery);
 
@@ -32,7 +34,7 @@ const useFetchPlantsDb = () => {
     };
 
     fetchPlantsDb();
-  }, [auth.currentUser]); 
+  }, [currentUser]); 
 
   return { plants, setPlants, isLoading };
 };

@@ -11,16 +11,16 @@ import styles from "./PlantCard.module.css";
 const PlantCard = ({plant, onDelete, isDashboard}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
 const navigate = useNavigate();
-const { userLoggedIn } = useAuth();
+const { userLoggedIn, currentUser } = useAuth();
 
 const handleDetailsClick = () => {
 	setShowPlantDetail(prev=>!prev);
 }
 
 const handleAddClick = async () => {
-	if (userLoggedIn) {
+	if (currentUser) {
 		try {
-			const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
+			const userPlantsRef = collection (db, "plants", currentUser.uid, "userPlants");
 
 			const userSavedPlants = await getDocs(userPlantsRef);
 			const plantExists = userSavedPlants.docs.some(doc => doc.data().plant_id === plant.id);

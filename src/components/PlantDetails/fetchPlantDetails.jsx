@@ -1,7 +1,6 @@
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const fetchPlantDetails = async (id) => {
-	const API_KEY = import.meta.env.VITE_API_KEY;
-  
 	try {
 	  const response = await fetch(`https://perenual.com/api/v2/species/details/${id}?key=${API_KEY}`);
 	  if (!response.ok) {
