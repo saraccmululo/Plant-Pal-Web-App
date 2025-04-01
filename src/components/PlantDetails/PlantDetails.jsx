@@ -21,10 +21,10 @@ const PlantDetails = ({ id, isDashboard }) => {
 		
 		} else {
 			if(currentUser) {
-			const docRef = doc (db, 'plants', currentUser.uid, 'userPlants', id);
-			const docSnap = await getDoc(docRef);
-			if (docSnap.exists()) {
-				data = docSnap.data().plant_details;
+				const docRef = doc (db, 'plants', currentUser.uid, 'userPlants', id);
+				const docSnap = await getDoc(docRef);
+				if (docSnap.exists()) {
+					data = docSnap.data().plant_details;
 				} else {
 					console.log("No such document");
 				}
