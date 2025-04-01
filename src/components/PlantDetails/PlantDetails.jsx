@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.js';
-import { getAuth } from 'firebase/auth';
+import { useAuth } from '../Authentication/AuthContext.jsx';
 import styles from './PlantDetails.module.css';
 import fetchPlantsDetails from './fetchPlantDetails.jsx';
 
 const PlantDetails = ({ id, isDashboard }) => {
  const[plantDetails, setPlantDetails] = useState(null);
  const [isLoading, setIsLoading] = useState(false);
- const auth = getAuth();
-	
+ const { currentUser, userLoggedIn } = useAuth();
+
  useEffect(() => {
 	const fetchData = async () => {
 		setIsLoading(true);
@@ -20,8 +20,8 @@ const PlantDetails = ({ id, isDashboard }) => {
 			data = await fetchPlantsDetails(id);
 		
 		} else {
-			if(auth.currentUser) {
-			const docRef = doc (db, 'plants', auth.currentUser.uid, 'userPlants', id);
+			if(currentUser) {
+			const docRef = doc (db, 'plants', currentUser.uid, 'userPlants', id);
 			const docSnap = await getDoc(docRef);
 			if (docSnap.exists()) {
 				data = docSnap.data().plant_details;
@@ -42,7 +42,7 @@ const PlantDetails = ({ id, isDashboard }) => {
 	};
 	
 	fetchData();
-}, [id, isDashboard, auth.currentUser]);
+}, [id, isDashboard, userLoggedIn]);
 	
     if (isLoading) {
       return (
