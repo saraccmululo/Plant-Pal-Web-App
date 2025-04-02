@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
   }
 
   if (!userLoggedIn) {
-    toast.success('Please login to see your collection')
+    toast.success('Please login to see your collection 🪴')
     return <Navigate to="/login" />;
   }
 
