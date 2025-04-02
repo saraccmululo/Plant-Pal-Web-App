@@ -64,17 +64,21 @@ const PlantDashboard = () => {
             <button className={styles.addMoreButton}>Add More Plants</button>
           </Link>
         </section>
-          <SortFilter 
-            sortBy={sortBy} 
-            filterType={filterType} 
-            filterText={filterText} 
-            setSortBy={setSortBy} 
-            setFilterType={setFilterType} 
-            setFilterText={setFilterText}
-            isHomepage={false}
-          /> 
-        
-        <PlantList filteredPlants={sortedAndFilteredPlants} isLoading={isLoading} onDelete={handleDelete} isDashboard={true}/>
+        <SortFilter 
+          sortBy={sortBy} 
+          filterType={filterType} 
+          filterText={filterText} 
+          setSortBy={setSortBy} 
+          setFilterType={setFilterType} 
+          setFilterText={setFilterText}
+          isHomepage={false}
+        /> 
+        <PlantList 
+        filteredPlants={sortedAndFilteredPlants} 
+        isLoading={isLoading} 
+        onDelete={handleDelete} 
+        isDashboard={true}
+        />
       </main>
       <Footer />
     </section>
