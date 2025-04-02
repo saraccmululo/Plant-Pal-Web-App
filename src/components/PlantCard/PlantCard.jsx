@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlantDetails from '../PlantDetails/PlantDetails.jsx';
 import fetchPlantDetails from '../PlantDetails/fetchPlantDetailsApi.jsx';
-import { auth, db } from "../../firebase/firebase.js";
+import { db } from "../../firebase/firebase.js";
 import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
