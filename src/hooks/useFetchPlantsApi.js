@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import logo from "../assets/logoNew.png";
 
 const API_KEY = import.meta.env.VITE_API_KEY; 
 
@@ -28,7 +27,7 @@ const useFetchPlantsApi = (searchTerm) =>{
           id: plant.id ,
           common_name: plant.common_name,
           scientific_name: plant.scientific_name.join(', '),
-          thumbnail: plant.default_image?.thumbnail||logo,
+          thumbnail: plant.default_image?.thumbnail|| import.meta.env.BASE_URL + "logoNew.png",
         }));
 
         console.log("Filtered plants count:", plantCardData.length); 
