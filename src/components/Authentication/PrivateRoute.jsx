@@ -1,14 +1,20 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
+import { toast } from "react-toastify";
 
 const PrivateRoute = ({ children }) => {
   const { userLoggedIn, loading } = useAuth();
 
   if(loading) {
-    return <p>Loading...</p>
+    return (
+      <section className={styles.loadingContainer}>
+        <p className={styles.loadingSpinner}></p>
+      </section>
+    )
   }
 
   if (!userLoggedIn) {
+    toast.success('Please login to see your collection')
     return <Navigate to="/login" />;
   }
 
