@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './components/Authentication/AuthContext.jsx';
 import { ToastContainer } from 'react-toastify';
-import PrivateRoute from './components/Authentication/PrivateRoute.jsx';
+import PrivateRoute from './components/Authentication/PrivateRoute/PrivateRoute.jsx';
 import Homepage from './components/Homepage/Homepage.jsx';
 import LoginPage from './components/Authentication/LoginPage/LoginPage.jsx';
 import PlantDashboard from './components/PlantDashboard/PlantDashboard.jsx';

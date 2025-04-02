@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../AuthContext";
 import { toast } from "react-toastify";
+import styles from './PrivateRoute.module.css';
 
 const PrivateRoute = ({ children }) => {
   const { userLoggedIn, loading } = useAuth();
