@@ -3,12 +3,12 @@ import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.js';
 import { useAuth } from '../Authentication/AuthContext.jsx';
 import styles from './PlantDetails.module.css';
-import fetchPlantsDetails from './fetchPlantDetails.jsx';
+import fetchPlantsDetails from './fetchPlantDetailsApi.jsx';
 
 const PlantDetails = ({ id, isDashboard }) => {
  const[plantDetails, setPlantDetails] = useState(null);
  const [isLoading, setIsLoading] = useState(false);
- const { currentUser, userLoggedIn } = useAuth();
+ const { currentUser } = useAuth();
 
  useEffect(() => {
 	const fetchData = async () => {
@@ -42,7 +42,7 @@ const PlantDetails = ({ id, isDashboard }) => {
 	};
 	
 	fetchData();
-}, [id, isDashboard, userLoggedIn]);
+}, [id, isDashboard]);
 	
     if (isLoading) {
       return (
