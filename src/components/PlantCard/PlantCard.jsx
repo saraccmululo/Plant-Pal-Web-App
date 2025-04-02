@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlantDetails from '../PlantDetails/PlantDetails.jsx';
-import fetchPlantDetails from '../PlantDetails/fetchPlantDetails.jsx';
+import fetchPlantDetails from '../PlantDetails/fetchPlantDetailsApi.jsx';
 import { auth, db } from "../../firebase/firebase.js";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../Authentication/AuthContext";
 import { toast } from "react-toastify";
 import styles from "./PlantCard.module.css";
@@ -11,16 +11,16 @@ import styles from "./PlantCard.module.css";
 const PlantCard = ({plant, onDelete, isDashboard}) => {
 const [showPlantDetail, setShowPlantDetail] = useState(false);
 const navigate = useNavigate();
-const { userLoggedIn } = useAuth();
+const { currentUser } = useAuth();
 
 const handleDetailsClick = () => {
 	setShowPlantDetail(prev=>!prev);
 }
 
 const handleAddClick = async () => {
-	if (userLoggedIn) {
+	if (currentUser) {
 		try {
-			const userPlantsRef = collection (db, "plants", auth.currentUser.uid, "userPlants");
+			const userPlantsRef = collection (db, "plants", currentUser.uid, "userPlants");
 
 			const userSavedPlants = await getDocs(userPlantsRef);
 			const plantExists = userSavedPlants.docs.some(doc => doc.data().plant_id === plant.id);
@@ -38,7 +38,7 @@ const handleAddClick = async () => {
 				scientific_name: plant.scientific_name,
 				thumbnail: plant.thumbnail,
 				plant_details: plantDetails,
-				date_created: new Date()
+				date_created: serverTimestamp(),
 			});
 
 			toast.success("Plant added successfully!");

@@ -15,10 +15,10 @@ export const doPasswordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
 };
 export const doPasswordChange = (password) => {
-    return updatePassword(auth.currentUser, password);
+    return updatePassword(currentUser, password);
 };
 export const doSendEmailVerification = () => {
-    return sendEmailVerification(auth.currentUser, {
+    return sendEmailVerification(currentUser, {
         url: `${window.location.origin}/login`,
     });
 };
