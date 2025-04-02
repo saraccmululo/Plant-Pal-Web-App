@@ -1,7 +1,7 @@
-.appContainer {
+.homeContainer {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh; /* Full height of the viewport */
+	min-height: 100vh; 
   }
 .container { 
 	width: 80%; 
@@ -9,7 +9,7 @@
 	padding: 20px; 
 	flex: 1;
 }
-.mainH2 { 
+.homeH2 { 
 	text-align: center; 
 	padding: 10px; 
 	font-size: 1.8rem;

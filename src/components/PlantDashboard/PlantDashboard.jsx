@@ -1,34 +1,35 @@
 import { useEffect, useState } from 'react';
-import { db, auth } from '../../firebase/firebase';
+import { db } from '../../firebase/firebase';
 import { doc, deleteDoc } from 'firebase/firestore'; 
-import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.jsx";
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
+import { useAuth } from '../Authentication/AuthContext.jsx';
+import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
+import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
 import Header from '../Header/Header';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
 import Footer from '../Footer/Footer';
-import { Link } from 'react-router-dom';
-import { toast } from "react-toastify";
 import styles from './PlantDashboard.module.css';
 
 const PlantDashboard = () => {
-  const [sortBy, setSortBy] = useState('');
+  const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
+  const { currentUser } = useAuth();
+  const { plants, setPlants, isLoading } = useFetchPlantsDb();
 
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, []);
     
-  const { plants, setPlants, isLoading } = useFetchPlantsDb();
-
   const handleDelete = async (plantId) => {
-    if (auth.currentUser) {
+    if (currentUser) {
       try {
-        const plantDocRef = doc(db, "plants", auth.currentUser.uid, "userPlants", plantId);
+        const plantDocRef = doc(db, "plants", currentUser.uid, "userPlants", plantId);
         await deleteDoc(plantDocRef);
 				toast.success("Plant removed successfully!");
 
-        // Manually update the state by filtering out the deleted plant
       setPlants(prevPlants => prevPlants.filter(plant => plant.id !== plantId));
 				
       } catch (error) {
@@ -38,24 +39,9 @@ const PlantDashboard = () => {
     }
   };
 
-  const sortedAndFilteredPlants = plants
-  .filter((plant) => {
-    if (filterType === "none" || filterText === "") return true;
-    const searchField = filterType === "common-name" ? plant.common_name : plant.scientific_name;
-    return searchField.toLowerCase().includes(filterText.toLowerCase());
-  })
-  .sort((a, b) => {
-    if (sortBy === "alphabetical") {
-      return a.common_name.localeCompare(b.common_name);
-    } else if (sortBy === "date") {
-      const dateA = a.date_created ? a.date_created.toDate() : new Date(0);
-      const dateB = b.date_created ? b.date_created.toDate() : new Date(0);
-      return dateB - dateA;
-    }
-    return 0; // This will be when "None" is selected
-  });
+  const sortedAndFilteredPlants = useSortedAndFilteredPlants(plants, filterType, filterText, sortBy);
 
-  if (!auth.currentUser) {
+  if (!currentUser) {
     return (
       <section className={styles.authContainer}>
         <section className={styles.authBox}>
@@ -78,17 +64,21 @@ const PlantDashboard = () => {
             <button className={styles.addMoreButton}>Add More Plants</button>
           </Link>
         </section>
-          <SortFilter 
-            sortBy={sortBy} 
-            filterType={filterType} 
-            filterText={filterText} 
-            setSortBy={setSortBy} 
-            setFilterType={setFilterType} 
-            setFilterText={setFilterText}
-            isHomepage={false}
-          /> 
-        
-        <PlantList filteredPlants={sortedAndFilteredPlants} isLoading={isLoading} onDelete={handleDelete} isDashboard={true}/>
+        <SortFilter 
+          sortBy={sortBy} 
+          filterType={filterType} 
+          filterText={filterText} 
+          setSortBy={setSortBy} 
+          setFilterType={setFilterType} 
+          setFilterText={setFilterText}
+          isHomepage={false}
+        /> 
+        <PlantList 
+        filteredPlants={sortedAndFilteredPlants} 
+        isLoading={isLoading} 
+        onDelete={handleDelete} 
+        isDashboard={true}
+        />
       </main>
       <Footer />
     </section>
