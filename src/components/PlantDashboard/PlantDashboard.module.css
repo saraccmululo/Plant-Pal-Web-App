@@ -74,17 +74,20 @@
 .addMoreButton:hover { 
   background: #1E3525; 
 }
-
+.plantCountContainer{
+  width: 100%;
+  max-width: 750px;
+  margin: 10px auto; 
+  text-align: left; 
+}
 .plantCount {
   font-size: 1.0rem;
   padding: 0px;
   margin-bottom: 0px;
-  color: #333;
 }
 .plantCount strong {
   color: #069533;
   font-weight: bold;
-  margin-left: 5px;
 }
 
 @media (max-width: 768px) {
@@ -117,13 +120,16 @@
   .addMoreButton:hover { 
     background: #1E3525; 
   }
-  .plantCount {
-    font-size: 1.0rem;
+  .plantCountContainer {
+    font-size: 0.8rem;
     padding: 0px;
-    margin-bottom: 0px;
-    color: #333;
+    margin: 0px;
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease;
+  }
+  .plantCount {
+    font-size: 0.9rem;
+    padding: 0px;
+    margin-top: 5px;
   }
 }
