@@ -74,9 +74,12 @@ const PlantDashboard = () => {
           isHomepage={false}
         /> 
         {!isLoading && 
-        (<p className={styles.plantCount}>
-          {plants.length > 0 ? <span> You have <strong>{plants.length} plants</strong> in your collection.</span>: "You haven't added any plants yet."}
-        </p>
+        (<section className={styles.plantCountContainer}>
+          {plants.length > 0 ? 
+          (<p className={styles.plantCount}>You have <strong>{plants.length} plants&nbsp;</strong> in your collection.</p>
+          ):( 
+          <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
+        </section>
         )}
         <PlantList 
         filteredPlants={sortedAndFilteredPlants} 

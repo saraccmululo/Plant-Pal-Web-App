@@ -12,7 +12,7 @@ const App = () => {
     <AuthProvider>
     <Router>
     <ToastContainer position="top-right" 
-                    autoClose={3000} 
+                    autoClose={1500} 
                     hideProgressBar={false} 
                     closeOnClick 
                     pauseOnHover 

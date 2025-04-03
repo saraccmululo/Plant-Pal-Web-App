@@ -28,7 +28,7 @@ const LoginPage = () => {
     try {
       await doSignInWithEmailAndPassword(email, password);
       navigate("/"); 
-      toast.success(`You’re in, plant lover 🌱`);
+      toast.success(`You’re in! 🌱`);
     } catch (err) {
       setError("Failed to log in. Please check your email and password.");
     }
