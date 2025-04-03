@@ -73,6 +73,11 @@ const PlantDashboard = () => {
           setFilterText={setFilterText}
           isHomepage={false}
         /> 
+        {!isLoading && 
+        (<p className={styles.plantCount}>
+          {plants.length > 0 ? <span> You have <strong>{plants.length} plants</strong> in your collection.</span>: "You haven't added any plants yet."}
+        </p>
+        )}
         <PlantList 
         filteredPlants={sortedAndFilteredPlants} 
         isLoading={isLoading} 
