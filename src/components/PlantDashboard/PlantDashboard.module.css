@@ -37,7 +37,7 @@
   text-decoration: underline;  
   color:  #1E3525;
 }
-.dashboardH2Container {
+/*.dashboardH2Container {
  text-align: center;
 }
 .dashboardH2 { 
@@ -48,11 +48,11 @@
   border-bottom: 2px solid #4B6A51;
   width:70%;
   margin: 0 auto 30px; 
-}
+}*/
 .addMoreButtonContainer {
   width: 100%;
   max-width: 750px;
-  margin: 10px auto; 
+  margin: 30px auto; 
   text-align: left; 
 }
 .addMoreButtonContainer a{
@@ -100,6 +100,10 @@
   .dashboardH2 {
     font-size: 1.3rem;
     padding: 0;
+  }
+  .addMoreButtonContainer {
+    margin: 20px; 
+    text-align: left; 
   }
   .addMoreButton { 
     background: #2E4B3A; 

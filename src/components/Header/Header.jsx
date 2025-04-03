@@ -17,11 +17,15 @@ const Header = () => {
   return (
     <header className={isDashboard? styles.dashboardHeader : styles.header}>
       <figure className={styles.logoTitle}> 
-        <img src={logo} alt="Plant Pals Logo" className={styles.logo} />
+       <Link to="/"> 
+        <img src={logo} alt="Plant Pals Logo" className={styles.logo} /> 
+       </Link>
           <figcaption>
-          <Link to="/">
+          {isDashboard ? (
+            <h2 className={styles.headerH2}>My Plant Collection</h2>
+          ) : (
               <h1 className={styles.headerH1}>My Plant Pals</h1> 
-          </Link>
+          )}
           </figcaption>
       </figure>
       <section className={styles.desktopMenu}>
