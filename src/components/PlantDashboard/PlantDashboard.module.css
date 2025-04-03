@@ -52,8 +52,8 @@
 .addMoreButtonContainer {
   width: 100%;
   max-width: 750px;
-  margin: 10px auto; /* Centers this container, keeping alignment */
-  text-align: left; /*                   Aligns content inside to the left */
+  margin: 10px auto; 
+  text-align: left; 
 }
 .addMoreButtonContainer a{
   text-decoration: none;
@@ -73,6 +73,18 @@
 }
 .addMoreButton:hover { 
   background: #1E3525; 
+}
+
+.plantCount {
+  font-size: 1.0rem;
+  padding: 0px;
+  margin-bottom: 0px;
+  color: #333;
+}
+.plantCount strong {
+  color: #069533;
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 @media (max-width: 768px) {
@@ -104,5 +116,14 @@
   }
   .addMoreButton:hover { 
     background: #1E3525; 
+  }
+  .plantCount {
+    font-size: 1.0rem;
+    padding: 0px;
+    margin-bottom: 0px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
   }
 }
