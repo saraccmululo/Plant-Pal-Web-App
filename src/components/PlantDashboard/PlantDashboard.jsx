@@ -56,9 +56,6 @@ const PlantDashboard = () => {
     <section className={styles.container}>
       <Header />
       <main>
-        <section className={styles.dashboardH2Container}>
-        <h2 className={styles.dashboardH2}>My Plant Collection</h2>
-        </section>
 				<section className={styles.addMoreButtonContainer}>
           <Link to="/">
             <button className={styles.addMoreButton}>Add More Plants</button>
@@ -76,7 +73,7 @@ const PlantDashboard = () => {
         {!isLoading && 
         (<section className={styles.plantCountContainer}>
           {plants.length > 0 ? 
-          (<p className={styles.plantCount}>You have <strong>{plants.length} plants&nbsp;</strong> in your collection.</p>
+          (<p className={styles.plantCount}>You have <strong>{plants.length} plants&nbsp;</strong> in your collection:</p>
           ):( 
           <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
         </section>
