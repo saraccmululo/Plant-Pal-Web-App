@@ -13,6 +13,10 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
+  
+  useEffect(() => {
+    document.title = "Plant Pals - Login";
+  }, [])
 
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();

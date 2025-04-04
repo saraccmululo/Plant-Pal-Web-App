@@ -64,11 +64,24 @@
 }
 @media (max-width: 768px) {
   .header {
+    display: none;
+  }
+  .dashboardHeader {
+    display: none;
+  }
+  .desktopMenu {
+    display: none;
+  }
+  .mobileMenu {
+    display: none;
+  }
+  /*.header {
     flex-direction: column;
     align-items: center;
     padding-top: 0px;
     border-bottom: none;
   }
+  
   .headerH1 {
       font-size: 1.6rem; 
       margin: 5px 0px 10px 0px;
@@ -99,12 +112,7 @@
     border: none; 
     border-radius: 5px; 
   }
-  .desktopMenu {
-    display: none;
-  }
-  .mobileMenu {
-    display: none;
-  }
+  
   .mobileMenuOpen {
     display: flex;
     position: absolute;
@@ -130,6 +138,6 @@
   .mobileMenuOpen button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     text-decoration: none;
-  }
+  }*/
 }  
   

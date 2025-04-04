@@ -1,0 +1,101 @@
+@media (min-width: 769px) {
+  .navHeader {
+  display: none; 
+  }
+}
+@media (max-width: 768px) {
+.navHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 0px;
+  border-bottom: 2px solid #4B6A51;
+  position: relative;
+}
+.centerContent {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  flex-grow: 1;
+  position: absolute;  
+  left: 50%;  
+  transform: translateX(-50%);
+}
+h1 {
+  font-size: 1.1rem;
+  margin: 0px;
+}
+.hamburgerMenu {
+  display: block; 
+  font-size: 20px;
+  padding: 3px;
+  color: rgb(42, 40, 40); 
+  border: none;  
+  cursor: pointer;
+}
+.mobileMenu {
+  display: none;
+}
+.mobileMenuOpen {
+  display: flex;
+  position: absolute;
+  top: -20px;
+  left: -35px;
+  flex-direction: column;
+  width: 200px;
+  background-color: rgba(99, 92, 92, 0.956);
+  padding: 10px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.mobileMenuOpen a,
+.mobileMenuOpen h4,
+.mobileMenuOpen button {
+  color: white;
+  text-decoration: none;
+  padding: 6px;
+  margin: 0px;
+  border: none;
+  background: transparent;
+  font-size: 0.8rem; 
+  outline: none;
+}
+.mobileMenuOpen a:active,
+.mobileMenuOpen button:active
+.mobileMenuOpen button:focus {
+  background-color: rgba(255, 255, 255, 0.549);
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: transparent !important;
+  border: none; 
+  outline: none;
+}
+.mobileMenuOpen button:focus-visible {
+  outline: none; /* Remove focus-visible outline */
+}
+.closeMenuButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  align-self: flex-end; 
+  margin-bottom: 20px; 
+  z-index: 15; 
+}
+.dashboardLink {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+}
+.logo {
+  width: 20px; 
+  height: auto; 
+  margin: 0 auto; 
+  display: block;
+}
+}
