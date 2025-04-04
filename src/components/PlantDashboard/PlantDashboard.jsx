@@ -13,7 +13,7 @@ import PlantList from '../PlantList/PlantList';
 import Footer from '../shared/Footer/Footer';
 import styles from './PlantDashboard.module.css';
 
-const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
+const PlantDashboard = ({searchTerm, showMenu, toggleMenu, closeMenu, isDashboard}) => {
   const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
@@ -84,15 +84,16 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
         (<section className={styles.plantCountContainer}>
           {plants.length > 0 ? (
             plants.length===1 ? (
-            <p className={styles.plantCount}>You have <strong>1 plant</strong> in your collection:</p>
+            <p className={styles.plantCount}>You have <strong>1 plant</strong> in your collection.</p>
           ) : (
           <p className={styles.plantCount}>
-            You have <strong>{plants.length} plants</strong> in your collection:</p> )
+            You have <strong>{plants.length} plants</strong> in your collection.</p> )
           ):( 
           <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
         </section>
         )}
         <PlantList 
+        searchTerm={searchTerm}
         filteredPlants={sortedAndFilteredPlants} 
         isLoading={isLoading} 
         onDelete={handleDelete} 
