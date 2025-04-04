@@ -40,10 +40,12 @@ const Homepage = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
           toggleMenu={toggleMenu}
           closeMenu={closeMenu}
           isDashboard={isDashboard}/>
-        
         <main>
         <h2 className={styles.homeH2}>The help you need to manage your plant collection!</h2>
-        <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
+        <SearchBar 
+          searchInputRef = {searchInputRef} 
+          onSearch={handleSearch}
+        />
         <SortFilter
           sortBy={sortBy}
           filterType={filterType}
