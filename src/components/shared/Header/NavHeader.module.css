@@ -40,6 +40,7 @@
 h1 {
   font-size: 1.1rem;
   margin: 0px;
+  white-space: nowrap; 
 }
 .hamburgerMenu {
   display: block; 

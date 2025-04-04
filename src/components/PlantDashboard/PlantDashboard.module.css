@@ -1,8 +1,15 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .container { 
   width: 80%; 
   margin: auto; 
   padding: 20px; 
+  display: flex;
   flex: 1;
+  flex-direction: column;
 }
 .authContainer {
   display: flex;
@@ -55,7 +62,7 @@
   cursor: pointer; 
   font-weight: bold; 
   transition: background 0.3s; 
-  margin: 10px 0px; 
+  margin: 0px; 
   display: block;
   border: none; 
 }
@@ -77,13 +84,24 @@
   color: #069533;
   font-weight: bold;
 }
-
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 @media (max-width: 768px) {
+  .dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   .container { 
-    width: 90%; 
-    margin: 0 auto; 
+    width: 80%; 
+    margin: auto; 
     padding: 0px; 
+    display: flex;
     flex: 1;
+    flex-direction: column;
   }
   .addMoreButtonContainer {
     width: 100%;
@@ -114,10 +132,9 @@
     padding: 0px;
     margin: 0px;
     display: flex;
-    align-items: center;
   }
   .plantCount {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 0px;
     margin-top: 5px;
   }
@@ -127,4 +144,9 @@
     max-width: 150px;
     min-height: 40px;
   }
+  .mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 }
