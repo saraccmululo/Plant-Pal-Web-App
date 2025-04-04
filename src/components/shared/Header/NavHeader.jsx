@@ -11,7 +11,7 @@ const NavHeader = ({isDashboard, showMenu, closeMenu, toggleMenu}) => {
         className={styles.hamburgerMenu} 
         onClick={toggleMenu}
         aria-label="Toggle navigation menu">
-        <span>{showMenu?  <span>&nbsp;</span> : '☰'}</span>
+        <span className={styles.span}>{showMenu?  <span>&nbsp;</span> : '☰'}</span>
       </button>
 
       <section className={styles.centerContent}>

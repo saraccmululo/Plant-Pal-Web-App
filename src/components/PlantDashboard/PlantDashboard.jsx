@@ -56,6 +56,7 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
   }
 
   return (
+    <section className={styles.dashboardContainer}>
     <section className={styles.container}>
       <Header />
       <NavHeader 
@@ -64,7 +65,7 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
         closeMenu={closeMenu}
         isDashboard={isDashboard}/>
 
-      <main>
+      <main className={styles.mainContent}>
 				<section className={styles.addMoreButtonContainer}>
           <Link to="/">
             <button className={styles.addMoreButton}>Add More Plants</button>
@@ -81,8 +82,12 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
         /> 
         {!isLoading && 
         (<section className={styles.plantCountContainer}>
-          {plants.length > 0 ? 
-          (<p className={styles.plantCount}>You have <strong>{plants.length} plants&nbsp;</strong> in your collection:</p>
+          {plants.length > 0 ? (
+            plants.length===1 ? (
+            <p className={styles.plantCount}>You have <strong>1 plant</strong> in your collection:</p>
+          ) : (
+          <p className={styles.plantCount}>
+            You have <strong>{plants.length} plants</strong> in your collection:</p> )
           ):( 
           <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
         </section>
@@ -93,7 +98,9 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
         onDelete={handleDelete} 
         isDashboard={true}
         />
+
       </main>
+    </section>
       <Footer />
     </section>
   );

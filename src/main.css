@@ -12,4 +12,10 @@ html, body {
 	color: #3E3E3E; 
 	display: flex;
 	flex-direction: column;
+	height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

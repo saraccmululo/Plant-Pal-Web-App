@@ -4,6 +4,15 @@
     color: white;  
     text-align: center; 
     padding: 5px;
-    margin: 0px;
+    margin-top: auto;
   }
-  
+  .footerH5 {
+    margin: 10px;
+    
+  }
+  @media (max-width: 768px) {
+  .footerH5 {
+    line-height: 1.5;
+    margin: 10px;
+  }
+}
