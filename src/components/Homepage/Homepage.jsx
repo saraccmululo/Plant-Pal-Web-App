@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import useSortedAndFilteredPlants from '../../hooks/useSortedAndFilteredPlants.js';
 import useFetchPlantsApi from '../../hooks/useFetchPlantsApi.js';
-import Header from '../Header/Header.jsx';
+import Header from '../shared/Header/Header.jsx';
+import NavHeader from '../shared/Header/NavHeader.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import SortFilter from '../SortFilter/SortFilter.jsx';
 import PlantList from '../PlantList/PlantList.jsx';
-import Footer from '../Footer/Footer.jsx';
+import Footer from '../shared/Footer/Footer.jsx';
 import styles from './HomePage.module.css';
 
-const Homepage = () => {
+const Homepage = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('none');
     const [filterType, setFilterType] = useState('none');
@@ -32,30 +33,36 @@ const Homepage = () => {
 
   return (
     <section className={styles.homeContainer}>
-          <section className={styles.container}>
-            <Header />
-            <main>
-            <h2 className={styles.homeH2}>The help you need to manage your plant collection!</h2>
-            <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
-            <SortFilter
-              sortBy={sortBy}
-              filterType={filterType}
-              filterText={filterText}
-              setSortBy={setSortBy}
-              setFilterType={setFilterType}
-              setFilterText={setFilterText}
-              isHomepage={true} 
-            />
-            <PlantList 
-              searchTerm={searchTerm} 
-              filteredPlants={sortedAndFilteredPlants} 
-              isLoading={isLoading}
-              isDashboard={false} 
-            />
-            </main>
-            </section> 
-            <Footer />
-          </section>
+      <section className={styles.container}>
+        <Header />
+        <NavHeader 
+          showMenu={showMenu}
+          toggleMenu={toggleMenu}
+          closeMenu={closeMenu}
+          isDashboard={isDashboard}/>
+        
+        <main>
+        <h2 className={styles.homeH2}>The help you need to manage your plant collection!</h2>
+        <SearchBar searchInputRef = {searchInputRef} onSearch={handleSearch}/>
+        <SortFilter
+          sortBy={sortBy}
+          filterType={filterType}
+          filterText={filterText}
+          setSortBy={setSortBy}
+          setFilterType={setFilterType}
+          setFilterText={setFilterText}
+          isHomepage={true} 
+        />
+        <PlantList 
+          searchTerm={searchTerm} 
+          filteredPlants={sortedAndFilteredPlants} 
+          isLoading={isLoading}
+          isDashboard={false} 
+        />
+        </main>
+        </section> 
+        <Footer />
+      </section>
   );
 };
 

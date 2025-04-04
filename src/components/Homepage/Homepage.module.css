@@ -7,6 +7,8 @@
 	width: 80%; 
 	margin: auto; 
 	padding: 20px; 
+	display: flex;
+  flex-direction: column;
 	flex: 1;
 }
 .homeH2 { 
@@ -28,8 +30,9 @@
 		padding: 20px 10px; 
 		flex: 1;
 	}
-	.mainH2 {
-		font-size: 1.1rem;
+	.homeH2 {
+		font-size: 0.9rem;
+		margin-top: 5px;
 		padding: 5px;
 	}
 }

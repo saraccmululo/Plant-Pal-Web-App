@@ -6,7 +6,7 @@ const Footer = () => {
     
   return(
     <footer className={styles.footerContainer}>
-      <h5>{footerContent}</h5>
+      <h5 className={styles.footerH5}>{footerContent}</h5>
     </footer>)
 }
 
