@@ -4,22 +4,28 @@ import { useAuth } from "../AuthContext.jsx";
 import styles from './LoginLogoutButton.module.css';
 import { toast } from "react-toastify";
 
-const LoginLogoutButton = () => {
+const LoginLogoutButton = ({closeMenu}) => {
 	const navigate = useNavigate();
 	const { userLoggedIn } = useAuth();
 
 	const handleLogout = async () => {
 		try{
 			await doSignOut();
+			if (closeMenu) closeMenu();
 			navigate("/");
-			toast.success("See you later 🌼")
+			toast.success("See you later 🌼", {
+				className: styles.customToast
+			});
+			
 		} catch (error) {
 			console.error("Error logging out:", error);
 		}
 	};
 
 	const handleLogin = () => {
+		if (closeMenu) closeMenu();
 		navigate("/login");
+		
 	}
 
 	return(

@@ -37,18 +37,6 @@
   text-decoration: underline;  
   color:  #1E3525;
 }
-/*.dashboardH2Container {
- text-align: center;
-}
-.dashboardH2 { 
-  padding: 10px; 
-  font-size: 2.0rem;
-  color: #069533;
-  padding: 10px;
-  border-bottom: 2px solid #4B6A51;
-  width:70%;
-  margin: 0 auto 30px; 
-}*/
 .addMoreButtonContainer {
   width: 100%;
   max-width: 750px;
@@ -97,12 +85,9 @@
     padding: 0px; 
     flex: 1;
   }
-  .dashboardH2 {
-    font-size: 1.3rem;
-    padding: 0;
-  }
   .addMoreButtonContainer {
-    margin: 20px; 
+    width: 100%;
+    margin: 10px; 
     text-align: left; 
   }
   .addMoreButton { 
@@ -110,12 +95,12 @@
     color: white; 
     border: none; 
     padding: 6px; 
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     border-radius: 5px; 
     cursor: pointer; 
     font-weight: bold; 
     transition: background 0.3s;
-    display: block;
+    display: inline-block;
     margin: 0 auto;  
   }
   .addMoreButton a {
@@ -135,5 +120,11 @@
     font-size: 0.9rem;
     padding: 0px;
     margin-top: 5px;
+  }
+  .customToast{
+    font-size: 0.8rem;
+    padding: 6px;
+    max-width: 150px;
+    min-height: 40px;
   }
 }

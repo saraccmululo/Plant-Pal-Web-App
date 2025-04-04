@@ -6,7 +6,7 @@ import styles from './NavHeader.module.css';
 const NavHeader = ({isDashboard, showMenu, closeMenu, toggleMenu}) => {
   
   return (
-    <nav className={styles.navHeader}>
+    <nav className={!isDashboard ? styles.navHeaderHomepage : styles.navHeaderDashboard}>
       <button 
         className={styles.hamburgerMenu} 
         onClick={toggleMenu}
@@ -27,21 +27,18 @@ const NavHeader = ({isDashboard, showMenu, closeMenu, toggleMenu}) => {
         </button>
         {!isDashboard ? (
           <>
-          <Link to="/plant-dashboard" className={styles.dashboardLink}>
+          <Link to="/plant-dashboard" className={styles.dashboardLink} onClick={closeMenu}>
         <h4>My Plant Collection</h4>
         </Link>
-        <LoginLogoutButton />
+        <LoginLogoutButton closeMenu={closeMenu}/>
         </>
         ) : (
           <>
-          <Link to="/" className={styles.dashboardLink}><h4>Home</h4></Link>
-        <LoginLogoutButton />
+          <Link to="/" className={styles.dashboardLink} onClick={closeMenu}><h4>Home</h4></Link>
+        <LoginLogoutButton closeMenu={closeMenu}/>
         </>
       )}
       </nav>
-      {showMenu && (
-        <div className={styles.overlay} onClick={closeMenu}></div>
-      )}
     </nav>
   )
 }

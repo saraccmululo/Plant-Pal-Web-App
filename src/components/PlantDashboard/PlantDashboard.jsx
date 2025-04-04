@@ -19,7 +19,7 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
   const [filterText, setFilterText] = useState('');
   const { currentUser } = useAuth();
   const { plants, setPlants, isLoading } = useFetchPlantsDb();
-  console.log('showMenu in PlantDashboard:', showMenu);
+  
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, []);
@@ -29,7 +29,9 @@ const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
       try {
         const plantDocRef = doc(db, "plants", currentUser.uid, "userPlants", plantId);
         await deleteDoc(plantDocRef);
-				toast.success("Plant removed successfully!");
+				toast.success("Plant removed successfully!", {
+          className: styles.customToast
+        });
 
       setPlants(prevPlants => prevPlants.filter(plant => plant.id !== plantId));
 				

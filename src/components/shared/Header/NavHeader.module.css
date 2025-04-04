@@ -1,10 +1,11 @@
 @media (min-width: 769px) {
-  .navHeader {
+  .navHeaderHomepage,
+  .navHeaderDashboard {
   display: none; 
   }
 }
 @media (max-width: 768px) {
-.navHeader {
+.navHeaderHomepage {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -14,12 +15,24 @@
   border-bottom: 2px solid #4B6A51;
   position: relative;
 }
+.navHeaderDashboard {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  margin: 20px 0px 0px 0px;
+  border-bottom: 2px solid #4B6A51;
+  position: relative;
+}
 .centerContent {
   display: flex;
   align-items: center; 
   justify-content: center; 
   text-align: center;
   flex-grow: 1;
+  gap: 6px;
   position: absolute;  
   left: 50%;  
   transform: translateX(-50%);
@@ -43,7 +56,7 @@ h1 {
   display: flex;
   position: absolute;
   top: -20px;
-  left: -35px;
+  left: -50px;
   flex-direction: column;
   width: 200px;
   background-color: rgba(99, 92, 92, 0.956);
@@ -63,18 +76,14 @@ h1 {
   font-size: 0.8rem; 
   outline: none;
 }
-.mobileMenuOpen a:active,
-.mobileMenuOpen button:active
-.mobileMenuOpen button:focus {
+.mobileMenuOpen a:hover,
+.mobileMenuOpen button:hover {
   background-color: rgba(255, 255, 255, 0.549);
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  background: transparent !important;
+  background: transparent;
   border: none; 
   outline: none;
-}
-.mobileMenuOpen button:focus-visible {
-  outline: none; /* Remove focus-visible outline */
 }
 .closeMenuButton {
   background: none;
@@ -93,7 +102,7 @@ h1 {
   text-align: center; 
 }
 .logo {
-  width: 20px; 
+  width: 25px; 
   height: auto; 
   margin: 0 auto; 
   display: block;

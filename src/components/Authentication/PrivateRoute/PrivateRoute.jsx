@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { toast } from "react-toastify";
 import styles from './PrivateRoute.module.css';
+import { toast } from "react-toastify";
 
 const PrivateRoute = ({ children }) => {
   const { userLoggedIn, loading } = useAuth();
@@ -16,6 +16,7 @@ const PrivateRoute = ({ children }) => {
 
   if (!userLoggedIn) {
     return <Navigate to="/login" />;
+    
   }
 
   return children;

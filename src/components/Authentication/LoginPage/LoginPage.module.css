@@ -93,4 +93,10 @@
     font-size: 0.9rem;
     margin: 10px;
   }
+  .customToast{
+    font-size: 0.8rem;
+    padding: 6px;
+    max-width: 170px;
+    min-height: 40px;
+  }
 }

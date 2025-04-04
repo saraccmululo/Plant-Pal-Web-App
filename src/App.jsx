@@ -12,10 +12,8 @@ const App = () => {
 
   const toggleMenu = () => setShowMenu(prev => !prev);
   
-  const closeMenu = () => {
-    console.log('Closing menu...');
-    setShowMenu(false);
-  }
+  const closeMenu = () => setShowMenu(false);
+
   return (
     <AuthProvider>
     <Router>
@@ -24,7 +22,8 @@ const App = () => {
                     hideProgressBar={false} 
                     closeOnClick 
                     pauseOnHover 
-                    draggable />
+                    draggable 
+                    toastClassName="mobileToast"/>
       <Routes>
         <Route path="/" element={
           <Homepage 
