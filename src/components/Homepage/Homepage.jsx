@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import useSortedAndFilteredPlants from '../../hooks/useSortedAndFilteredPlants.js';
 import useFetchPlantsApi from '../../hooks/useFetchPlantsApi.js';
-import Header from '../Header/Header.jsx';
-import NavHeader from '../Header/NavHeader.jsx';
+import Header from '../shared/Header/Header.jsx';
+import NavHeader from '../shared/Header/NavHeader.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import SortFilter from '../SortFilter/SortFilter.jsx';
 import PlantList from '../PlantList/PlantList.jsx';
-import Footer from '../Footer/Footer.jsx';
+import Footer from '../shared/Footer/Footer.jsx';
 import styles from './HomePage.module.css';
 
 const Homepage = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {

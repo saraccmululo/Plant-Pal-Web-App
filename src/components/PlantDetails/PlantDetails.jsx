@@ -3,7 +3,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase/firebase.js';
 import { useAuth } from '../Authentication/AuthContext.jsx';
 import styles from './PlantDetails.module.css';
-import fetchPlantsDetails from './fetchPlantDetailsApi.jsx';
+import fetchPlantsDetails from '../shared/utils/fetchPlantDetailsApi.jsx';
 
 const PlantDetails = ({ id, isDashboard }) => {
  const[plantDetails, setPlantDetails] = useState(null);

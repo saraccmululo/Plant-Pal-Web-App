@@ -1,17 +1,10 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../../assets/logoNew.png';
-import LoginLogoutButton from '../Authentication/LoginLogoutButton/LoginLogoutButton.jsx';
+import logo from '../../../assets/logoNew.png';
+import LoginLogoutButton from '../../Authentication/LoginLogoutButton/LoginLogoutButton.jsx';
 import styles from './Header.module.css';
 
 const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
-
-  const toggleMenu = () => {
-    setShowMenu(prev => !prev);
-  };
-  
   const isDashboard = location.pathname === '/plant-dashboard';
 
   return (

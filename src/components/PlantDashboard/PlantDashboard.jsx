@@ -6,11 +6,11 @@ import { toast } from "react-toastify";
 import { useAuth } from '../Authentication/AuthContext.jsx';
 import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
 import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
-import Header from '../Header/Header';
-import NavHeader from '../Header/NavHeader.jsx';
+import Header from '../shared/Header/Header';
+import NavHeader from '../shared/Header/NavHeader.jsx';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
-import Footer from '../Footer/Footer';
+import Footer from '../shared/Footer/Footer';
 import styles from './PlantDashboard.module.css';
 
 const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
