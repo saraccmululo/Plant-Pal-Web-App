@@ -13,13 +13,17 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
+  
+  useEffect(() => {
+    document.title = "Plant Pals - Login";
+  }, [])
 
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
 
   useEffect(()=> {
     if (userLoggedIn) {
-      navigate("/");
+      navigate("/plant-dashboard");
     }
   }, [userLoggedIn, navigate]);
 
@@ -27,8 +31,10 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await doSignInWithEmailAndPassword(email, password);
-      navigate("/"); 
-      toast.success(`You’re in, plant lover 🌱`);
+      navigate("/plant-dashboard"); 
+      toast.success(`You’re in! 🌱`, {
+        className: styles.customToast
+      });
     } catch (err) {
       setError("Failed to log in. Please check your email and password.");
     }

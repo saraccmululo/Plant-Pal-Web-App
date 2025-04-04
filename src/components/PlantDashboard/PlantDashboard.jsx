@@ -6,19 +6,20 @@ import { toast } from "react-toastify";
 import { useAuth } from '../Authentication/AuthContext.jsx';
 import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
 import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
-import Header from '../Header/Header';
+import Header from '../shared/Header/Header';
+import NavHeader from '../shared/Header/NavHeader.jsx';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
-import Footer from '../Footer/Footer';
+import Footer from '../shared/Footer/Footer';
 import styles from './PlantDashboard.module.css';
 
-const PlantDashboard = () => {
+const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
   const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
   const { currentUser } = useAuth();
   const { plants, setPlants, isLoading } = useFetchPlantsDb();
-
+  
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, []);
@@ -28,7 +29,9 @@ const PlantDashboard = () => {
       try {
         const plantDocRef = doc(db, "plants", currentUser.uid, "userPlants", plantId);
         await deleteDoc(plantDocRef);
-				toast.success("Plant removed successfully!");
+				toast.success("Plant removed successfully!", {
+          className: styles.customToast
+        });
 
       setPlants(prevPlants => prevPlants.filter(plant => plant.id !== plantId));
 				
@@ -53,12 +56,16 @@ const PlantDashboard = () => {
   }
 
   return (
+    <section className={styles.dashboardContainer}>
     <section className={styles.container}>
       <Header />
-      <main>
-        <section className={styles.dashboardH2Container}>
-        <h2 className={styles.dashboardH2}>My Plant Collection</h2>
-        </section>
+      <NavHeader 
+        showMenu={showMenu}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+        isDashboard={isDashboard}/>
+
+      <main className={styles.mainContent}>
 				<section className={styles.addMoreButtonContainer}>
           <Link to="/">
             <button className={styles.addMoreButton}>Add More Plants</button>
@@ -73,13 +80,27 @@ const PlantDashboard = () => {
           setFilterText={setFilterText}
           isHomepage={false}
         /> 
+        {!isLoading && 
+        (<section className={styles.plantCountContainer}>
+          {plants.length > 0 ? (
+            plants.length===1 ? (
+            <p className={styles.plantCount}>You have <strong>1 plant</strong> in your collection:</p>
+          ) : (
+          <p className={styles.plantCount}>
+            You have <strong>{plants.length} plants</strong> in your collection:</p> )
+          ):( 
+          <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
+        </section>
+        )}
         <PlantList 
         filteredPlants={sortedAndFilteredPlants} 
         isLoading={isLoading} 
         onDelete={handleDelete} 
         isDashboard={true}
         />
+
       </main>
+    </section>
       <Footer />
     </section>
   );

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlantDetails from '../PlantDetails/PlantDetails.jsx';
-import fetchPlantDetails from '../PlantDetails/fetchPlantDetailsApi.jsx';
+import fetchPlantDetails from '../shared/utils/fetchPlantDetailsApi.jsx';
 import { db } from "../../firebase/firebase.js";
 import { collection, addDoc, getDocs, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../Authentication/AuthContext";
@@ -26,7 +26,9 @@ const handleAddClick = async () => {
 			const plantExists = userSavedPlants.docs.some(doc => doc.data().plant_id === plant.id);
 
 			if(plantExists) {
-				toast.error ("This plant is already in your collection");
+				toast.error ("This plant is already in your collection", {
+					className: styles.customToast
+				});
 				return;
 			}
 
@@ -41,14 +43,18 @@ const handleAddClick = async () => {
 				date_created: serverTimestamp(),
 			});
 
-			toast.success("Plant added successfully!");
+			toast.success("Plant added successfully!", {
+				className: styles.customToast
+			});
 			navigate("/plant-dashboard");
 		} catch(error) {
 			console.error("Error adding plant: ", error);
 		}
 	} else {
 		navigate("/login");
-		toast.success('Please login to add a plant')
+		toast.success('Please login to add a plant', {
+			className: styles.customToast
+		})
 	}
 };
 

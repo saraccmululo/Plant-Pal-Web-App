@@ -114,4 +114,10 @@
     font-weight: bold; 
     transition: background 0.3s; 
   }
+  .customToast{
+    font-size: 0.8rem;
+    padding: 6px;
+    max-width: 200px;
+    min-height: 65px;
+  }
 }

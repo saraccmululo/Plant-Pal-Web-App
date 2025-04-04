@@ -29,22 +29,22 @@
     text-align: left;
   }
   .label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
     padding: 5px 0px;
   }
   .input {
     padding: 0px;
     margin: 5px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     border: 2px solid #ccc;
     border-radius: 4px; 
-    width: 120px; 
+    width: 100px; 
   }
   .select {
     padding: 0px;
-    margin: 5px;
-    font-size: 0.8rem;
+    margin: 3px;
+    font-size: 0.7rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%; 
