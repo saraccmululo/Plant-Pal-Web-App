@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import LoginLogoutButton from "../Authentication/LoginLogoutButton/LoginLogoutButton";
-import logo from '../../assets/logoNew.png';
+import LoginLogoutButton from "../../Authentication/LoginLogoutButton/LoginLogoutButton";
+import logo from '../../../assets/logoNew.png';
 import styles from './NavHeader.module.css';
 
 const NavHeader = ({isDashboard, showMenu, closeMenu, toggleMenu}) => {
