@@ -11,8 +11,20 @@
 .loginLogoutButton:hover { 
   background: #1E3525; 
 }
+.customToast {
+  font-size: 1rem;
+  padding: 8px 12px;
+  max-width: 250px;
+  min-height: 40px;
+}
 @media (max-width: 768px) {
   .login-logout-button {
     margin-top: 10px;
+  }
+  .customToast {
+  font-size: 0.8rem;
+  padding: 6px;
+  max-width: 150px;
+  min-height: 30px;
   }
 }
