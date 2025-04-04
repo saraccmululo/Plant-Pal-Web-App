@@ -44,7 +44,7 @@
 
 .plantList {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(140px, 1fr));
   align-items: end;
   margin-top: 0px;
   padding: 0px;

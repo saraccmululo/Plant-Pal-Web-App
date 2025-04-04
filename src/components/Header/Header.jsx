@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import logo from '../../assets/logoNew.png';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../../assets/logoNew.png';
 import LoginLogoutButton from '../Authentication/LoginLogoutButton/LoginLogoutButton.jsx';
 import styles from './Header.module.css';
 
@@ -35,8 +35,7 @@ const Header = () => {
           </Link>)}
         <LoginLogoutButton />
       </section>
-
-      <button 
+      {/*<button 
       className={styles.hamburgerMenu} 
       onClick={toggleMenu}
       aria-label="Toggle navigation menu"
@@ -51,6 +50,8 @@ const Header = () => {
         
         <LoginLogoutButton />
       </nav>
+      */}
+
     </header>   
   )}
       

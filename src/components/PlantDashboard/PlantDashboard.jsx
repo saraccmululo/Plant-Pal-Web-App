@@ -7,18 +7,19 @@ import { useAuth } from '../Authentication/AuthContext.jsx';
 import useSortedAndFilteredPlants from "../../hooks/useSortedAndFilteredPlants.js";
 import useFetchPlantsDb from "../../hooks/useFetchPlantsDb.js";
 import Header from '../Header/Header';
+import NavHeader from '../Header/NavHeader.jsx';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
 import Footer from '../Footer/Footer';
 import styles from './PlantDashboard.module.css';
 
-const PlantDashboard = () => {
+const PlantDashboard = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
   const [sortBy, setSortBy] = useState('none');
   const [filterType, setFilterType] = useState('none');
   const [filterText, setFilterText] = useState('');
   const { currentUser } = useAuth();
   const { plants, setPlants, isLoading } = useFetchPlantsDb();
-
+  console.log('showMenu in PlantDashboard:', showMenu);
   useEffect(() => {
       document.title = "Plant Pals - My Plant Collection";
     }, []);
@@ -55,6 +56,12 @@ const PlantDashboard = () => {
   return (
     <section className={styles.container}>
       <Header />
+      <NavHeader 
+        showMenu={showMenu}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+        isDashboard={isDashboard}/>
+
       <main>
 				<section className={styles.addMoreButtonContainer}>
           <Link to="/">

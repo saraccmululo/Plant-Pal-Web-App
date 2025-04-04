@@ -47,7 +47,7 @@
 }  
 @media (max-width: 768px) {
   .searchH3 {
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     text-align: center; 
     margin: 10px 0px 10px 0px;
   }
@@ -58,7 +58,8 @@
     flex-grow: 1; 
   }
   .goButton { 
-    padding: 6px; 
+    padding: 5px; 
+    font-size: 0.7rem;
   }
   .goButton:hover { 
     background: #1E3525; 
