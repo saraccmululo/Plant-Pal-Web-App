@@ -8,12 +8,10 @@ const PlantList = ({searchTerm, filteredPlants, isLoading, onDelete, isDashboard
         <section>
           <p className={styles.loadingSpinner}></p>
         </section>
-      ) : filteredPlants.length === 0 ? (
+      ) : filteredPlants.length === 0 && (searchTerm || isDashboard) ? (
         <p className={styles.notFound}>
-          {searchTerm
-           ? "No plants found. Try another plant name!"
-           : "No plants match your filter or sort criteria."}
-           </p>
+         No plants found. Try another plant name!
+        </p>
       ) : (
         <ul className={styles.plantList}>
           {filteredPlants.map((plant) => (
