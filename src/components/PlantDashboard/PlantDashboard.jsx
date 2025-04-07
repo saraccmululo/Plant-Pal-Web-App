@@ -10,6 +10,8 @@ import Header from '../shared/Header/Header';
 import NavHeader from '../shared/Header/NavHeader.jsx';
 import SortFilter from '../SortFilter/SortFilter';
 import PlantList from '../PlantList/PlantList';
+import PlantCount from '../shared/PlantCount/PlantCount.jsx'
+import Pagination from '../shared/Pagination/Pagination.jsx';
 import Footer from '../shared/Footer/Footer';
 import styles from './PlantDashboard.module.css';
 
@@ -81,26 +83,19 @@ const PlantDashboard = ({searchTerm, showMenu, toggleMenu, closeMenu, isDashboar
           plants={plants}
           isHomepage={false}
         /> 
-        {!isLoading && 
-        (<section className={styles.plantCountContainer}>
-          {plants.length > 0 ? (
-            plants.length===1 ? (
-            <p className={styles.plantCount}>You have <strong>1 plant</strong> in your collection.</p>
-          ) : (
-          <p className={styles.plantCount}>
-            You have <strong>{plants.length} plants</strong> in your collection.</p> )
-          ):( 
-          <p className={styles.plantCount}>You haven't added any plants yet.</p>)}
-        </section>
-        )}
-        <PlantList 
-        searchTerm={searchTerm}
-        filteredPlants={sortedAndFilteredPlants} 
-        isLoading={isLoading} 
-        onDelete={handleDelete} 
-        isDashboard={true}
+        <PlantCount 
+          isLoading={isLoading}
+          plants={plants}
         />
-
+        <Pagination 
+          filteredPlants={sortedAndFilteredPlants}
+          searchTerm={searchTerm}
+          filterType={filterType}
+          filterText={filterText}
+          onDelete={handleDelete}
+          isLoading={isLoading}
+          isDashboard={true} 
+        />
       </main>
     </section>
       <Footer />

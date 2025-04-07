@@ -1,0 +1,28 @@
+.plantCountContainer{
+  width: 100%;
+  max-width: 750px;
+  margin: 10px auto; 
+  text-align: left; 
+}
+.plantCount {
+  font-size: 1.0rem;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.plantCount strong {
+  color: #069533;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .plantCountContainer {
+    font-size: 0.8rem;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+  }
+  .plantCount {
+    font-size: 0.8rem;
+    padding: 0px;
+    margin-top: 5px;
+  }
+}
