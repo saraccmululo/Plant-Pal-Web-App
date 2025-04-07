@@ -53,6 +53,7 @@ const Homepage = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
           setSortBy={setSortBy}
           setFilterType={setFilterType}
           setFilterText={setFilterText}
+          filteredPlants={sortedAndFilteredPlants}
           isHomepage={true} 
         />
         <PlantList 
