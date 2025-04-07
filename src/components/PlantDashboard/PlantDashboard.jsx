@@ -78,6 +78,7 @@ const PlantDashboard = ({searchTerm, showMenu, toggleMenu, closeMenu, isDashboar
           setSortBy={setSortBy} 
           setFilterType={setFilterType} 
           setFilterText={setFilterText}
+          plants={plants}
           isHomepage={false}
         /> 
         {!isLoading && 
