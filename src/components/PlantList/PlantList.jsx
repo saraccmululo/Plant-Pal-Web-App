@@ -17,9 +17,9 @@ const PlantList = ({searchTerm, filteredPlants, isLoading, onDelete, isDashboard
           {filteredPlants.map((plant) => (
             <li className={styles.listItem} key={plant.id}>
               <PlantCard 
-              plant={plant} 
-              onDelete={onDelete} 
-              isDashboard={isDashboard} />
+                plant={plant} 
+                onDelete={onDelete} 
+                isDashboard={isDashboard} />
             </li>
           ))}
         </ul>
