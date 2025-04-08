@@ -28,23 +28,6 @@ const Header = () => {
           </Link>)}
         <LoginLogoutButton />
       </section>
-      {/*<button 
-      className={styles.hamburgerMenu} 
-      onClick={toggleMenu}
-      aria-label="Toggle navigation menu"
-      >
-        <span>{showMenu? '✖' : '☰'}</span>
-      </button>
-
-      <nav className={showMenu? styles.mobileMenuOpen : styles.mobileMenu}>
-        {!isDashboard && (<Link to="/plant-dashboard" className={styles.dashboardLink}>
-        <h4>My Plant Collection</h4>
-        </Link>)}
-        
-        <LoginLogoutButton />
-      </nav>
-      */}
-
     </header>   
   )}
       
