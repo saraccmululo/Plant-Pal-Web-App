@@ -6,7 +6,6 @@ import NavHeader from '../shared/Header/NavHeader.jsx';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import SortFilter from '../SortFilter/SortFilter.jsx';
 import Pagination from '../shared/Pagination/Pagination.jsx';
-import PlantList from '../PlantList/PlantList.jsx';
 import Footer from '../shared/Footer/Footer.jsx';
 import styles from './HomePage.module.css';
 
