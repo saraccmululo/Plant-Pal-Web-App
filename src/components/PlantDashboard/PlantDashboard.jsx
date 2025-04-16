@@ -23,7 +23,7 @@ const PlantDashboard = ({searchTerm, showMenu, toggleMenu, closeMenu, isDashboar
   const { plants, setPlants, isLoading } = useFetchPlantsDb();
   
   useEffect(() => {
-      document.title = "Plant Pals - My Plant Collection";
+      document.title = "My Plant Collection";
     }, []);
     
   const handleDelete = async (plantId) => {

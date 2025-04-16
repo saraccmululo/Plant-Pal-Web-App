@@ -17,7 +17,7 @@ const Homepage = ({showMenu, toggleMenu, closeMenu, isDashboard}) => {
     const searchInputRef = useRef(null);
  
   useEffect(() => {
-    document.title = "Plant Pals - Homepage";
+    document.title = "Homepage";
   }, [])
 
   const { plantsData, isLoading } = useFetchPlantsApi(searchTerm);
