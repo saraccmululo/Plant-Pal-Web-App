@@ -9,9 +9,7 @@ import PlantDashboard from './components/PlantDashboard/PlantDashboard.jsx';
 
 const App = () => {
   const [showMenu, setShowMenu] = useState(false);
-
   const toggleMenu = () => setShowMenu(prev => !prev);
-  
   const closeMenu = () => setShowMenu(false);
 
   return (
