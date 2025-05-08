@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { doSignInWithEmailAndPassword } from '../../../firebase/authHelpers.js';
 import { useAuth } from '../AuthContext.jsx';
 import CreateAccount from '../CreateAccount/CreateAccount.jsx';
@@ -13,19 +13,16 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
 	const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
-  
+  const navigate = useNavigate();
+  const { userLoggedIn } = useAuth();
+
   useEffect(() => {
     document.title = "Plant Pals - Login";
   }, [])
 
-  const navigate = useNavigate();
-  const { userLoggedIn } = useAuth();
-
-  useEffect(()=> {
-    if (userLoggedIn) {
-      navigate("/plant-dashboard");
-    }
-  }, [userLoggedIn, navigate]);
+  if (userLoggedIn) {
+    return <Navigate to="/plant-dashboard" />;
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
