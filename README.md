@@ -1,8 +1,5 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Plant care app to help plant parents manage their plant collection.
+Final project to graduate from the React.js Course at ComIT, Canada.
+Integrated Firebase authentication and Firestore for personalized dashboards and used a REST API to fetch plant care data. 
+Technologies: React.js and CSS3, Firebase (Auth & Firestore).
+Responsive app for desktop and mobile users. 
