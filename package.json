@@ -1,5 +1,6 @@
 {
-  "name": "final-project",
+  "name": "plant-pals-web-app",
+  "homepage": "https://saraccmululo.github.io/Plant-Pal-Web-App",
   "private": true,
   "version": "0.0.0",
   "type": "module",
