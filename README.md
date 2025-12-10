@@ -20,12 +20,12 @@ React.js, CSS3, Firebase (Auth & Firestore), RESTful APIs
 
 ## Installation
 1. Clone the repository:
-   git clone https://github.com/saraccmululo/Plant-Pal-Web-App.git
-   cd Plant-Pal-Web-App
+   git clone https://github.com/saraccmululo/plant-pals-web-app.git
+   cd plant-pals-web-app
 2. Install dependencies:
     npm install
 3. Start the development server:
-    npm npm run dev
+    npm run dev
     Open your browser at the URL shown in the terminal
 
 Usage
