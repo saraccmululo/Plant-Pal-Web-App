@@ -1,5 +1,34 @@
-Plant care app to help plant parents manage their plant collection.
-Final project to graduate from the React.js Course at ComIT, Canada.
-Integrated Firebase authentication and Firestore for personalized dashboards and used a REST API to fetch plant care data. 
-Technologies: React.js and CSS3, Firebase (Auth & Firestore).
-Responsive app for desktop and mobile users. 
+# PlantPals Web App
+
+Responsive web app that helps users manage their plant collections with personalized dashboards and dynamic plant care information.
+
+---
+
+## Features
+- User authentication with Firebase  
+- Manage plant collections with Firestore  
+- Fetch and display plant care data from a REST API  
+- Responsive design for desktop and mobile  
+- Modular React.js components for scalability and maintainability  
+
+---
+
+## Technologies
+React.js, CSS3, Firebase (Auth & Firestore), RESTful APIs
+
+---
+
+## Installation
+1. Clone the repository:
+   git clone https://github.com/saraccmululo/Plant-Pal-Web-App.git
+   cd Plant-Pal-Web-App
+2. Install dependencies:
+    npm install
+3. Start the development server:
+    npm npm run dev
+    Open your browser at the URL shown in the terminal
+
+Usage
+Sign in to access your personalized plant dashboard
+View, add, and manage plants in your collection
+Fetch and explore plant care information dynamically
